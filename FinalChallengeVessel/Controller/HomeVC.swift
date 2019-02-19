@@ -144,36 +144,52 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
         default:
             let currentCell = tableView.cellForRow(at: index!) as! AddNewFamilyViewCell
             let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            
+            
+            
+            
+            
             let joinOption = UIAlertAction(title: "Join", style: .default) { (choosedJoin) in
                 // Kalo klik join koding disini
-                    let alertController = UIAlertController(title: "Join New Group", message: "", preferredStyle: UIAlertController.Style.alert)
+        
+                let alertController = UIAlertController(title: "Join New Group", message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.addTextField(configurationHandler: { (textField: UITextField!) in
+                    
+                    
                     textField.placeholder = "Enter group code"
                     let OKAction = UIAlertAction(title: "Join", style: .default) { (action:UIAlertAction!) in
-                        // Code in this block will trigger when OK button tapped.
-                        let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
-                        let dictJoin : [String: Any] = ["member-reference" : userRef]
+                    // Code in this block will trigger when OK button tapped.
+                    let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
+                    let dictJoin : [String: Any] = ["family-member" : userRef]
+                    
+                    let joinFamily = Firestore.firestore().collection("family-collection").document(textField.text!).collection("family-member").document(self.MasterUser).setData(dictJoin)
+                    let familyRef : DocumentReference = Firestore.firestore().document("family-collection/\(textField.text!)")
+                    
+                    let dictJoin1 : [String: Any] = ["family-group-name": familyRef]
+                    
+                    Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(textField.text!).setData(dictJoin1)
+                    self.homeTableViewOutlet.reloadData()
+                    print("join Ok button tapped")
                         
-                        //Butuh validasi document exist or not
-                        let joinFamily = Firestore.firestore().collection("family-collection").document(textField.text!).collection("family-member").document(self.MasterUser).setData(dictJoin)
-                        //////////////////////////////////////
-                        let familyRef : DocumentReference = Firestore.firestore().document("family-collection/\(textField.text!)")
                         
-                        //            print("addfamily ref : \(joinFamily)")
-                        
-                        let dictJoin1 : [String: Any] = ["family-group-name": familyRef]
-                        
-                        Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(textField.text!).setData(dictJoin1)
+                            
+                    let alertDone = UIAlertController(title: "Success", message: "You successfully Join The Family", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                         self.homeTableViewOutlet.reloadData()
-                        print("join Ok button tapped")
                     }
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
+                    alertDone.addAction(action)
+                    self.present(alertDone, animated: true, completion: nil)
+                }
                         
-                        print("Cancel button tapped")
-                    })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
+                    print("Cancel button tapped")
+                })
+                        
                     alertController.addAction(OKAction)
                     alertController.preferredAction = OKAction
                     alertController.addAction(cancelAction)
+                        
                 })
                 self.present(alertController, animated: true, completion: nil)
                 print("Join button alert")
@@ -185,8 +201,10 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                 
                 let alertController = UIAlertController(title: "Create New Group", message: "", preferredStyle: UIAlertController.Style.alert)
                 alertController.addTextField(configurationHandler: { (textField: UITextField!) in
+                    
                     textField.placeholder = "Enter Group Name"
                     let OKAction = UIAlertAction(title: "Create", style: .default) { (action:UIAlertAction!) in
+                        
                         // Code in this block will trigger when OK button tapped.
                         let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
                         
@@ -203,10 +221,19 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                         
                         Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(famID.documentID).setData(dictAdd2)
                         print("create Ok button tapped")
-                        self.homeTableViewOutlet.reloadData()
-                    }
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
                         
+                        
+                        
+                        
+                        let alertDone = UIAlertController(title: "Success", message: "You successfully Create a Family", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                            self.homeTableViewOutlet.reloadData()
+                        }
+                        alertDone.addAction(action)
+                        self.present(alertDone, animated: true, completion: nil)
+                    }
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
                         print("Cancel button tapped")
                     })
                     alertController.addAction(OKAction)
@@ -217,10 +244,12 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                 self.present(alertController, animated: true, completion: nil)
                 print("Create button alert")
             }
+            
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (canceled) in
                 // kalo user cancel
                 print("Cancel That")
             }
+            
             optionMenu.addAction(joinOption)
             optionMenu.addAction(createOption)
             optionMenu.addAction(cancelButton)
