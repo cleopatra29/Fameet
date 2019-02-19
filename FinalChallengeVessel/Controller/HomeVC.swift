@@ -179,10 +179,12 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                     self.homeTableViewOutlet.reloadData()
                     print("join Ok button tapped")
                         
-                        
                             
                     let alertDone = UIAlertController(title: "Success", message: "You successfully Join The Family", preferredStyle: .alert)
                     let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        self.userFamId.removeAll()
+                        self.MasterUserFamily.removeAll()
+                        self.readUserFamilyGroup()
                         self.homeTableViewOutlet.reloadData()
                     }
                     alertDone.addAction(action)
@@ -234,6 +236,9 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                         
                         let alertDone = UIAlertController(title: "Success", message: "You successfully Create a Family", preferredStyle: .alert)
                         let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                            self.userFamId.removeAll()
+                            self.MasterUserFamily.removeAll()
+                            self.readUserFamilyGroup()
                             self.homeTableViewOutlet.reloadData()
                         }
                         alertDone.addAction(action)
