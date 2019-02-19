@@ -73,10 +73,15 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
                 print("BERHASIL SIGN IN")
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
-                self.performSegue(withIdentifier: "Login-Home", sender: self)
+                self.showHomeController()
             }
             
         })
+    }
+    
+    func showHomeController() {
+        let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
+        present(homeViewController, animated: true)
     }
     
     func indicatorView() {

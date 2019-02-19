@@ -48,7 +48,7 @@ class PreloginVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if userDefault.bool(forKey: "usersignedin"){
-            performSegue(withIdentifier: "Prelogin-Home", sender: self)
+            showHomeController()
         }
     }
     
@@ -69,6 +69,10 @@ class PreloginVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func showHomeController() {
+        let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
+        present(homeViewController, animated: true)
+    }
 
     @IBAction func signInAct(_ sender: Any) {
         performSegue(withIdentifier: "Prelogin-Login", sender: self)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4lP-7C-iDv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4lP-7C-iDv">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
         <!--HomeVC-->
         <scene sceneID="BlH-OV-DEH">
             <objects>
-                <viewController id="qm1-U8-rMo" customClass="HomeVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeView" id="qm1-U8-rMo" customClass="HomeVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PQ5-xc-ca7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hhn-vt-83C"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tYF-ws-7mc"/>
+                    <navigationItem key="navigationItem" id="tYF-ws-7mc">
+                        <barButtonItem key="backBarButtonItem" title="  " id="wjH-bF-Uvi"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="homeTableViewOutlet" destination="Spt-2F-C4g" id="O1c-jq-rSX"/>
                         <outlet property="youtFamilyLbl" destination="V07-IF-I8m" id="Tu1-IH-oVL"/>
@@ -1098,7 +1100,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="HSS-d9-nfr">
             <objects>
-                <tabBarController id="4lP-7C-iDv" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeViewTab" id="4lP-7C-iDv" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sQQ-4g-x06">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

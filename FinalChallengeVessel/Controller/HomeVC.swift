@@ -28,6 +28,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem.image = UIImage(named: "home")
+        setupView()
 //        navigationController?.navigationBar.barTintColor = UIColor(red: 255.0, green: 208.0, blue: 38.0, alpha: 1.0)
         
         //guard let userEmail = Auth.auth().currentUser?.email else { return }
@@ -35,6 +36,12 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func setupView() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
     
     func fetchFamilyCollection(id:String) {
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
