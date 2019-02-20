@@ -67,7 +67,7 @@ class HomeVC: UIViewController {
                 return print(error)
             } else {
                 for docFamRef in snapshot!.documents {
-                    let famRefId = (docFamRef.data()["family-group-name"] as! DocumentReference).documentID as! String
+                    let famRefId = (docFamRef.data()["family-group-name"] as! DocumentReference).documentID 
                     print(famRefId)
                     self.userFamId.append(famRefId)
                 }

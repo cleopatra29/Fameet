@@ -234,7 +234,7 @@
                                 <rect key="frame" x="16" y="161" width="343" height="217"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gbn-wi-OH1">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="8" id="Gbn-wi-OH1">
                                     <size key="itemSize" width="80" height="99"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1044,7 +1044,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7zT-Tt-AXF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="User" id="iDr-vC-q8F"/>
+                    <tabBarItem key="tabBarItem" title="User" image="profileIcon" id="iDr-vC-q8F"/>
                     <connections>
                         <outlet property="displayNameTF" destination="BZW-Ew-c9s" id="p5m-jz-jZZ"/>
                         <outlet property="dobPicker" destination="aON-W4-Qsb" id="nen-7L-KAy"/>
@@ -1088,7 +1088,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Qb3-GI-Wup"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notification" id="p1d-yN-nxN"/>
+                    <tabBarItem key="tabBarItem" title="Notification" image="notifIcon" landscapeImage="notifIcon" id="p1d-yN-nxN"/>
                     <connections>
                         <outlet property="comingSoonImage" destination="5U9-bS-GVY" id="yCq-Gv-ldI"/>
                     </connections>
@@ -1117,11 +1117,11 @@
             </objects>
             <point key="canvasLocation" x="-778" y="-557"/>
         </scene>
-        <!--home-->
+        <!--Home-->
         <scene sceneID="gXa-RC-TtJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="moo-oy-wmI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="home" id="hPW-WO-84l">
+                    <tabBarItem key="tabBarItem" title="Home" image="homeIcon" id="hPW-WO-84l">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -1142,6 +1142,9 @@
     <resources>
         <image name="ComingSoon" width="372.3636474609375" height="372.3636474609375"/>
         <image name="boy.png" width="512" height="512"/>
+        <image name="homeIcon" width="40" height="42"/>
+        <image name="notifIcon" width="40" height="42"/>
+        <image name="profileIcon" width="40" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gke-l5-Gz1"/>

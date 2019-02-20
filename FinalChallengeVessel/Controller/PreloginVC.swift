@@ -5,7 +5,6 @@
 //  Created by Christian Limansyah on 01/02/19.
 //  Copyright © 2019 Terretino. All rights reserved.
 //
-//addddda
 
 
 import UIKit
@@ -24,20 +23,16 @@ class PreloginVC: UIViewController {
     
     func setupView() {
         //Google Button
-        googleButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        googleButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.5)
-        googleButton.layer.shadowOpacity = 0.8
-        googleButton.layer.shadowRadius = 0.0
-        googleButton.layer.masksToBounds = false
-        googleButton.layer.cornerRadius = 4.0
+        googleButton.shappingButton()
         
         //Create Account
-        createAccountButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        createAccountButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.5)
-        createAccountButton.layer.shadowOpacity = 0.8
-        createAccountButton.layer.shadowRadius = 0.0
-        createAccountButton.layer.masksToBounds = false
-        createAccountButton.layer.cornerRadius = 4.0
+        createAccountButton.shappingButton()
+//        createAccountButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+//        createAccountButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.5)
+//        createAccountButton.layer.shadowOpacity = 0.8
+//        createAccountButton.layer.shadowRadius = 0.0
+//        createAccountButton.layer.masksToBounds = false
+//        createAccountButton.layer.cornerRadius = 4.0
         
         //NavBar design
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -77,14 +72,5 @@ class PreloginVC: UIViewController {
     @IBAction func signInAct(_ sender: Any) {
         performSegue(withIdentifier: "Prelogin-Login", sender: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

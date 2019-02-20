@@ -30,18 +30,15 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
 //        }
     }
     func buttonDesign(){
-        signInButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        signInButton.layer.shadowOffset = CGSize(width: 1.0, height: 1.5)
-        signInButton.layer.shadowOpacity = 0.8
-        signInButton.layer.shadowRadius = 0.0
-        signInButton.layer.masksToBounds = false
-        signInButton.layer.cornerRadius = 4.0
+        signInButton.shappingButton()
     }
     
     override func viewDidLoad() {
         buttonDesign()
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        signInButton.isEnabled = false
+        signInButton.alpha = 0.5
+        [emailTF, passwordTF].forEach({$0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)})
         GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
@@ -79,6 +76,25 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         })
     }
     
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.characters.count == 1 {
+            if textField.text?.characters.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard
+        let email = emailTF.text, !email.isEmpty,
+        let password = passwordTF.text, !password.isEmpty
+        else {
+            signInButton.isEnabled = false
+            signInButton.alpha = 0.5
+            return
+        }
+        signInButton.alpha = 1
+        signInButton.isEnabled = true
+    }
+    
     func showHomeController() {
         let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
         present(homeViewController, animated: true)
@@ -100,8 +116,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
-        
-       
         
     }
     

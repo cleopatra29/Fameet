@@ -56,13 +56,30 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         }
     }
     
+    @objc func editingChanged(_ textField: UITextField) {
+        if textField.text?.characters.count == 1 {
+            if textField.text?.characters.first == " " {
+                textField.text = ""
+                return
+            }
+        }
+        guard
+            let email = emailTF.text, !email.isEmpty,
+            let password = passwordTF.text, !password.isEmpty
+            else {
+                confirmButton.isEnabled = false
+                confirmButton.alpha = 0.5
+                return
+        }
+        confirmButton.alpha = 1
+        confirmButton.isEnabled = true
+    }
+
+    
     func buttonDesign(){
-        confirmButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        confirmButton.layer.shadowOffset = CGSize(width: 1.0, height: 1.5)
-        confirmButton.layer.shadowOpacity = 0.8
-        confirmButton.layer.shadowRadius = 0.0
-        confirmButton.layer.masksToBounds = false
-        confirmButton.layer.cornerRadius = 4.0
+        confirmButton.shappingButton()
+        confirmButton.alpha = 0.5
+        [nameTF, lastNameTF, dateOfBirthTF, emailTF, passwordTF].forEach({$0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)})
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -91,6 +108,7 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         view.addGestureRecognizer(tapGesture)
         dateOfBirthTF.inputView = datePicker
         GIDSignIn.sharedInstance()?.uiDelegate = self
+        buttonDesign()
 
         // Do any additional setup after loading the view.
     }
