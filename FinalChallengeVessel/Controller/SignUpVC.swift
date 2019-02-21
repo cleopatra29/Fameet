@@ -109,8 +109,6 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         dateOfBirthTF.inputView = datePicker
         GIDSignIn.sharedInstance()?.uiDelegate = self
         buttonDesign()
-
-        // Do any additional setup after loading the view.
     }
     
 

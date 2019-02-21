@@ -125,8 +125,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             let password = passwordTF.text,
             password != ""
             else {
-                let alertController = UIAlertController(title: "Oops!", message: "Your email or password is not true.", preferredStyle: .alert)
-                
+                let alertController = UIAlertController(title: "Oops!", message: "Your email or password is incorrect", preferredStyle: .alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.

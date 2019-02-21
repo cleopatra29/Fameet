@@ -56,13 +56,16 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        tableViewMatchDates.reloadData()
+    }
     
     func fetchFamilyCollection(id:String){
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
             guard let fetchFamilyId = snapshot?.documentID as? String,
                 let fetchFamilyName = snapshot?.data()!["family-name"] as? String
                 else {return}
-            self.familyNameLabel.text = fetchFamilyName
+            self.familyNameLabel.text = "\(fetchFamilyName)'s Family"
         })
     }
     
@@ -92,8 +95,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         })
         
     }
-    
-    
     
     func readUserFamilyGroup() {
         Firestore.firestore().collection("family-collection").document(MasterFamily).collection("family-member").getDocuments (completion: { (snapshot, error) in
@@ -164,7 +165,8 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     }
     
     @IBAction func addFreeTimeAct(_ sender: Any) {
-        performSegue(withIdentifier: "Family-CalendarCollection", sender: self)
+       navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -199,7 +201,9 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.clipsToBounds = true
             
             return collectionCell
+            
         default:
+            
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "addMemberCell", for: indexPath) as! FamilyDetailCollectionViewCell
             
             // Reference to an image file in Firebase Storage

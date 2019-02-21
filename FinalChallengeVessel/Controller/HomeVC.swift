@@ -36,11 +36,13 @@ class HomeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     func setupView() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        homeTableViewOutlet.tableFooterView = UIView()
     }
     
     func fetchFamilyCollection(id:String) {

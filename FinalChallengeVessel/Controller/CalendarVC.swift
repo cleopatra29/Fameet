@@ -137,8 +137,11 @@ class CalendarVC: UIViewController {
         target.MasterFamily = MasterFamily as String
     }
     
+     
+    
     @IBAction func submitFreeTimeAct(_ sender: Any) {
-        performSegue(withIdentifier: "CalendarCollection-Family", sender: self)
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     //    @IBAction func submitDateAct(_ sender: Any) {
