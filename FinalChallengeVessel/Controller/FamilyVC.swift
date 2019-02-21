@@ -26,6 +26,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var familyNameLabel: UILabel!
     @IBOutlet weak var tableViewMatchDates: UITableView!
     @IBOutlet weak var memberCollectionOutlet: UICollectionView!
+    @IBOutlet var skeletonViews: SkeletonView!
     
     
     let MasterUser = Auth.auth().currentUser?.uid as! String
@@ -51,6 +52,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
+        
         
     }
     
@@ -278,7 +280,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         
         
         let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
-        // convert your string to date
+        // Konversi date ke string
         let yourDate = formatter.date(from: myString)
         //then again set the date format whhich type of output you need
         formatter.dateFormat = "dd-MMM-yyyy"
