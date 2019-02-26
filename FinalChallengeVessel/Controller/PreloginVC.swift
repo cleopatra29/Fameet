@@ -27,12 +27,6 @@ class PreloginVC: UIViewController {
         
         //Create Account
         createAccountButton.shappingButton()
-//        createAccountButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-//        createAccountButton.layer.shadowOffset = CGSize(width: 2.0, height: 2.5)
-//        createAccountButton.layer.shadowOpacity = 0.8
-//        createAccountButton.layer.shadowRadius = 0.0
-//        createAccountButton.layer.masksToBounds = false
-//        createAccountButton.layer.cornerRadius = 4.0
         
         //NavBar design
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

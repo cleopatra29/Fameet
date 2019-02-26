@@ -9,6 +9,7 @@
 import UIKit
 
 class SkeletonView: UIView {
+    
     var startLocations : [NSNumber] = [-1.0,-0.5, 0.0]
     var endLocations : [NSNumber] = [1.0,1.5, 2.0]
     
@@ -30,17 +31,18 @@ class SkeletonView: UIView {
         gradientLayer.colors = [backgroundGradientColor,
         movingGradientColor,
         backgroundGradientColor]
-        gradientLayer.locations = startLocations
+        gradientLayer.locations = self.startLocations
         self.layer.addSublayer(gradientLayer)
         self.gradientLayer = gradientLayer
     }
+    
     
     func animating(){
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = self.startLocations
         animation.toValue = self.endLocations
         animation.duration = self.movingAnimationDuration
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let animationGroup = CAAnimationGroup()
         animation.duration = self.movingAnimationDuration + self.delayBetweenAnimationLoops

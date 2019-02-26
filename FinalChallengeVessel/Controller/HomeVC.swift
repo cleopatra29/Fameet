@@ -17,7 +17,7 @@ class HomeVC: UIViewController {
     //MARK : OUTLET
     @IBOutlet weak var youtFamilyLbl: UILabel!
     @IBOutlet weak var homeTableViewOutlet: UITableView!
-    
+    @IBOutlet weak var dontHaveFamilyLabel: UILabel!
     //MARK : INITIALIZER
     let MasterUser : String = (Auth.auth().currentUser?.uid)!
     var MasterUserFamily = [FamilyCollection]()
@@ -29,8 +29,6 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         tabBarItem.image = UIImage(named: "home")
         setupView()
-//        navigationController?.navigationBar.barTintColor = UIColor(red: 255.0, green: 208.0, blue: 38.0, alpha: 1.0)
-        
         //guard let userEmail = Auth.auth().currentUser?.email else { return }
         readUserFamilyGroup()
         // Do any additional setup after loading the view.
@@ -38,6 +36,11 @@ class HomeVC: UIViewController {
     
     
     func setupView() {
+        if MasterUserFamily.count == 0 {
+            dontHaveFamilyLabel.isHidden = true
+        } else {
+            dontHaveFamilyLabel.isHidden = false
+        }
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -51,7 +54,7 @@ class HomeVC: UIViewController {
             if error != nil{
                 return print(error)
             } else {
-                guard let fetchFamId = snapshot?.documentID as? String,
+                guard let fetchFamId = snapshot?.documentID, // as? String,
                     let fetchFamName = snapshot?.data()?["family-name"] as? String
                     else {return}
                 self.MasterUserFamily.append(FamilyCollection(familyId: fetchFamId, familyName: fetchFamName))
@@ -61,7 +64,6 @@ class HomeVC: UIViewController {
         })
         
     }
-    
     
     func readUserFamilyGroup() {
         Firestore.firestore().collection("user-collection").document(MasterUser).collection("family-group").getDocuments (completion: { (snapshot, error) in
@@ -86,10 +88,8 @@ class HomeVC: UIViewController {
         guard let target = segue.destination as? FamilyVC,
             let isIndex = sender as? Int,
             let idIndex = MasterUserFamily[isIndex].familyId as? String else {return}
-        
         target.MasterFamily = idIndex
     }
-    
     
     
     @IBAction func signOutTapped(_ sender: Any) {
@@ -127,9 +127,13 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeTableViewCell
             let row = indexPath.row
-            
-            cell.cellLabels.text = MasterUserFamily[row].familyName
-            return cell
+            if MasterUserFamily.count == 0 {
+                cell.cellLabels.text = "You don't have any family group yet"
+                return cell
+            } else {
+                cell.cellLabels.text = MasterUserFamily[row].familyName
+                return cell
+            }
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "addFamilyCell", for: indexPath) as! AddNewFamilyViewCell
             cell.addNewFamily.text = "Add new Family"
@@ -232,9 +236,6 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                         
                         Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(famID.documentID).setData(dictAdd2)
                         print("create Ok button tapped")
-                        
-                        
-                        
                         
                         let alertDone = UIAlertController(title: "Success", message: "You successfully Create a Family", preferredStyle: .alert)
                         let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in

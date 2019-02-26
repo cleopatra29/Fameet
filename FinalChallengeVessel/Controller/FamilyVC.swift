@@ -44,7 +44,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.main.async {
+        DispatchQueue.main.async(){
             self.readUserFamilyGroup()
         }
         fetchFamilyCollection(id: MasterFamily)
@@ -53,10 +53,19 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
         
-        
+    }
+    
+    func setupView() {
+        familyNameLabel.alpha = 0.0
+        self.skeletonViews.setNeedsDisplay()
+        self.skeletonViews.animating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.readUserFamilyGroup()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableViewMatchDates.reloadData()
     }
     

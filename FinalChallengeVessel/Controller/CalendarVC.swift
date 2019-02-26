@@ -29,20 +29,12 @@ class CalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Delegate
         delegateTableViewAndCollectionView()
-        
-        //February Ambiguous Date
         dateModel.februaryAmbiguousDate()
-        
-        //Initialize Now Date
         dateModel.setupTodayDate()
-        
-        //Set-Up View
         setUpView()
-        
-        //Read Free Time
         readFreeTime()
+        prevMonthBtn.isEnabled = false
     }
     
     func setUpView() {
@@ -63,6 +55,12 @@ class CalendarVC: UIViewController {
             dateModel.currentMonthIndex = 0
             dateModel.currentYear += 1
         }
+        
+        if dateModel.currentMonthIndex == dateModel.presentMonthIndex - 1 && dateModel.currentYear == dateModel.presentYear {
+            prevMonthBtn.isEnabled = false
+        } else {
+            prevMonthBtn.isEnabled = true
+        }
         monthLabel.text="\(dateModel.monthsArray[dateModel.currentMonthIndex]) \(dateModel.currentYear)"
         dateModel.didChangeMonth(monthIndex: dateModel.currentMonthIndex, year: dateModel.currentYear)
         calendarCollectionView.reloadData()
@@ -77,6 +75,12 @@ class CalendarVC: UIViewController {
             dateModel.currentMonthIndex = 11
             dateModel.currentYear -= 1
         }
+        if dateModel.currentMonthIndex == dateModel.presentMonthIndex - 1 && dateModel.currentYear == dateModel.presentYear {
+            prevMonthBtn.isEnabled = false
+        } else {
+            prevMonthBtn.isEnabled = true
+        }
+        
         monthLabel.text = "\(dateModel.monthsArray[dateModel.currentMonthIndex]) \(dateModel.currentYear)"
         dateModel.didChangeMonth(monthIndex: dateModel.currentMonthIndex, year: dateModel.currentYear)
         calendarCollectionView.reloadData()

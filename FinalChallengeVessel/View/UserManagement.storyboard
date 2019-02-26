@@ -54,9 +54,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-JU-rov">
-                                <rect key="frame" x="157" y="304" width="61" height="37"/>
-                            </pageControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="CRR-IN-X3q" userLabel="Login Button">
                                 <rect key="frame" x="32" y="364" width="311" height="135"/>
                                 <subviews>
@@ -98,27 +95,22 @@
                                     <constraint firstAttribute="trailing" secondItem="f0p-aE-6hP" secondAttribute="trailing" id="w6J-dx-qwW"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o61-aw-GXD" userLabel="Have account">
-                                <rect key="frame" x="82" y="633" width="210" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-K0-LNp">
+                                <rect key="frame" x="82" y="662" width="210" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-qA-cVY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-qA-cVY">
                                         <rect key="frame" x="0.0" y="0.0" width="210" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="Dgm-gt-zCQ"/>
-                                            <constraint firstAttribute="width" constant="210" id="K2H-8T-dKr"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eMe-ri-OpO">
-                                        <rect key="frame" x="55.666666666666657" y="24" width="99" height="72"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgx-vB-eWZ">
+                                        <rect key="frame" x="41" y="25" width="128" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-ec-c0Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="55" id="ZBt-Hf-XuR"/>
-                                                    <constraint firstAttribute="height" constant="36" id="vy9-Ab-d5Q"/>
+                                                    <constraint firstAttribute="width" constant="75" id="d7z-Xk-Y0F"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="20"/>
                                                 <state key="normal" title="Sign in"/>
@@ -127,10 +119,9 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-NA-gAB">
-                                                <rect key="frame" x="60" y="0.0" width="39" height="72"/>
+                                                <rect key="frame" x="75" y="0.0" width="53" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="39" id="5Ql-r7-HWh"/>
-                                                    <constraint firstAttribute="height" constant="36" id="MO0-6p-oCg"/>
+                                                    <constraint firstAttribute="width" constant="53" id="Paw-z2-9Pj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="19"/>
                                                 <nil key="textColor"/>
@@ -138,51 +129,31 @@
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="R3j-NA-gAB" secondAttribute="bottom" id="3YK-5Q-BGp"/>
-                                            <constraint firstItem="R3j-NA-gAB" firstAttribute="top" secondItem="eMe-ri-OpO" secondAttribute="top" id="5wg-9o-ZxW"/>
-                                            <constraint firstAttribute="bottom" secondItem="M6H-ec-c0Y" secondAttribute="bottom" id="8Hk-me-suk"/>
-                                            <constraint firstItem="R3j-NA-gAB" firstAttribute="leading" secondItem="M6H-ec-c0Y" secondAttribute="trailing" constant="5" id="9V4-mG-kcy"/>
-                                            <constraint firstItem="M6H-ec-c0Y" firstAttribute="leading" secondItem="eMe-ri-OpO" secondAttribute="leading" id="9XB-r6-KEo"/>
-                                            <constraint firstAttribute="trailing" secondItem="R3j-NA-gAB" secondAttribute="trailing" id="C3r-sB-oCj"/>
-                                            <constraint firstItem="M6H-ec-c0Y" firstAttribute="top" secondItem="eMe-ri-OpO" secondAttribute="top" id="DFQ-Qp-00J"/>
-                                            <constraint firstItem="R3j-NA-gAB" firstAttribute="leading" secondItem="M6H-ec-c0Y" secondAttribute="trailing" constant="5" id="imM-u2-eDx"/>
+                                            <constraint firstAttribute="width" constant="128" id="XuD-JD-UUs"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="TfL-qA-cVY" firstAttribute="top" secondItem="o61-aw-GXD" secondAttribute="top" id="2dk-00-9n9"/>
-                                    <constraint firstItem="TfL-qA-cVY" firstAttribute="leading" secondItem="o61-aw-GXD" secondAttribute="leading" id="5Ou-tQ-sc6"/>
-                                    <constraint firstItem="eMe-ri-OpO" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" id="JJ6-Ze-n7o"/>
-                                    <constraint firstItem="eMe-ri-OpO" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" id="Rak-zX-lGB"/>
-                                    <constraint firstAttribute="trailing" secondItem="TfL-qA-cVY" secondAttribute="trailing" id="THE-lU-tVz"/>
-                                    <constraint firstItem="eMe-ri-OpO" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" id="UiS-2i-hmC"/>
-                                    <constraint firstItem="TfL-qA-cVY" firstAttribute="leading" secondItem="o61-aw-GXD" secondAttribute="leading" id="XUv-A4-id0"/>
-                                    <constraint firstAttribute="bottom" secondItem="eMe-ri-OpO" secondAttribute="bottom" id="cQa-Op-5Z8"/>
-                                    <constraint firstAttribute="trailing" secondItem="TfL-qA-cVY" secondAttribute="trailing" id="ecf-tZ-mV6"/>
-                                    <constraint firstItem="TfL-qA-cVY" firstAttribute="top" secondItem="o61-aw-GXD" secondAttribute="top" id="nxl-c9-lSo"/>
+                                    <constraint firstAttribute="height" constant="61" id="3UT-Vh-R2l"/>
+                                    <constraint firstItem="Rgx-vB-eWZ" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" constant="1" id="Hnp-8j-mf7"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81568627450980391" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="o61-aw-GXD" firstAttribute="top" secondItem="CRR-IN-X3q" secondAttribute="bottom" constant="134" id="0iu-3n-Q5V"/>
                             <constraint firstItem="VgA-ON-wSK" firstAttribute="top" secondItem="zO0-VB-Ckj" secondAttribute="top" constant="156" id="35J-NQ-YiM"/>
+                            <constraint firstItem="9i7-K0-LNp" firstAttribute="top" secondItem="CRR-IN-X3q" secondAttribute="bottom" constant="163" id="5SE-16-Zo4"/>
                             <constraint firstItem="VgA-ON-wSK" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="34" id="DkD-nX-6fu"/>
-                            <constraint firstItem="CRR-IN-X3q" firstAttribute="top" secondItem="L2Q-JU-rov" secondAttribute="bottom" constant="23" id="GkJ-vu-SST"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="32" id="HEh-H1-R9F"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="top" secondItem="VgA-ON-wSK" secondAttribute="bottom" constant="68" id="Hrx-TS-NHt"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="CRR-IN-X3q" secondAttribute="trailing" constant="32" id="JfL-cj-zGe"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="aYC-aR-Myy" secondAttribute="trailing" constant="41" id="L05-rh-hUp"/>
-                            <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="L2Q-JU-rov" secondAttribute="trailing" constant="157" id="LeY-q2-DyY"/>
-                            <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="o61-aw-GXD" secondAttribute="trailing" constant="83" id="O8W-TQ-yMT"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="VgA-ON-wSK" secondAttribute="trailing" constant="41" id="QTI-w3-Glk"/>
-                            <constraint firstItem="L2Q-JU-rov" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="157" id="W7V-Bi-uB5"/>
                             <constraint firstItem="aYC-aR-Myy" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="34" id="Wpx-7B-fgx"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="top" secondItem="aYC-aR-Myy" secondAttribute="bottom" constant="119" id="XQd-gQ-quA"/>
-                            <constraint firstItem="zO0-VB-Ckj" firstAttribute="bottom" secondItem="o61-aw-GXD" secondAttribute="bottom" constant="49" id="a2N-Yp-ZS4"/>
-                            <constraint firstItem="o61-aw-GXD" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="82" id="aAn-Z0-J4C"/>
-                            <constraint firstItem="L2Q-JU-rov" firstAttribute="top" secondItem="VgA-ON-wSK" secondAttribute="bottom" constant="8" id="dW2-jo-kp2"/>
+                            <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="9i7-K0-LNp" secondAttribute="trailing" constant="83" id="cfD-dj-Sbj"/>
                             <constraint firstItem="aYC-aR-Myy" firstAttribute="top" secondItem="zO0-VB-Ckj" secondAttribute="top" constant="57" id="hVi-bp-umY"/>
+                            <constraint firstItem="9i7-K0-LNp" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="82" id="rU7-md-DGh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zO0-VB-Ckj"/>
                     </view>
@@ -198,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ct-oo-rfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="-191"/>
+            <point key="canvasLocation" x="1397.5999999999999" y="-191.37931034482759"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="2FU-s9-5h5">
@@ -243,7 +214,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTo-ql-LTT">
-                                <rect key="frame" x="16" y="261" width="229" height="24"/>
+                                <rect key="frame" x="16" y="261.33333333333331" width="229" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="229" id="KrI-PD-NrJ"/>
                                 </constraints>
@@ -618,6 +589,6 @@
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tbs-HW-1Qd"/>
+        <segue reference="sGo-I1-fLa"/>
     </inferredMetricsTieBreakers>
 </document>
