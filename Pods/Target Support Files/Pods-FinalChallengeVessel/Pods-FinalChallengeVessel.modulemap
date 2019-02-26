@@ -1,6 +1,0 @@
-framework module Pods_FinalChallengeVessel {
-  umbrella header "Pods-FinalChallengeVessel-umbrella.h"
-
-  export *
-  module * { export * }
-}
