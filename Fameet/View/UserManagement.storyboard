@@ -98,65 +98,60 @@
                                     <constraint firstAttribute="trailing" secondItem="f0p-aE-6hP" secondAttribute="trailing" id="w6J-dx-qwW"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-K0-LNp">
-                                <rect key="frame" x="82" y="662" width="210" height="61"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgx-vB-eWZ">
+                                <rect key="frame" x="123.66666666666669" y="687" width="128" height="36"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-qA-cVY">
-                                        <rect key="frame" x="0.0" y="0.0" width="210" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-ec-c0Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="d7z-Xk-Y0F"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="20"/>
+                                        <state key="normal" title="Sign in"/>
+                                        <connections>
+                                            <action selector="signInAct:" destination="SJ2-wc-hUu" eventType="touchUpInside" id="ecZ-VP-Mul"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-NA-gAB">
+                                        <rect key="frame" x="74.999999999999986" y="0.0" width="53" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="53" id="Paw-z2-9Pj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgx-vB-eWZ">
-                                        <rect key="frame" x="41" y="25" width="128" height="36"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-ec-c0Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="75" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="d7z-Xk-Y0F"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="20"/>
-                                                <state key="normal" title="Sign in"/>
-                                                <connections>
-                                                    <action selector="signInAct:" destination="SJ2-wc-hUu" eventType="touchUpInside" id="ecZ-VP-Mul"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R3j-NA-gAB">
-                                                <rect key="frame" x="75" y="0.0" width="53" height="36"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="53" id="Paw-z2-9Pj"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="19"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="128" id="XuD-JD-UUs"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="3UT-Vh-R2l"/>
-                                    <constraint firstItem="Rgx-vB-eWZ" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" constant="1" id="Hnp-8j-mf7"/>
+                                    <constraint firstAttribute="width" constant="128" id="XuD-JD-UUs"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account ? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-qA-cVY">
+                                <rect key="frame" x="66" y="662" width="243" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="243" id="la3-ME-DwH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Light" family="SF Pro Display" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81568627450980391" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="VgA-ON-wSK" firstAttribute="top" secondItem="zO0-VB-Ckj" secondAttribute="top" constant="156" id="35J-NQ-YiM"/>
-                            <constraint firstItem="9i7-K0-LNp" firstAttribute="top" secondItem="CRR-IN-X3q" secondAttribute="bottom" constant="163" id="5SE-16-Zo4"/>
+                            <constraint firstItem="Rgx-vB-eWZ" firstAttribute="centerX" secondItem="TfL-qA-cVY" secondAttribute="centerX" id="8cW-me-Y15"/>
                             <constraint firstItem="VgA-ON-wSK" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="34" id="DkD-nX-6fu"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="32" id="HEh-H1-R9F"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="top" secondItem="VgA-ON-wSK" secondAttribute="bottom" constant="68" id="Hrx-TS-NHt"/>
+                            <constraint firstItem="TfL-qA-cVY" firstAttribute="centerX" secondItem="pDn-vi-RQS" secondAttribute="centerX" id="HtM-yo-11Y"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="CRR-IN-X3q" secondAttribute="trailing" constant="32" id="JfL-cj-zGe"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="aYC-aR-Myy" secondAttribute="trailing" constant="41" id="L05-rh-hUp"/>
                             <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="VgA-ON-wSK" secondAttribute="trailing" constant="41" id="QTI-w3-Glk"/>
                             <constraint firstItem="aYC-aR-Myy" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="34" id="Wpx-7B-fgx"/>
                             <constraint firstItem="CRR-IN-X3q" firstAttribute="top" secondItem="aYC-aR-Myy" secondAttribute="bottom" constant="119" id="XQd-gQ-quA"/>
-                            <constraint firstItem="zO0-VB-Ckj" firstAttribute="trailing" secondItem="9i7-K0-LNp" secondAttribute="trailing" constant="83" id="cfD-dj-Sbj"/>
+                            <constraint firstItem="Rgx-vB-eWZ" firstAttribute="top" secondItem="TfL-qA-cVY" secondAttribute="bottom" constant="1" id="cTs-Oa-W0X"/>
                             <constraint firstItem="aYC-aR-Myy" firstAttribute="top" secondItem="zO0-VB-Ckj" secondAttribute="top" constant="57" id="hVi-bp-umY"/>
-                            <constraint firstItem="9i7-K0-LNp" firstAttribute="leading" secondItem="zO0-VB-Ckj" secondAttribute="leading" constant="82" id="rU7-md-DGh"/>
+                            <constraint firstItem="TfL-qA-cVY" firstAttribute="centerY" secondItem="pDn-vi-RQS" secondAttribute="centerY" constant="268" id="jdv-sT-UMj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zO0-VB-Ckj"/>
                     </view>
