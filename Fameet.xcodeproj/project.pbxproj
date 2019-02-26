@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		106C3EE2738119B6A43007C5 /* Pods_Fameet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */; };
 		532F54112215A53D00B02FA4 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F54102215A53D00B02FA4 /* UserProfileVC.swift */; };
 		532F54172216B95700B02FA4 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F54162216B95700B02FA4 /* SignUpVC.swift */; };
 		532F54192216F2BB00B02FA4 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F54182216F2BB00B02FA4 /* NotificationVC.swift */; };
@@ -26,7 +27,6 @@
 		5D1D0B032203064600868FCA /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0B022203064600868FCA /* CalendarTableViewCell.swift */; };
 		5D22C8322201732A0058A00B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D22C8312201732A0058A00B /* AppDelegate.swift */; };
 		5D22C8372201732A0058A00B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C8352201732A0058A00B /* Main.storyboard */; };
-		5D22C83A2201732A0058A00B /* FinalChallengeVessel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D22C8382201732A0058A00B /* FinalChallengeVessel.xcdatamodeld */; };
 		5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C83B2201732B0058A00B /* Assets.xcassets */; };
 		5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */; };
 		5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84622017E870058A00B /* UserManagement.storyboard */; };
@@ -41,10 +41,10 @@
 		BEBE3C152215591B00E99502 /* SendInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C142215591B00E99502 /* SendInvitationVC.swift */; };
 		BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */; };
 		BEF4184B220C5D430098285D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4184A220C5D430098285D /* DataFetcher.swift */; };
-		CF1D10E961EF5216B0EBDE30 /* Pods_FinalChallengeVessel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6E9F2B1F23F247085FDA3AD /* Pods_FinalChallengeVessel.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52DEED736D2B827AD474E573 /* Pods-Fameet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fameet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fameet/Pods-Fameet.debug.xcconfig"; sourceTree = "<group>"; };
 		532F54102215A53D00B02FA4 /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		532F54162216B95700B02FA4 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		532F54182216F2BB00B02FA4 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
@@ -58,6 +58,7 @@
 		536033682204899200E7772B /* FamilyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
 		5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		53C2924A22116FEB00A17C2E /* CommitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitVC.swift; sourceTree = "<group>"; };
+		5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fameet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1D0AF02202DADD00868FCA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		5D1D0AFF220304C700868FCA /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -65,7 +66,6 @@
 		5D22C82E2201732A0058A00B /* Fameet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fameet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D22C8312201732A0058A00B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D22C8362201732A0058A00B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5D22C8392201732A0058A00B /* FinalChallengeVessel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinalChallengeVessel.xcdatamodel; sourceTree = "<group>"; };
 		5D22C83B2201732B0058A00B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D22C83E2201732B0058A00B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D22C8402201732B0058A00B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,13 +77,11 @@
 		5D70F1D7221E723400ECF009 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		B2AEB07010A3AC673B5FD9D2 /* Pods-FinalChallengeVessel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalChallengeVessel.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel.debug.xcconfig"; sourceTree = "<group>"; };
-		B6E9F2B1F23F247085FDA3AD /* Pods_FinalChallengeVessel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalChallengeVessel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BEBE3C142215591B00E99502 /* SendInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvitationVC.swift; sourceTree = "<group>"; };
 		BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFamilyViewCell.swift; sourceTree = "<group>"; };
 		BEF4184A220C5D430098285D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
-		E040E36C0267849C3D9D7495 /* Pods-FinalChallengeVessel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalChallengeVessel.release.xcconfig"; path = "Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel.release.xcconfig"; sourceTree = "<group>"; };
+		F5505F4D32F30EAEBDB6D882 /* Pods-Fameet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fameet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fameet/Pods-Fameet.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF1D10E961EF5216B0EBDE30 /* Pods_FinalChallengeVessel.framework in Frameworks */,
+				106C3EE2738119B6A43007C5 /* Pods_Fameet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +143,7 @@
 		5D22C8252201732A0058A00B = {
 			isa = PBXGroup;
 			children = (
-				5D22C8302201732A0058A00B /* FinalChallengeVessel */,
+				5D22C8302201732A0058A00B /* Fameet */,
 				5D22C82F2201732A0058A00B /* Products */,
 				EED067D058BC9B4E2BC1926C /* Pods */,
 				8261DE18422634429B162A91 /* Frameworks */,
@@ -160,7 +158,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5D22C8302201732A0058A00B /* FinalChallengeVessel */ = {
+		5D22C8302201732A0058A00B /* Fameet */ = {
 			isa = PBXGroup;
 			children = (
 				5D22C848220182CE0058A00B /* Font Collection */,
@@ -174,10 +172,9 @@
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
 				532F5420221AA31900B02FA4 /* GoogleService-Info.plist */,
-				5D22C8382201732A0058A00B /* FinalChallengeVessel.xcdatamodeld */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
 			);
-			path = FinalChallengeVessel;
+			path = Fameet;
 			sourceTree = "<group>";
 		};
 		5D22C848220182CE0058A00B /* Font Collection */ = {
@@ -201,7 +198,7 @@
 		8261DE18422634429B162A91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B6E9F2B1F23F247085FDA3AD /* Pods_FinalChallengeVessel.framework */,
+				5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -209,8 +206,8 @@
 		EED067D058BC9B4E2BC1926C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B2AEB07010A3AC673B5FD9D2 /* Pods-FinalChallengeVessel.debug.xcconfig */,
-				E040E36C0267849C3D9D7495 /* Pods-FinalChallengeVessel.release.xcconfig */,
+				52DEED736D2B827AD474E573 /* Pods-Fameet.debug.xcconfig */,
+				F5505F4D32F30EAEBDB6D882 /* Pods-Fameet.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -226,8 +223,8 @@
 				5D22C82A2201732A0058A00B /* Sources */,
 				5D22C82B2201732A0058A00B /* Frameworks */,
 				5D22C82C2201732A0058A00B /* Resources */,
-				F62668D3AA3327119552D65B /* [CP] Embed Pods Frameworks */,
-				DA07B871C450DACDB9882A95 /* [CP] Copy Pods Resources */,
+				5BBF01E6052C51B90EFE1E17 /* [CP] Embed Pods Frameworks */,
+				5775DFC748F08B7B5EC27940 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,20 +299,20 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FinalChallengeVessel-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Fameet-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DA07B871C450DACDB9882A95 /* [CP] Copy Pods Resources */ = {
+		5775DFC748F08B7B5EC27940 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fameet/Pods-Fameet-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
@@ -326,16 +323,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fameet/Pods-Fameet-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F62668D3AA3327119552D65B /* [CP] Embed Pods Frameworks */ = {
+		5BBF01E6052C51B90EFE1E17 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Fameet/Pods-Fameet-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -362,7 +359,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FinalChallengeVessel/Pods-FinalChallengeVessel-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fameet/Pods-Fameet-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -396,7 +393,6 @@
 				5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */,
 				BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */,
 				5D22C8322201732A0058A00B /* AppDelegate.swift in Sources */,
-				5D22C83A2201732A0058A00B /* FinalChallengeVessel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,13 +536,13 @@
 		};
 		5D22C8442201732B0058A00B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2AEB07010A3AC673B5FD9D2 /* Pods-FinalChallengeVessel.debug.xcconfig */;
+			baseConfigurationReference = 52DEED736D2B827AD474E573 /* Pods-Fameet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WP65965NTF;
-				INFOPLIST_FILE = FinalChallengeVessel/Info.plist;
+				DEVELOPMENT_TEAM = M67TPRX895;
+				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,13 +557,13 @@
 		};
 		5D22C8452201732B0058A00B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E040E36C0267849C3D9D7495 /* Pods-FinalChallengeVessel.release.xcconfig */;
+			baseConfigurationReference = F5505F4D32F30EAEBDB6D882 /* Pods-Fameet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WP65965NTF;
-				INFOPLIST_FILE = FinalChallengeVessel/Info.plist;
+				DEVELOPMENT_TEAM = M67TPRX895;
+				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,19 +598,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5D22C8382201732A0058A00B /* FinalChallengeVessel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5D22C8392201732A0058A00B /* FinalChallengeVessel.xcdatamodel */,
-			);
-			currentVersion = 5D22C8392201732A0058A00B /* FinalChallengeVessel.xcdatamodel */;
-			path = FinalChallengeVessel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5D22C8262201732A0058A00B /* Project object */;
 }
