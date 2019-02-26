@@ -68,6 +68,9 @@
                                         <state key="normal" title="Continue with Google">
                                             <color key="titleColor" red="1" green="0.61076081940000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="7is-LG-LqH" kind="show" id="MxI-QL-Tqr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0p-aE-6hP">
                                         <rect key="frame" x="0.0" y="80" width="311" height="55"/>
@@ -584,8 +587,52 @@
             </objects>
             <point key="canvasLocation" x="321" y="-191"/>
         </scene>
+        <!--Notification-->
+        <scene sceneID="qgH-h6-LpS">
+            <objects>
+                <viewController id="7is-LG-LqH" customClass="NotificationVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XfW-hV-40O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ComingSoon" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-50-83e">
+                                <rect key="frame" x="62" y="243" width="251" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qqw-50-83e" secondAttribute="height" multiplier="246:235" id="pgy-uT-BtE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon! Stay tuned." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kk-WJ-lgz">
+                                <rect key="frame" x="110" y="460" width="155" height="135"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qqw-50-83e" firstAttribute="centerX" secondItem="3kk-WJ-lgz" secondAttribute="centerX" id="5Nh-hX-4kk"/>
+                            <constraint firstItem="Qqw-50-83e" firstAttribute="centerX" secondItem="XfW-hV-40O" secondAttribute="centerX" id="Fal-0c-EoS"/>
+                            <constraint firstItem="Qqw-50-83e" firstAttribute="top" secondItem="S6K-T4-Htd" secondAttribute="top" constant="155" id="JZB-RL-faK"/>
+                            <constraint firstItem="S6K-T4-Htd" firstAttribute="bottom" secondItem="3kk-WJ-lgz" secondAttribute="bottom" constant="183" id="LWC-G9-81w"/>
+                            <constraint firstItem="3kk-WJ-lgz" firstAttribute="leading" secondItem="S6K-T4-Htd" secondAttribute="leading" constant="110" id="caI-9D-fil"/>
+                            <constraint firstItem="S6K-T4-Htd" firstAttribute="bottom" secondItem="Qqw-50-83e" secondAttribute="bottom" constant="295" id="nTG-tA-Ais"/>
+                            <constraint firstItem="3kk-WJ-lgz" firstAttribute="top" secondItem="S6K-T4-Htd" secondAttribute="top" constant="372" id="wAJ-3h-ZKx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S6K-T4-Htd"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Notification" image="Icon notification (tab bar)" selectedImage="Icon notification (tab bar)" id="jEP-5U-ZIn"/>
+                    <connections>
+                        <outlet property="comingSoonImage" destination="Qqw-50-83e" id="xmW-aG-MEj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VjV-tV-J4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1398" y="630"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ComingSoon" width="372.3636474609375" height="372.3636474609375"/>
+        <image name="Icon notification (tab bar)" width="25" height="26"/>
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
