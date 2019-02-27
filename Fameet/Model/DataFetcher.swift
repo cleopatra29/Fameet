@@ -20,14 +20,6 @@ class DataFetcher {
     var datePicked = [NSDate]()
     var availMatchDate = [NSDate:[String]]()
     
-    
-    
-    
-    
-    
-    
-    
-    
     func readUserFamilyGroup(MasterUser : String) -> [FamilyCollection] {
         var userFamId = [String]()
         var familyfetch = [FamilyCollection]()
