@@ -58,6 +58,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         present(imagePicker, animated: true, completion: nil)
     }
     
+    //MARK : SAVE IMAGE BUTTON
     @IBAction func changeImage(_ sender: Any) {
         let db = Firestore.firestore()
         let storageRef = Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
@@ -84,20 +85,18 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         endIndicatorView()
     }
     
+    //MARK : ALERT
     func alerts() {
         let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
-        
-        
         let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
-            
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
-            
         }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
+    //MARK : UPLOAD IMAGE CONTROLLER
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("image picker controller canceled")
         dismiss(animated: true, completion: nil)
@@ -121,6 +120,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK : INDICATOR VIEW
     func indicatorView() {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -144,7 +144,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
             }else{
                 self.displayNameTF.text = snapshot?.data()?["first-name"] as? String
                 self.emailLbl.text = snapshot?.data()?["email"] as? String
-//                self.dobLbh.text = snapshot?.data()?["birthday"] as? String
+                self.dobPicker.text = snapshot?.data()?["birthday"] as? String
                 print("master user show : \(self.MasterUser)")
                 print("show user info name : \(snapshot?.data()?["first-name"] as? String)")
             }
@@ -152,9 +152,9 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     override func viewDidLoad() {
-        if profileImage.image == nil{
-        profileImage.image = UIImage(named: "boy")
-        }
+            let reference = Storage.storage().reference().child("userProfilePicture/\(MasterUser).jpg")
+            profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
+        
         showUserInfo()
         super.viewDidLoad()
 
