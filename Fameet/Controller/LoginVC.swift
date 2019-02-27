@@ -33,6 +33,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         signInButton.shappingButton()
     }
     
+    
     override func viewDidLoad() {
         buttonDesign()
         super.viewDidLoad()
@@ -98,6 +99,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     func showHomeController() {
         let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
         present(homeViewController, animated: true)
+        endIndicatorView()
     }
     
     func indicatorView() {
@@ -140,13 +142,13 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
                 return
         }
         signIn(email: emailTF.text!, password: passwordTF.text!)
-        
-       // indicatorView()
+        indicatorView()
+        emailTF.text = ""
+        passwordTF.text = ""
 
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       // endIndicatorView()
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        endIndicatorView()
     }
 }

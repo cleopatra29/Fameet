@@ -30,12 +30,18 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
             let password = passwordTF.text,
             password != ""
             else {
-                _ = UIAlertController(title: "Oops! Something is Missing.", message: "Please fill your email or password.", preferredStyle: .alert)
-                print("please fill textfield")
+                let alertController = UIAlertController(title: "Oops!", message: "Please fill the required information.", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    print("Ok button tapped");
+                }
+//                endIndicatorView()
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true, completion: nil)
+                print("Some text field is empty.")
                 return
         }
         signUp(email: emailTF.text!, password: passwordTF.text!, firstName: nameTF.text!, lastName: lastNameTF.text!, birthday: dateOfBirthTF.text!)
-        performSegue(withIdentifier: "toPrelogin", sender: self)
+        performSegue(withIdentifier: "toSignIn", sender: self)
 
     }
     

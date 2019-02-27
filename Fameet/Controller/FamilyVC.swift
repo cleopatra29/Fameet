@@ -8,12 +8,10 @@
 
 import UIKit
 import Firebase
-//import FirebaseFirestore
-//import GoogleSignIn
 import FirebaseAuth
-//import FirebaseStorage
 import FirebaseUI
 import MessageUI
+import UserNotifications
 
 var selectedFamMemberId :String = ""
 var selectedFamMemberName:String = ""
@@ -43,17 +41,33 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        fetchFamilyCollection(id: MasterFamily)
+//        notification()
         DispatchQueue.main.async(){
             self.readUserFamilyGroup()
         }
-        fetchFamilyCollection(id: MasterFamily)
         memberCollectionOutlet.delegate = self
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
         
     }
+    //MARK : NOTIFICATION
+
+//    func notification() {
+//        let content = UNMutableNotificationContent()
+//        content.title = "Title"
+//        content.body = "Body"
+//        content.sound = UNNotificationSound.default
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
+//
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        print("fungsi notification jalan")
+//    }
     
     func setupView() {
         familyNameLabel.alpha = 0.0
@@ -70,7 +84,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     }
     
     func fetchFamilyCollection(id:String){
+        
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
+            print("fetch FAM collect id = \(id)")
             guard let fetchFamilyId = snapshot?.documentID as? String,
                 let fetchFamilyName = snapshot?.data()!["family-name"] as? String
                 else {return}
@@ -80,7 +96,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     func fetchUserCollection(id:String) {
         Firestore.firestore().collection("user-collection").document(id).getDocument (completion: {(snapshot, error) in
-            
+            print("id fetch user collect = \(id)")
             if error != nil{
                 return print(error)
             } else {
@@ -94,15 +110,11 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                     else {return}
                 self.famMemberList.append(UserCollection(userId: fetchUserId, firstName: fetchUserFirst, lastName: fetchUserLast, email: fetchEmail, password: fetchPassword, birthday: fetchBirthday))
                 
-                
-                
-//                print(self.famMemberList)
-//                print("famMember count : \(self.famMemberList.count)")
+                print("memberLists : \(self.famMemberList)")
+                print("famMember count : \(self.famMemberList.count)")
                 self.memberCollectionOutlet.reloadData()
             }
-            
         })
-        
     }
     
     func readUserFamilyGroup() {
@@ -111,10 +123,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                 return print(error)
             } else {
                 for docUserRef in snapshot!.documents {
-                    let userRefId = (docUserRef.data()["family-member"] as? DocumentReference)?.documentID as? String
-                        print(userRefId)
+                    let userRefId = (docUserRef.data()["family-member"] as? DocumentReference)?.documentID as! String
                     
-                    Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(userRefId!).collection("free-time").getDocuments(completion: { (snapshot1, error) in
+                    Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(userRefId).collection("free-time").getDocuments(completion: { (snapshot1, error) in
                         if let err = error{
                             return print(err)
                         } else {
@@ -131,12 +142,13 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                                             let datestring : NSDate = NSDate(dateString: "\(freeTimeDate)-\(freeTimeMonth)-\(freeTimeYear)")
 
                                             if self.availMatchDate[datestring]?.isEmpty == false {
-                                                self.availMatchDate[datestring]?.append(userRefId!)
+                                                self.availMatchDate[datestring]?.append(userRefId)
                                             } else {
-                                                self.availMatchDate.updateValue([userRefId!], forKey: datestring)
+                                                self.availMatchDate.updateValue([userRefId], forKey: datestring)
                                             }
                                             self.tableViewMatchDates.reloadData()
-                                            print(userRefId)
+                                            print("userRefID read : \(userRefId)")
+
     //                                        print(self.datePicked)
     //                                        print(self.availMatchDate)
                                     } else {
@@ -151,10 +163,13 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                             }
                         }
                     })
-                    self.famMemberId.append(userRefId!)
+                    self.famMemberId.append(userRefId)
+                    print("fam member Ids : \(self.famMemberId)")
                 }
                 for x in self.famMemberId {
+                    print("x = \(x)")
                     self.fetchUserCollection(id: x)
+                    
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
@@ -187,6 +202,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0{
             return famMemberList.count
+            
         }else{
             return 1
         }
@@ -201,13 +217,14 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
         
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-        
             collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
             print("image ref : \(reference)")
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             print("size frame : \(collectionCell.memberImage.frame.size.width / 2)")
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
+            
+            print("User list in collection : \(collectionCell.memberName.text)")
             
             return collectionCell
             
@@ -251,7 +268,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             mailCompose.mailComposeDelegate =  self
             //mailCompose.setToRecipients(["\(famMemberList)"])
             mailCompose.setSubject("Invitation to Who?")
-            mailCompose.setMessageBody(" Hello MR/MS who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
+            mailCompose.setMessageBody(" Hello Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
             if MFMailComposeViewController.canSendMail()
             {
                 self.present(mailCompose, animated: true, completion: nil)

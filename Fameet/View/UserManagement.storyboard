@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mT1-mM-IkR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mT1-mM-IkR">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ct-oo-rfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397.5999999999999" y="-191.37931034482759"/>
+            <point key="canvasLocation" x="1398" y="-191"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="2FU-s9-5h5">
@@ -288,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frl-6t-CCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3030" y="-652"/>
+            <point key="canvasLocation" x="2186" y="39"/>
         </scene>
         <!--Feature-->
         <scene sceneID="i7z-Bz-DOa">
@@ -296,7 +296,7 @@
                 <viewControllerPlaceholder storyboardName="Feature" id="7C8-54-EPx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dFp-2B-V4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845.5999999999999" y="-171.42857142857144"/>
+            <point key="canvasLocation" x="2734" y="-149"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="ngt-jM-7iA">
@@ -505,12 +505,12 @@
                         <outlet property="lastNameTF" destination="fBO-uQ-UD9" id="EIJ-il-tse"/>
                         <outlet property="nameTF" destination="FtB-qa-SK8" id="6bz-nE-xEq"/>
                         <outlet property="passwordTF" destination="Lun-Ov-bFe" id="BP9-Ok-wJs"/>
-                        <segue destination="mT1-mM-IkR" kind="show" identifier="toPrelogin" id="VJT-4t-Xr8"/>
+                        <segue destination="WzQ-9M-Cdv" kind="show" identifier="toSignIn" id="SMJ-hh-2fI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ytr-fd-nal" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-907.38916256157643"/>
+            <point key="canvasLocation" x="2185" y="-658"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nzz-vf-8D4">
@@ -562,7 +562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UVx-I7-mgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="210.59113300492612"/>
+            <point key="canvasLocation" x="3254" y="-171"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ocd-h6-En0">
@@ -580,7 +580,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwz-9Q-qmd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="-191"/>
+            <point key="canvasLocation" x="479" y="-191"/>
         </scene>
         <!--Notification-->
         <scene sceneID="qgH-h6-LpS">
@@ -631,6 +631,7 @@
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sGo-I1-fLa"/>
+        <segue reference="tbs-HW-1Qd"/>
+        <segue reference="SMJ-hh-2fI"/>
     </inferredMetricsTieBreakers>
 </document>
