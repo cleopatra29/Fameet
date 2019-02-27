@@ -1201,11 +1201,7 @@
                                 <rect key="frame" x="2" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Profile" id="gn3-jK-wC1">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="f2W-0U-AW4">
-                                            <connections>
-                                                <action selector="doneBtn:" destination="jPy-oh-mWr" id="hT4-IN-HJA"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="f2W-0U-AW4"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -23,19 +23,18 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         DispatchQueue.main.async {
             collectionView.reloadData()
         }
-        return passData[passKey]!.count
+        return passData[passKey]?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let reference = Storage.storage().reference().child("userProfilePicture/\(passData[passKey]?[indexPath.row]).jpg")
-        
+        let reference = Storage.storage().reference().child("userProfilePicture/\(passData[passKey]![indexPath.row]).jpg")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCellName", for: indexPath) as? MatchDateInTableViewCellCollectionViewCell
-        
         cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
+        cell?.availMemberPic.clipsToBounds = true
+        cell?.availMemberPic.layer.cornerRadius = (cell?.availMemberPic.frame.size.width)!/2
+        cell?.availMemberPic.layer.masksToBounds = true
         return cell!
     }
-
- 
     
     override func awakeFromNib() {
         super.awakeFromNib()

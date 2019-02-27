@@ -136,9 +136,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                                                 self.availMatchDate.updateValue([userRefId!], forKey: datestring)
                                             }
                                             self.tableViewMatchDates.reloadData()
-                                            print(userRefId)
-    //                                        print(self.datePicked)
-    //                                        print(self.availMatchDate)
+                                            print(userRefId!)
                                     } else {
                                         Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
                                     }
@@ -185,7 +183,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             return famMemberList.count
         }else{
             return 1
@@ -196,6 +194,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch(indexPath.section) {
         case 0:
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "famCell", for: indexPath) as! FamilyDetailCollectionViewCell
+            
+
         
             // Reference to an image file in Firebase Storage
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
@@ -286,11 +286,10 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "dd-MM-yyy"
-        
+    
         datePicked = Array(availMatchDate.keys)
+        print(datePickedCount)
         datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
-        
-        
         
         let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
         // Konversi date ke string
