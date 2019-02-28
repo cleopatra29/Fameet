@@ -380,12 +380,28 @@
                                     <constraint firstAttribute="height" constant="1" id="2Jr-sk-8Ht"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QKb-jb-vuz">
-                                <rect key="frame" x="0.0" y="441" width="375" height="260"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzk-JQ-vYL">
+                                <rect key="frame" x="343" y="400" width="22" height="22"/>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ERd-8R-li4" kind="presentation" id="dGk-5v-kiC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evm-5E-rl6">
+                                <rect key="frame" x="16" y="104" width="343" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="9wK-SO-jzH"/>
+                                    <constraint firstAttribute="width" constant="343" id="T5J-5o-yaI"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QKb-jb-vuz">
+                                <rect key="frame" x="0.0" y="432" width="375" height="297"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchDateTableViewCell" rowHeight="72" id="LZx-01-kWR" customClass="MatchDateTableViewCell" customModule="Fameet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="72"/>
@@ -459,33 +475,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzk-JQ-vYL">
-                                <rect key="frame" x="343" y="400" width="22" height="22"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ERd-8R-li4" kind="presentation" id="dGk-5v-kiC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evm-5E-rl6">
-                                <rect key="frame" x="16" y="104" width="343" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="T5J-5o-yaI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QKb-jb-vuz" firstAttribute="trailing" secondItem="Mio-o4-Mky" secondAttribute="trailing" id="3Sb-6M-sJN"/>
-                            <constraint firstItem="QKb-jb-vuz" firstAttribute="leading" secondItem="Mio-o4-Mky" secondAttribute="leading" id="4Y6-si-2yi"/>
+                            <constraint firstItem="QKb-jb-vuz" firstAttribute="top" secondItem="WwI-Wu-KVK" secondAttribute="top" id="2vS-eK-hXE"/>
                             <constraint firstAttribute="trailing" secondItem="FdQ-Fi-Ohb" secondAttribute="trailing" id="5bV-7c-hS7"/>
                             <constraint firstItem="Mio-o4-Mky" firstAttribute="trailing" secondItem="Xl2-YH-LnF" secondAttribute="trailing" constant="16" id="9e5-Mh-P70"/>
-                            <constraint firstItem="QKb-jb-vuz" firstAttribute="top" secondItem="WwI-Wu-KVK" secondAttribute="bottom" constant="8" id="9hA-Ld-bUK"/>
+                            <constraint firstItem="QKb-jb-vuz" firstAttribute="trailing" secondItem="Mio-o4-Mky" secondAttribute="trailing" id="Aie-R1-YjQ"/>
                             <constraint firstItem="WwI-Wu-KVK" firstAttribute="top" secondItem="hzk-JQ-vYL" secondAttribute="bottom" constant="10" id="DRt-ws-biS"/>
                             <constraint firstItem="H3n-Al-sVs" firstAttribute="leading" secondItem="Mio-o4-Mky" secondAttribute="leading" constant="16" id="FlG-vd-0Uo"/>
                             <constraint firstAttribute="trailing" secondItem="WwI-Wu-KVK" secondAttribute="trailing" id="ItQ-6a-byH"/>
@@ -497,6 +493,8 @@
                             <constraint firstItem="Evm-5E-rl6" firstAttribute="leading" secondItem="Mio-o4-Mky" secondAttribute="leading" constant="16" id="di4-HX-gmc"/>
                             <constraint firstItem="Xl2-YH-LnF" firstAttribute="top" secondItem="Evm-5E-rl6" secondAttribute="bottom" constant="16" id="ehH-oc-Rd9"/>
                             <constraint firstItem="WwI-Wu-KVK" firstAttribute="leading" secondItem="41Z-1w-PtG" secondAttribute="leading" id="hVd-An-RO3"/>
+                            <constraint firstItem="QKb-jb-vuz" firstAttribute="bottom" secondItem="Mio-o4-Mky" secondAttribute="bottom" id="iNi-s2-v2x"/>
+                            <constraint firstItem="QKb-jb-vuz" firstAttribute="leading" secondItem="Mio-o4-Mky" secondAttribute="leading" id="ob9-0w-fPQ"/>
                             <constraint firstItem="FdQ-Fi-Ohb" firstAttribute="top" secondItem="Xl2-YH-LnF" secondAttribute="bottom" constant="8" id="qAE-Pb-KNu"/>
                             <constraint firstItem="hzk-JQ-vYL" firstAttribute="top" secondItem="FdQ-Fi-Ohb" secondAttribute="bottom" constant="13" id="x8b-G5-ci9"/>
                             <constraint firstItem="Xl2-YH-LnF" firstAttribute="leading" secondItem="Mio-o4-Mky" secondAttribute="leading" constant="16" id="xtn-IO-0Y9"/>
@@ -676,23 +674,23 @@
                                     <constraint firstAttribute="height" constant="209" id="oFr-23-tQY"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="18" id="zQz-gb-DqK">
-                                    <size key="itemSize" width="26" height="26"/>
+                                    <size key="itemSize" width="27" height="27"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="dateReuseIdentifier" id="SF5-HD-GXe" customClass="CalendarCollectionViewCell" customModule="Fameet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-d0-Hfq">
-                                                    <rect key="frame" x="-1" y="0.0" width="27" height="26"/>
+                                                    <rect key="frame" x="-1" y="0.0" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -747,7 +745,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhM-zm-iwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3278" y="194"/>
+            <point key="canvasLocation" x="3277.5999999999999" y="193.5960591133005"/>
         </scene>
         <!--CommitVC-->
         <scene sceneID="HV0-jO-oGv">
@@ -827,7 +825,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZE-sm-Fjd">
-                                <rect key="frame" x="182" y="219" width="65" height="32"/>
+                                <rect key="frame" x="182" y="219" width="177" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
                                 <nil key="textColor"/>

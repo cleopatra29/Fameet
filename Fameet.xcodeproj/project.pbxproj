@@ -12,7 +12,6 @@
 		532F54172216B95700B02FA4 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F54162216B95700B02FA4 /* SignUpVC.swift */; };
 		532F54192216F2BB00B02FA4 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532F54182216F2BB00B02FA4 /* NotificationVC.swift */; };
 		532F541B2216F4B700B02FA4 /* Author Credits in Resources */ = {isa = PBXBuildFile; fileRef = 532F541A2216F4B700B02FA4 /* Author Credits */; };
-		532F5421221AA31900B02FA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 532F5420221AA31900B02FA4 /* GoogleService-Info.plist */; };
 		5360335C22045FB600E7772B /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360335B22045FB600E7772B /* LoginVC.swift */; };
 		536033602204664A00E7772B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360335F2204664A00E7772B /* HomeTableViewCell.swift */; };
 		5360336322046D8800E7772B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360336222046D8800E7772B /* HomeVC.swift */; };
@@ -36,6 +35,7 @@
 		5D22C84E2201A3CF0058A00B /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84D2201A3CF0058A00B /* Family.storyboard */; };
 		5D70F1B5221D04DC00ECF009 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1B4221D04DC00ECF009 /* Extension.swift */; };
 		5D70F1D8221E723400ECF009 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1D7221E723400ECF009 /* SkeletonView.swift */; };
+		5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */; };
 		5DD7D9AE2207F9B30026A235 /* MatchDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */; };
 		5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */; };
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
@@ -52,7 +52,6 @@
 		532F54162216B95700B02FA4 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		532F54182216F2BB00B02FA4 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		532F541A2216F4B700B02FA4 /* Author Credits */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Author Credits"; sourceTree = "<group>"; };
-		532F5420221AA31900B02FA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5360335B22045FB600E7772B /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5360335F2204664A00E7772B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		5360336222046D8800E7772B /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		5D22C84D2201A3CF0058A00B /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		5D70F1B4221D04DC00ECF009 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D70F1D7221E723400ECF009 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
+		5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -177,9 +177,9 @@
 				5D22C8352201732A0058A00B /* Main.storyboard */,
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
+				5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */,
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
-				532F5420221AA31900B02FA4 /* GoogleService-Info.plist */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
 			);
 			path = Fameet;
@@ -282,7 +282,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				532F5421221AA31900B02FA4 /* GoogleService-Info.plist in Resources */,
 				5D22C84A220182E00058A00B /* SF Pro in Resources */,
 				5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */,
 				5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */,
@@ -290,6 +289,7 @@
 				5D22C8372201732A0058A00B /* Main.storyboard in Resources */,
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
 				5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */,
+				5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */,
 				532F541B2216F4B700B02FA4 /* Author Credits in Resources */,
 				BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */,
 			);
@@ -559,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Jansen.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -580,7 +580,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Jansen.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

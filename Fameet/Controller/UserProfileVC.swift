@@ -13,7 +13,7 @@ import FirebaseFirestore
 import FirebaseUI
 import FirebaseAuth
 
-class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate, UITextFieldDelegate {
 
     //MARK : OUTLET
     @IBOutlet weak var logOutButton: UIButton!
@@ -27,10 +27,12 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     var imageRef : StorageReference {
         return Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
     }
+    let toolBar = UIToolbar().ToolbarPiker(mySelect: #selector(UserProfileVC.dismissPicker))
     let userDefault = UserDefaults.standard
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var pressedTextField = UITextField()
-    var pickerClicked = UIPickerView()
+    var datePicker: UIDatePicker?
+    var timeStamp: Double?
     //var changedFirstName = ""
     
     //MARK : BUTTON ACTION
@@ -49,6 +51,15 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         }
         performSegue(withIdentifier: "loggedOut", sender: self)
         indicatorView()
+    }
+    
+    // MARK : Date Picker Changed
+    
+    @objc func datePickerValueChanged(sender: UIDatePicker){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd//MM/yyyy"
+        dobPicker.text = formatter.string(from: sender.date)
+        timeStamp = Date().timeIntervalSinceReferenceDate
     }
     
     @IBAction func changeImageBtn(_ sender: Any) {
@@ -151,14 +162,51 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         }
     }
     
+    @objc func dismissPicker() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func viewDidLoad() {
+        
+        self.displayNameTF.delegate = self
+        self.dobPicker.delegate = self
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(UserProfileVC.datePickerValueChanged(sender:)), for: .valueChanged)
+        dobPicker.inputAccessoryView = toolBar
+        dobPicker.inputView = datePicker
         if profileImage.image == nil{
         profileImage.image = UIImage(named: "boy")
         }
         showUserInfo()
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }
 
+extension UIToolbar {
+    
+    func ToolbarPiker(mySelect : Selector) -> UIToolbar {
+        
+        let toolBar = UIToolbar()
+        
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.blue
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.plain, target: self, action: mySelect)
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolBar.isTranslucent = true
+        toolBar.backgroundColor = .clear
+        toolBar.setItems([ spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        return toolBar
+    }
+    
+}

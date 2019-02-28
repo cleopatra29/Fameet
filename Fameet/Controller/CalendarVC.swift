@@ -147,7 +147,6 @@ class CalendarVC: UIViewController {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
@@ -202,7 +201,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
             cell.dateLabel.text = "\(calcDate)"
             if calcDate < dateModel.todaysDate && dateModel.currentYear == dateModel.presentYear && dateModel.currentMonthIndex == dateModel.presentMonthIndex {
                 cell.isUserInteractionEnabled = false
-                cell.dateLabel.textColor = .gray
+                cell.dateLabel.textColor = .lightGray
             } else {
                 cell.isUserInteractionEnabled = true
             }
