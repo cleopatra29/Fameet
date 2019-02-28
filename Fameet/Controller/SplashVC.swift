@@ -19,7 +19,7 @@ class SplashVC: UIViewController {
             present(homeViewController, animated: true)
         }
         else {
-            let homeViewController: UIViewController = UIStoryboard(name: "UserManagement", bundle: nil).instantiateViewController(withIdentifier: "Prelogin") as UIViewController
+            let homeViewController: UIViewController = UIStoryboard(name: "UserManagement", bundle: nil).instantiateViewController(withIdentifier: "NavbarUserManagement") as UIViewController
             present(homeViewController, animated: true)
         }
     }

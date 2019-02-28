@@ -56,9 +56,8 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
             }
             let userID = Auth.auth().currentUser?.uid as! String
             
-            let db = Firestore.firestore()
             let dict : [String: Any] = [ "email" : email, "password" : password, "first-name" : firstName, "last-name" : lastName, "birthday" : birthday]
-            db.collection("user-collection").document(userID).setData(dict)
+            Firestore.firestore().collection("user-collection").document(userID).setData(dict)
         }
     }
     
