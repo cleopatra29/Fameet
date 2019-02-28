@@ -29,7 +29,7 @@
         <!--PreloginVC-->
         <scene sceneID="Nqu-gr-skd">
             <objects>
-                <viewController id="SJ2-wc-hUu" customClass="PreloginVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Prelogin" id="SJ2-wc-hUu" customClass="PreloginVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDn-vi-RQS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -631,7 +631,7 @@
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tbs-HW-1Qd"/>
-        <segue reference="SMJ-hh-2fI"/>
+        <segue reference="sGo-I1-fLa"/>
+        <segue reference="kgm-dk-T1B"/>
     </inferredMetricsTieBreakers>
 </document>

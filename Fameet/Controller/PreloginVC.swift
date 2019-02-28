@@ -16,11 +16,6 @@ class PreloginVC: UIViewController {
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
     
-    //MARK : INITIALIZER
-    let userDefault = UserDefaults.standard
-    
-    
-    
     func setupView() {
         //Google Button
         googleButton.shappingButton()
@@ -35,11 +30,6 @@ class PreloginVC: UIViewController {
         self.navigationController?.view.backgroundColor = .clear
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if userDefault.bool(forKey: "usersignedin"){
-            showHomeController()
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,13 +44,7 @@ class PreloginVC: UIViewController {
     override func viewDidLoad() {
         setupView()
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
-    }
-    
-    func showHomeController() {
-        let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
-        present(homeViewController, animated: true)
     }
 
     @IBAction func signInAct(_ sender: Any) {

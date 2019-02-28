@@ -38,6 +38,8 @@
 		5DD7D9AE2207F9B30026A235 /* MatchDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */; };
 		5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */; };
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
+		BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704C292227D2A700BBC7B3 /* SplashVC.swift */; };
+		BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE704C2B2227D39600BBC7B3 /* Splash.storyboard */; };
 		BEBE3C152215591B00E99502 /* SendInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C142215591B00E99502 /* SendInvitationVC.swift */; };
 		BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */; };
 		BEF4184B220C5D430098285D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4184A220C5D430098285D /* DataFetcher.swift */; };
@@ -78,6 +80,8 @@
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		BE704C292227D2A700BBC7B3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		BE704C2B2227D39600BBC7B3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		BEBE3C142215591B00E99502 /* SendInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvitationVC.swift; sourceTree = "<group>"; };
 		BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFamilyViewCell.swift; sourceTree = "<group>"; };
 		BEF4184A220C5D430098285D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		5D1D0AFE2202FE1700868FCA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BE704C292227D2A700BBC7B3 /* SplashVC.swift */,
 				5360336622047CB700E7772B /* PreloginVC.swift */,
 				532F54162216B95700B02FA4 /* SignUpVC.swift */,
 				5360335B22045FB600E7772B /* LoginVC.swift */,
@@ -188,6 +193,7 @@
 		5D22C84F2202D6220058A00B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE704C2B2227D39600BBC7B3 /* Splash.storyboard */,
 				5D22C84622017E870058A00B /* UserManagement.storyboard */,
 				5D22C84B2201934D0058A00B /* Feature.storyboard */,
 				5D22C84D2201A3CF0058A00B /* Family.storyboard */,
@@ -282,6 +288,7 @@
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
 				5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */,
 				532F541B2216F4B700B02FA4 /* Author Credits in Resources */,
+				BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +382,7 @@
 				5D1D0B00220304C700868FCA /* CalendarCollectionViewCell.swift in Sources */,
 				5360336322046D8800E7772B /* HomeVC.swift in Sources */,
 				5D1D0AFC2202FE0100868FCA /* CalendarVC.swift in Sources */,
+				BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */,
 				5D70F1D8221E723400ECF009 /* SkeletonView.swift in Sources */,
 				53C2924B22116FEB00A17C2E /* CommitVC.swift in Sources */,
 				532F54192216F2BB00B02FA4 /* NotificationVC.swift in Sources */,
@@ -541,13 +549,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M67TPRX895;
+				DEVELOPMENT_TEAM = WP65965NTF;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = Jansen.Ciel.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -562,13 +570,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M67TPRX895;
+				DEVELOPMENT_TEAM = WP65965NTF;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = Jansen.Ciel.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
