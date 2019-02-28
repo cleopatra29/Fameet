@@ -28,7 +28,9 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
     var activeField: UITextField?
     var lastOffset: CGPoint!
     var keyboardHeight: CGFloat!
-    
+    let userDefault = UserDefaults.standard
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+
     func textFieldDelegate() {
         nameTF.delegate = self
         lastNameTF.delegate = self
@@ -55,7 +57,9 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
                 return
         }
         signUp(email: emailTF.text!, password: passwordTF.text!, firstName: nameTF.text!, lastName: lastNameTF.text!, birthday: dateOfBirthTF.text!)
-        performSegue(withIdentifier: "toSignIn", sender: self)
+//        performSegue(withIdentifier: "toSignIn", sender: self)
+        
+        
 
     }
     
@@ -73,6 +77,58 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
             let dict : [String: Any] = [ "email" : email, "password" : password, "first-name" : firstName, "last-name" : lastName, "birthday" : birthday]
             Firestore.firestore().collection("user-collection").document(userID).setData(dict)
         }
+        let alertDone = UIAlertController(title: "Success", message: "You successfully create an Account", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+            self.signIn(email: email, password: password)
+        }
+        
+        alertDone.addAction(action)
+        self.present(alertDone, animated: true, completion: nil)
+    }
+    
+    func signIn(email:String, password:String){
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+            guard error == nil else {
+                if error?._code == AuthErrorCode.userNotFound.rawValue {
+                    
+                    let alertController = UIAlertController(title: "Oops!", message: "Your email or password is not true.", preferredStyle: .alert)
+                    
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        
+                        // Code in this block will trigger when OK button tapped.
+                        print("Ok button tapped");
+                        
+                    }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    print("User Belum Terdaftar")
+                } else {
+                    //AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
+                    print(error)
+                    print(error?.localizedDescription)
+                }
+                return
+            }
+            if error == nil {
+                print("BERHASIL SIGN IN")
+                self.userDefault.set(true, forKey: "usersignedin")
+                self.userDefault.synchronize()
+                self.showHomeController()
+            }
+            
+        })
+    }
+    
+    func showHomeController() {
+        let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
+        present(homeViewController, animated: true)
+        endIndicatorView()
+    }
+    
+    func endIndicatorView() {
+    activityIndicator.stopAnimating()
+    UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     @objc func editingChanged(_ textField: UITextField) {
