@@ -155,7 +155,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
             }else{
                 self.displayNameTF.text = snapshot?.data()?["first-name"] as? String
                 self.emailLbl.text = snapshot?.data()?["email"] as? String
-//                self.dobLbh.text = snapshot?.data()?["birthday"] as? String
+                self.dobPicker.text = snapshot?.data()?["birthday"] as? String
                 print("master user show : \(self.MasterUser)")
                 print("show user info name : \(snapshot?.data()?["first-name"] as? String)")
             }
