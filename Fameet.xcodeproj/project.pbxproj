@@ -21,6 +21,7 @@
 		536033692204899200E7772B /* FamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536033682204899200E7772B /* FamilyVC.swift */; };
 		5360336B22048E5600E7772B /* FamilyDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */; };
 		53C2924B22116FEB00A17C2E /* CommitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2924A22116FEB00A17C2E /* CommitVC.swift */; };
+		53F263502227E15A00AE39C8 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */; };
 		5D1D0AF12202DADD00868FCA /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AF02202DADD00868FCA /* DateModel.swift */; };
 		5D1D0AFC2202FE0100868FCA /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */; };
 		5D1D0B00220304C700868FCA /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFF220304C700868FCA /* CalendarCollectionViewCell.swift */; };
@@ -58,6 +59,7 @@
 		536033682204899200E7772B /* FamilyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
 		5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		53C2924A22116FEB00A17C2E /* CommitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitVC.swift; sourceTree = "<group>"; };
+		53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
 		5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fameet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1D0AF02202DADD00868FCA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				BEF4184A220C5D430098285D /* DataFetcher.swift */,
 				5D70F1B4221D04DC00ECF009 /* Extension.swift */,
 				5D70F1D7221E723400ECF009 /* SkeletonView.swift */,
+				53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				53603365220479F500E7772B /* Model.swift in Sources */,
 				5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */,
 				BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */,
+				53F263502227E15A00AE39C8 /* LocalPushManager.swift in Sources */,
 				5D22C8322201732A0058A00B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

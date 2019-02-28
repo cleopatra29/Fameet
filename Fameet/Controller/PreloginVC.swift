@@ -19,8 +19,6 @@ class PreloginVC: UIViewController {
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
     
-    
-    
     func setupView() {
         //Google Button
         googleButton.shappingButton()
