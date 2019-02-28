@@ -45,9 +45,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         super.viewDidLoad()
         fetchFamilyCollection(id: MasterFamily)
 
-//        DispatchQueue.main.async(){
-//            self.readUserFamilyGroup()
-//        }
         memberCollectionOutlet.delegate = self
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self

@@ -18,10 +18,24 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var signUpScrollView: UIScrollView!
+    @IBOutlet weak var contentHeight: NSLayoutConstraint!
     
     //MARK : INITIALIZER
     var timestamp = Double()
     private var datePicker : UIDatePicker?
+    var activeField: UITextField?
+    var lastOffset: CGPoint!
+    var keyboardHeight: CGFloat!
+    
+    func textFieldDelegate() {
+        nameTF.delegate = self
+        lastNameTF.delegate = self
+        dateOfBirthTF.delegate = self
+        emailTF.delegate = self
+        passwordTF.delegate = self
+    }
     
     //MARK : BUTTON ACTION
     @IBAction func signUpAction(_ sender: Any) {
@@ -105,8 +119,17 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         
     }
     
+    @objc func returnTextView(gesture: UIGestureRecognizer) {
+        guard activeField != nil else {
+            return
+        }
+        activeField?.resignFirstResponder()
+        activeField = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        textFieldDelegate()
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(SignUpVC.datePickerValueChanged(sender:)), for: .valueChanged)
@@ -114,8 +137,71 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         view.addGestureRecognizer(tapGesture)
         dateOfBirthTF.inputView = datePicker
         GIDSignIn.sharedInstance()?.uiDelegate = self
+        
+        // INI GK BISA DI SIMULATOR TAPI BISA DI KEYBOARD
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(returnTextView(gesture:))))
         buttonDesign()
     }
     
 
 }
+// MARK: UITextFieldDelegate
+extension SignUpVC: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        activeField = textField
+        lastOffset = self.signUpScrollView.contentOffset
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        activeField?.resignFirstResponder()
+        activeField = nil
+        return true
+    }
+}
+
+// MARK: Keyboard Handling
+extension SignUpVC {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if keyboardHeight != nil {
+            return
+        }
+        
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            keyboardHeight = keyboardSize.height
+            
+            // so increase contentView's height by keyboard height
+            UIView.animate(withDuration: 0.3, animations: {
+                self.contentHeight.constant += self.keyboardHeight
+            })
+            
+            // move if keyboard hide input field
+            let distanceToBottom = self.signUpScrollView.frame.size.height - (activeField?.frame.origin.y)! - (activeField?.frame.size.height)!
+            let collapseSpace = keyboardHeight - distanceToBottom
+            
+            if collapseSpace < 0 {
+                // no collapse
+                return
+            }
+            
+            // set new offset for scroll view
+            UIView.animate(withDuration: 0.3, animations: {
+                // scroll to the position above keyboard 10 points
+                self.signUpScrollView.contentOffset = CGPoint(x: self.lastOffset.x, y: collapseSpace + 10)
+            })
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.contentHeight.constant -= self.keyboardHeight
+            self.signUpScrollView.contentOffset = self.lastOffset
+        }
+        
+        keyboardHeight = nil
+    }
+}
+
