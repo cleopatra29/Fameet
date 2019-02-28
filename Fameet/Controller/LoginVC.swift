@@ -117,10 +117,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         UIApplication.shared.endIgnoringInteractionEvents()
     }
     
-    @IBAction func signUpTapped(_ sender: Any) {
-        
-    }
-    
     @IBAction func signInTapped(_ sender: Any) {
         guard let email = emailTF.text,
             email != "",
