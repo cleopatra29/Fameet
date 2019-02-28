@@ -138,7 +138,6 @@ class CalendarVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let target = segue.destination as? FamilyVC else {return}
-        target.tableViewMatchDates.reloadData()
         target.MasterFamily = MasterFamily as String
     }
     
@@ -148,11 +147,6 @@ class CalendarVC: UIViewController {
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
-    
-    //    @IBAction func submitDateAct(_ sender: Any) {
-    //        performSegue(withIdentifier: "CalendarCollection-Family", sender: self)
-    //    }
-    
     
 }
 

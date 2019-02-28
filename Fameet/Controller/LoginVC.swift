@@ -102,7 +102,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         endIndicatorView()
     }
     
-    //MARK : INDICATOR VIEW
     func indicatorView() {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -113,7 +112,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    //MARK : END INDICATOR VIEW
     func endIndicatorView() {
         activityIndicator.stopAnimating()
         UIApplication.shared.endIgnoringInteractionEvents()
@@ -123,7 +121,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         
     }
     
-    //MARK : SIGNIN BUTTON
     @IBAction func signInTapped(_ sender: Any) {
         guard let email = emailTF.text,
             email != "",
@@ -150,6 +147,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         passwordTF.text = ""
 
     }
+    
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         endIndicatorView()
     }

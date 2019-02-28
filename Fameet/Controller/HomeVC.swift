@@ -162,8 +162,6 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
             
             
             
-            
-            
             let joinOption = UIAlertAction(title: "Join", style: .default) { (choosedJoin) in
                 // Kalo klik join koding disini
         
@@ -174,33 +172,54 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                     textField.placeholder = "Enter group code"
                     let OKAction = UIAlertAction(title: "Join", style: .default) { (action:UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
-                    let dictJoin : [String: Any] = ["family-member" : userRef]
                     
-                    let joinFamily = Firestore.firestore().collection("family-collection").document(textField.text!).collection("family-member").document(self.MasterUser).setData(dictJoin)
-                    let familyRef : DocumentReference = Firestore.firestore().document("family-collection/\(textField.text!)")
+                        let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
                     
-                    let dictJoin1 : [String: Any] = ["family-group-name": familyRef]
+                        let dictJoin : [String: Any] = ["family-member" : userRef]
                     
-                    Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(textField.text!).setData(dictJoin1)
-                    self.homeTableViewOutlet.reloadData()
-                    print("join Ok button tapped")
+                        let joinFamily = Firestore.firestore().collection("family-collection").document(textField.text!).collection("family-member").document(self.MasterUser).setData(dictJoin)
+                        let familyRef : DocumentReference = Firestore.firestore().document("family-collection/\(textField.text!)")
+                        let dictJoin1 : [String: Any] = ["family-group-name": familyRef]
+                    
+                        Firestore.firestore().collection("family-collection").document(textField.text!).getDocument { (document, error) in
+                            if let doc = document, document!.exists {
+                                Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(textField.text!).setData(dictJoin1)
+                                
+                                
+                                self.homeTableViewOutlet.reloadData()
+                                print("join Ok button tapped")
+                                
+                                let alertDone = UIAlertController(title: "Success", message: "You successfully Join The Family", preferredStyle: .alert)
+                                let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                    self.userFamId.removeAll()
+                                    self.MasterUserFamily.removeAll()
+                                    self.readUserFamilyGroup()
+                                    self.homeTableViewOutlet.reloadData()
+                                }
+                                
+                                alertDone.addAction(action)
+                                self.present(alertDone, animated: true, completion: nil)
+                                
+                            } else {
+                                print("Document does not exist")
+                                
+                                let alertDone = UIAlertController(title: "Failed", message: "Family not Found :(", preferredStyle: .alert)
+                                let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                }
+                                
+                                alertDone.addAction(action)
+                                self.present(alertDone, animated: true, completion: nil)
+                            }
+                        }
                         
-                            
-                    let alertDone = UIAlertController(title: "Success", message: "You successfully Join The Family", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                        self.userFamId.removeAll()
-                        self.MasterUserFamily.removeAll()
-                        self.readUserFamilyGroup()
-                        self.homeTableViewOutlet.reloadData()
+                
+                       
                     }
-                    alertDone.addAction(action)
-                    self.present(alertDone, animated: true, completion: nil)
-                }
                         
-                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
-                    print("Cancel button tapped")
-                })
+                
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
+                        print("Cancel button tapped")
+                    })
                         
                     alertController.addAction(OKAction)
                     alertController.preferredAction = OKAction

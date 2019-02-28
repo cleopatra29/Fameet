@@ -44,10 +44,10 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         
         super.viewDidLoad()
         fetchFamilyCollection(id: MasterFamily)
-//        notification()
-        DispatchQueue.main.async(){
-            self.readUserFamilyGroup()
-        }
+
+//        DispatchQueue.main.async(){
+//            self.readUserFamilyGroup()
+//        }
         memberCollectionOutlet.delegate = self
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
@@ -78,10 +78,19 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        tableViewMatchDates.reloadData()
+//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        famMemberId.removeAll()
+        famMemberList.removeAll()
+        availMatchDate.removeAll()
+        readUserFamilyGroup()
         tableViewMatchDates.reloadData()
     }
+    
     
     func fetchFamilyCollection(id:String){
         
@@ -220,7 +229,6 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
             print("image ref : \(reference)")
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
-            print("size frame : \(collectionCell.memberImage.frame.size.width / 2)")
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
             
