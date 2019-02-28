@@ -169,7 +169,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     override func viewDidLoad() {
-        
+        let reference = Storage.storage().reference().child("userProfilePicture/\(MasterUser).jpg")
         self.displayNameTF.delegate = self
         self.dobPicker.delegate = self
         datePicker = UIDatePicker()
@@ -177,9 +177,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         datePicker?.addTarget(self, action: #selector(UserProfileVC.datePickerValueChanged(sender:)), for: .valueChanged)
         dobPicker.inputAccessoryView = toolBar
         dobPicker.inputView = datePicker
-        if profileImage.image == nil{
-        profileImage.image = UIImage(named: "boy")
-        }
+        profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
         showUserInfo()
         super.viewDidLoad()
     }
