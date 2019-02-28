@@ -1038,7 +1038,7 @@
                                     <action selector="changeImage:" destination="jPy-oh-mWr" eventType="touchUpInside" id="OGn-wI-bHe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-O6-iJu">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-O6-iJu">
                                 <rect key="frame" x="102" y="111" width="171" height="171"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c0x-O6-iJu" secondAttribute="height" multiplier="1:1" id="pLa-A7-cNC"/>
