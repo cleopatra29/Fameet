@@ -13,9 +13,9 @@ import FirebaseFirestore
 class CommitVC: UIViewController {
 
     //MARK : OUTLET
-    @IBOutlet weak var navItemLbl: UINavigationItem!
     @IBOutlet weak var commitLbl: UILabel!
     @IBOutlet weak var mainTextLbl: UILabel!
+    @IBOutlet weak var userNameLbl: UILabel!
     @IBOutlet weak var commitField: UITextField!
     @IBOutlet weak var commitDays: UITextField!
     
@@ -24,8 +24,7 @@ class CommitVC: UIViewController {
         Firestore.firestore().collection("family-collection").document(famGroup).collection("family-member").document(MasterUser).collection("commitment").document(memberId).setData([
             "event" : tempSelectedCommitment,
             "times" : tempSelectedDays])
-        
-    }
+        }
     
     //MARK : Initializer
     let MasterUser = Auth.auth().currentUser?.uid as! String
@@ -51,18 +50,13 @@ class CommitVC: UIViewController {
         guard let target = segue.destination as? FamilyVC else {return}
         target.MasterFamily = famGroup as String
         alerts()
-        
     }
     
     func alerts() {
         let alertController = UIAlertController(title: "COMMITMENT", message: "You successfully make new commitment", preferredStyle: .alert)
-        
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-            
+        let OKAction = UIAlertAction(title: "Love it!", style: .default) { (action:UIAlertAction!) in
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
-            
         }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
@@ -70,14 +64,13 @@ class CommitVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainTextLbl.text = "I want to meet Christian every "
+        userNameLbl.text = "\(memberName)"
         print("fam member Name : \(memberName)")
         print("fam group : \(famGroup)")
         print("member ID : \(memberId)")
         print("Master user : \(MasterUser)")
-        
+        }
     }
-}
 
 extension CommitVC: UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

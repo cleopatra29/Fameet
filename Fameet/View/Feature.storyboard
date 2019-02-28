@@ -739,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhM-zm-iwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3551" y="285"/>
+            <point key="canvasLocation" x="3278" y="194"/>
         </scene>
         <!--CommitVC-->
         <scene sceneID="HV0-jO-oGv">
@@ -749,73 +749,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7y-sZ-FZy">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7y-sZ-FZy">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="X1v-Xu-R2e">
                                         <barButtonItem key="backBarButtonItem" title="Back" id="1b8-N5-eAq"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commitment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOE-yx-hd5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Commitment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOE-yx-hd5">
                                 <rect key="frame" x="16" y="104" width="287" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="287" id="bXY-Jf-jNZ"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input your commitment for Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRH-TN-tV3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Input your commitment for Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRH-TN-tV3">
                                 <rect key="frame" x="16" y="149" width="251" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="kSE-at-rvr"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-LightItalic" family="SF Pro Display" pointSize="16"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to call Title every " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="det-fu-QS0">
-                                <rect key="frame" x="16" y="192" width="319" height="135"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="135" id="gax-VH-wXd"/>
-                                    <constraint firstAttribute="width" constant="319" id="lEg-f0-zQF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I want to" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="det-fu-QS0">
+                                <rect key="frame" x="17" y="190" width="98" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Meet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-xT-ijp">
-                                <rect key="frame" x="198" y="202" width="137" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="137" id="CMh-2U-YMT"/>
-                                    <constraint firstAttribute="height" constant="59" id="vTp-dH-i3J"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="46"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meet" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNS-xT-ijp">
+                                <rect key="frame" x="119" y="222" width="62" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="oy3-AG-KFW" id="q5z-Eo-Gus"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3A8-9J-1zk">
-                                <rect key="frame" x="16" y="335" width="228" height="59"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="228" id="jk9-Ex-rQ8"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="46"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Days" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3A8-9J-1zk">
+                                <rect key="frame" x="88" y="273" width="59" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="oy3-AG-KFW" id="9ox-VP-FQm"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-oh-1RZ">
-                                <rect key="frame" x="17" y="664" width="342" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1JQ-oh-1RZ">
+                                <rect key="frame" x="17" y="559" width="342" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.85882352939999995" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="nb8-gu-BrK"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="20"/>
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -824,26 +811,22 @@
                                     <action selector="saveBtn:" destination="oy3-AG-KFW" eventType="touchUpInside" id="HKI-8R-ZFx"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Every" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX5-2Y-03p">
+                                <rect key="frame" x="17" y="272" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZE-sm-Fjd">
+                                <rect key="frame" x="182" y="219" width="65" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="i7y-sZ-FZy" firstAttribute="leading" secondItem="Xy5-lN-67z" secondAttribute="leading" id="2Oe-zp-eho"/>
-                            <constraint firstItem="1JQ-oh-1RZ" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="17" id="84N-V5-r08"/>
-                            <constraint firstItem="3A8-9J-1zk" firstAttribute="top" secondItem="det-fu-QS0" secondAttribute="bottom" constant="8" id="9Di-yz-kTO"/>
-                            <constraint firstItem="DRH-TN-tV3" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="16" id="CDc-qz-v94"/>
-                            <constraint firstItem="DNS-xT-ijp" firstAttribute="top" secondItem="DRH-TN-tV3" secondAttribute="bottom" constant="33" id="CcV-02-eTH"/>
-                            <constraint firstItem="DNS-xT-ijp" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="198" id="EgZ-ub-FXl"/>
-                            <constraint firstItem="det-fu-QS0" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="16" id="Ivh-RA-o1z"/>
-                            <constraint firstItem="det-fu-QS0" firstAttribute="top" secondItem="DRH-TN-tV3" secondAttribute="bottom" constant="23" id="Jh5-rS-sSF"/>
-                            <constraint firstAttribute="trailing" secondItem="i7y-sZ-FZy" secondAttribute="trailing" id="Nf7-dl-RcR"/>
-                            <constraint firstItem="uOE-yx-hd5" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="16" id="SwK-uA-Shn"/>
-                            <constraint firstItem="i7y-sZ-FZy" firstAttribute="top" secondItem="Xy5-lN-67z" secondAttribute="top" constant="44" id="Xyc-m4-9Au"/>
-                            <constraint firstItem="1JQ-oh-1RZ" firstAttribute="top" secondItem="3A8-9J-1zk" secondAttribute="bottom" constant="270" id="doz-Rp-xlM"/>
-                            <constraint firstItem="DRH-TN-tV3" firstAttribute="top" secondItem="uOE-yx-hd5" secondAttribute="bottom" constant="4" id="g5E-I0-2FT"/>
-                            <constraint firstItem="Tih-o2-G4l" firstAttribute="trailing" secondItem="1JQ-oh-1RZ" secondAttribute="trailing" constant="16" id="mtm-oW-wfu"/>
-                            <constraint firstItem="3A8-9J-1zk" firstAttribute="leading" secondItem="Tih-o2-G4l" secondAttribute="leading" constant="16" id="qvb-Pg-sJn"/>
-                            <constraint firstItem="uOE-yx-hd5" firstAttribute="top" secondItem="i7y-sZ-FZy" secondAttribute="bottom" constant="16" id="utE-hf-h3g"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Tih-o2-G4l"/>
                     </view>
                     <connections>
@@ -851,6 +834,7 @@
                         <outlet property="commitField" destination="DNS-xT-ijp" id="iAM-hj-kka"/>
                         <outlet property="commitLbl" destination="DRH-TN-tV3" id="Diy-dK-dah"/>
                         <outlet property="mainTextLbl" destination="det-fu-QS0" id="Em8-he-qmt"/>
+                        <outlet property="userNameLbl" destination="6ZE-sm-Fjd" id="aT6-xg-MU0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rBH-sH-RXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1011,7 +995,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cj1-r6-35u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1457" y="185"/>
+            <point key="canvasLocation" x="2070" y="185"/>
         </scene>
         <!--Send InvitationVC-->
         <scene sceneID="hhG-5M-C71">
@@ -1275,7 +1259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eP3-2U-LF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-367.19999999999999" y="246.79802955665025"/>
+            <point key="canvasLocation" x="-318" y="185"/>
         </scene>
         <!--UserManagement-->
         <scene sceneID="xKm-5U-4hq">
@@ -1283,7 +1267,7 @@
                 <viewControllerPlaceholder storyboardName="UserManagement" id="1ig-Qh-Go5" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlW-VR-f4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="319" y="247"/>
+            <point key="canvasLocation" x="278" y="248"/>
         </scene>
         <!--Notification-->
         <scene sceneID="Mwm-0j-ZAq">
@@ -1325,7 +1309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKD-n4-isY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1194.4000000000001" y="246.79802955665025"/>
+            <point key="canvasLocation" x="-1183" y="185"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="HSS-d9-nfr">
@@ -1367,7 +1351,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KbB-Fa-a67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="-557"/>
+            <point key="canvasLocation" x="278" y="-559"/>
         </scene>
     </scenes>
     <resources>
