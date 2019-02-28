@@ -148,11 +148,6 @@ class CalendarVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    //    @IBAction func submitDateAct(_ sender: Any) {
-    //        performSegue(withIdentifier: "CalendarCollection-Family", sender: self)
-    //    }
-    
-    
 }
 
 extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
