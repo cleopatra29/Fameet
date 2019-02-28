@@ -54,6 +54,7 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
                 print("Some text field is empty.")
                 return
         }
+        
         signUp(email: emailTF.text!, password: passwordTF.text!, firstName: nameTF.text!, lastName: lastNameTF.text!, birthday: dateOfBirthTF.text!)
         performSegue(withIdentifier: "toSignIn", sender: self)
 

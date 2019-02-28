@@ -97,14 +97,11 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     
     func alerts() {
         let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
-        
-        
         let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
-            
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
-            
         }
+        
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -155,7 +152,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
             }else{
                 self.displayNameTF.text = snapshot?.data()?["first-name"] as? String
                 self.emailLbl.text = snapshot?.data()?["email"] as? String
-//                self.dobLbh.text = snapshot?.data()?["birthday"] as? String
+                self.dobPicker.text = snapshot?.data()?["birthday"] as? String
                 print("master user show : \(self.MasterUser)")
                 print("show user info name : \(snapshot?.data()?["first-name"] as? String)")
             }
