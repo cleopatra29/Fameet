@@ -668,23 +668,23 @@
                                     <constraint firstAttribute="height" constant="209" id="oFr-23-tQY"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="18" id="zQz-gb-DqK">
-                                    <size key="itemSize" width="26" height="26"/>
+                                    <size key="itemSize" width="27" height="27"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="dateReuseIdentifier" id="SF5-HD-GXe" customClass="CalendarCollectionViewCell" customModule="Fameet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aw-d0-Hfq">
-                                                    <rect key="frame" x="-1" y="0.0" width="27" height="26"/>
+                                                    <rect key="frame" x="-1" y="0.0" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -739,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhM-zm-iwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3278" y="194"/>
+            <point key="canvasLocation" x="3277.5999999999999" y="193.5960591133005"/>
         </scene>
         <!--CommitVC-->
         <scene sceneID="HV0-jO-oGv">
