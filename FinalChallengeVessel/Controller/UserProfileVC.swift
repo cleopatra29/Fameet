@@ -23,7 +23,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     @IBOutlet weak var dobPicker: UITextField!
     
     //MARK : INITIALIZER
-    let MasterUser:String = (Auth.auth().currentUser?.uid)!
+    let MasterUser : String = (Auth.auth().currentUser?.uid)!
     var imageRef : StorageReference {
         return Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
     }
@@ -152,9 +152,13 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     override func viewDidLoad() {
-        if profileImage.image == nil{
-        profileImage.image = UIImage(named: "boy")
-        }
+        let reference = Storage.storage().reference().child("userProfilePicture/\(MasterUser).jpg")
+        profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.layer.masksToBounds = true
+        profileImage.clipsToBounds = true
+
         showUserInfo()
         super.viewDidLoad()
 

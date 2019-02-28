@@ -192,7 +192,6 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
             print("image ref : \(reference)")
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
-            print("size frame : \(collectionCell.memberImage.frame.size.width / 2)")
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
             
