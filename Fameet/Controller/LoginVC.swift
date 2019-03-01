@@ -17,8 +17,6 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var emailLine: UIView!
-    @IBOutlet weak var passwordLine: UIView!
     
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
@@ -45,35 +43,17 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
         GIDSignIn.sharedInstance()?.uiDelegate = self
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-         if textField == emailTF {
-            emailLine.backgroundColor = .highLightColor
-        } else if textField == passwordTF {
-            passwordLine.backgroundColor = .highLightColor
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-         if textField == emailTF {
-            emailLine.backgroundColor = .lightGray
-        } else if textField == passwordTF {
-            passwordLine.backgroundColor = .lightGray
-        }
-    }
-    
     func signIn(email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             guard error == nil else {
                 if error?._code == AuthErrorCode.userNotFound.rawValue {
                     
                     let alertController = UIAlertController(title: "Oops!", message: "Your email or password is not true.", preferredStyle: .alert)
-                    
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                        
                         // Code in this block will trigger when OK button tapped.
                         print("Ok button tapped");
-                        
                     }
+                    self.endIndicatorView()
                     alertController.addAction(OKAction)
                     self.present(alertController, animated: true, completion: nil)
                     

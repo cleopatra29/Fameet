@@ -39,6 +39,7 @@
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
 		BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704C292227D2A700BBC7B3 /* SplashVC.swift */; };
 		BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE704C2B2227D39600BBC7B3 /* Splash.storyboard */; };
+		BE704C3222290AA900BBC7B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */; };
 		BEBE3C152215591B00E99502 /* SendInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C142215591B00E99502 /* SendInvitationVC.swift */; };
 		BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */; };
 		BEF4184B220C5D430098285D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4184A220C5D430098285D /* DataFetcher.swift */; };
@@ -80,6 +81,7 @@
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BE704C292227D2A700BBC7B3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		BE704C2B2227D39600BBC7B3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEBE3C142215591B00E99502 /* SendInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvitationVC.swift; sourceTree = "<group>"; };
 		BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFamilyViewCell.swift; sourceTree = "<group>"; };
 		BEF4184A220C5D430098285D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				536033612204665000E7772B /* Cell Controller */,
 				5D22C8352201732A0058A00B /* Main.storyboard */,
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
+				BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
 				53F263532228103D00AE39C8 /* GoogleService-Info.plist */,
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
@@ -545,7 +548,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = WP65965NTF;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,7 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8T5R97US6;
+				DEVELOPMENT_TEAM = WP65965NTF;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

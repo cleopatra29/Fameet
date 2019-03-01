@@ -223,7 +223,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
         
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
             print("image ref : \(reference)")
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
