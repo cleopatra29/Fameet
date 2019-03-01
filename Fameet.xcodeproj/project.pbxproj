@@ -175,7 +175,10 @@
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
 				BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
+<<<<<<< HEAD
+=======
 				53F263532228103D00AE39C8 /* GoogleService-Info.plist */,
+>>>>>>> 9bd5a75ee1081f42eb99cd34ae1b957219671ed8
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
@@ -281,7 +284,11 @@
 			files = (
 				5D22C84A220182E00058A00B /* SF Pro in Resources */,
 				5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
+				BE704C3222290AA900BBC7B3 /* GoogleService-Info.plist in Resources */,
+=======
 				53F263542228103D00AE39C8 /* GoogleService-Info.plist in Resources */,
+>>>>>>> 9bd5a75ee1081f42eb99cd34ae1b957219671ed8
 				5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */,
 				5D22C8372201732A0058A00B /* Main.storyboard in Resources */,
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
