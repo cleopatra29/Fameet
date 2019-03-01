@@ -26,10 +26,6 @@ class HomeVC: UIViewController {
     let userDefault = UserDefaults.standard
     var userFamId = [String]()
     
-    @IBAction func notif(_ sender: Any) {
-        LocalPushManager.shared.sendLocalPush(in: 5)
-        print("notif func button pressed")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
