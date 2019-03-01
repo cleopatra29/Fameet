@@ -29,7 +29,7 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let reference = Storage.storage().reference().child("userProfilePicture/\(passData[passKey]![indexPath.row]).jpg")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCellName", for: indexPath) as? MatchDateInTableViewCellCollectionViewCell
-        cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
+        cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         cell?.availMemberPic.clipsToBounds = true
         cell?.availMemberPic.layer.cornerRadius = (cell?.availMemberPic.frame.size.width)!/2
         cell?.availMemberPic.layer.masksToBounds = true

@@ -11,17 +11,36 @@ import FirebaseFirestore
 import GoogleSignIn
 import FirebaseAuth
 
-class LoginVC: UIViewController, GIDSignInUIDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
 
     //MARK : OUTLET
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var emailLine: UIView!
+    @IBOutlet weak var passwordLine: UIView!
+
     
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
     var GIDSignUp = Bool()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == emailTF {
+            emailLine.backgroundColor = .highLightColor
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .highLightColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTF {
+            emailLine.backgroundColor = .lightGray
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .lightGray
+        }
+    }
 
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +56,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         buttonDesign()
         super.viewDidLoad()
+        self.emailTF.delegate = self
+        self.passwordTF.delegate = self
         signInButton.isEnabled = false
         signInButton.alpha = 0.5
         [emailTF, passwordTF].forEach({$0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)})
@@ -48,19 +69,28 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             guard error == nil else {
                 if error?._code == AuthErrorCode.userNotFound.rawValue {
                     
-                    let alertController = UIAlertController(title: "Oops!", message: "Your email or password is not true.", preferredStyle: .alert)
-                    
+                    let alertController = UIAlertController(title: "Oops!", message: "Your email or password is incorrect.", preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                        
                         // Code in this block will trigger when OK button tapped.
                         print("Ok button tapped");
-                        
                     }
+                    self.endIndicatorView()
                     alertController.addAction(OKAction)
                     self.present(alertController, animated: true, completion: nil)
                     
                     print("User Belum Terdaftar")
                 } else {
+                    let alertController = UIAlertController(title: "Oops!", message: "Your email or password is incorrect.", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                        // Code in this block will trigger when OK button tapped.
+                        print("Ok button tapped");
+                    }
+                    self.endIndicatorView()
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    print("pass salah")
+
                     //AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
                     print(error)
                     print(error?.localizedDescription)
@@ -123,7 +153,7 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
             let password = passwordTF.text,
             password != ""
             else {
-                let alertController = UIAlertController(title: "Oops!", message: "Your email or password is incorrect", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Oops!", message: "Your email or password is incorrect.", preferredStyle: .alert)
                 
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
