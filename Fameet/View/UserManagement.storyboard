@@ -633,7 +633,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ComingSoon" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-50-83e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coming soon" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-50-83e">
                                 <rect key="frame" x="62" y="243" width="251" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qqw-50-83e" secondAttribute="height" multiplier="246:235" id="pgy-uT-BtE"/>
@@ -669,7 +669,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ComingSoon" width="372.3636474609375" height="372.3636474609375"/>
+        <image name="Coming soon" width="386" height="369"/>
         <image name="Icon notification (tab bar)" width="25" height="26"/>
         <image name="boy.png" width="512" height="512"/>
     </resources>
