@@ -21,6 +21,12 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var signUpScrollView: UIScrollView!
     @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    @IBOutlet weak var firstNameLine: UIView!
+    @IBOutlet weak var dobLine: UIView!
+    @IBOutlet weak var emailLine: UIView!
+    @IBOutlet weak var passwordLine: UIView!
+    @IBOutlet weak var lastNameLine: UIView!
+
     
     //MARK : INITIALIZER
     var timestamp = Double()
@@ -38,6 +44,36 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         emailTF.delegate = self
         passwordTF.delegate = self
     }
+    
+    // MARK : TextField Highlight
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == nameTF {
+            firstNameLine.backgroundColor = .highLightColor
+        } else if textField == lastNameTF {
+            lastNameLine.backgroundColor = .highLightColor
+        } else if textField == dateOfBirthTF {
+            dobLine.backgroundColor = .highLightColor
+        } else if textField == emailTF {
+            emailLine.backgroundColor = .highLightColor
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .highLightColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTF {
+            firstNameLine.backgroundColor = .lightGray
+        } else if textField == lastNameTF {
+            lastNameLine.backgroundColor = .lightGray
+        } else if textField == dateOfBirthTF {
+            dobLine.backgroundColor = .lightGray
+        } else if textField == emailTF {
+            emailLine.backgroundColor = .lightGray
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .lightGray
+        }
+    }
+
     
     //MARK : BUTTON ACTION
     @IBAction func signUpAction(_ sender: Any) {

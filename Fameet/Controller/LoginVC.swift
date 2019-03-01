@@ -11,17 +11,36 @@ import FirebaseFirestore
 import GoogleSignIn
 import FirebaseAuth
 
-class LoginVC: UIViewController, GIDSignInUIDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
 
     //MARK : OUTLET
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var emailLine: UIView!
+    @IBOutlet weak var passwordLine: UIView!
+
     
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
     var GIDSignUp = Bool()
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == emailTF {
+            emailLine.backgroundColor = .highLightColor
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .highLightColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailTF {
+            emailLine.backgroundColor = .lightGray
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .lightGray
+        }
+    }
 
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,6 +56,8 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
     override func viewDidLoad() {
         buttonDesign()
         super.viewDidLoad()
+        self.emailTF.delegate = self
+        self.passwordTF.delegate = self
         signInButton.isEnabled = false
         signInButton.alpha = 0.5
         [emailTF, passwordTF].forEach({$0?.addTarget(self, action: #selector(editingChanged), for: .editingChanged)})

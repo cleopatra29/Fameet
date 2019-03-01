@@ -99,7 +99,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgx-vB-eWZ">
-                                <rect key="frame" x="123.66666666666669" y="686.66666666666663" width="128" height="36"/>
+                                <rect key="frame" x="123.66666666666669" y="687" width="128" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6H-ec-c0Y">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="36"/>
@@ -127,7 +127,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account ? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfL-qA-cVY">
-                                <rect key="frame" x="66" y="662.33333333333337" width="243" height="23.333333333333371"/>
+                                <rect key="frame" x="66" y="662" width="243" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="la3-ME-DwH"/>
                                 </constraints>
@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOE-KK-1sB">
-                                <rect key="frame" x="16" y="104" width="273" height="39.666666666666657"/>
+                                <rect key="frame" x="16" y="104" width="273" height="40.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="273" id="QT6-QO-c3b"/>
                                 </constraints>
@@ -187,7 +187,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cD-d9-CX8">
-                                <rect key="frame" x="16" y="175" width="252" height="24"/>
+                                <rect key="frame" x="16" y="176" width="252" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="252" id="dma-Tk-mBA"/>
                                 </constraints>
@@ -196,7 +196,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxW-eB-aK6">
-                                <rect key="frame" x="16" y="211" width="343" height="24"/>
+                                <rect key="frame" x="16" y="212" width="343" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="exM-Qe-b1U"/>
                                 </constraints>
@@ -205,14 +205,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpO-5X-GWk">
-                                <rect key="frame" x="16" y="239" width="343" height="1"/>
+                                <rect key="frame" x="16" y="240" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="KcL-4X-qKr"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTo-ql-LTT">
-                                <rect key="frame" x="16" y="260" width="229" height="24"/>
+                                <rect key="frame" x="16" y="261" width="229" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="229" id="KrI-PD-NrJ"/>
                                 </constraints>
@@ -221,7 +221,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vId-b5-to6">
-                                <rect key="frame" x="16" y="296" width="343" height="30"/>
+                                <rect key="frame" x="16" y="297" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fig-hC-Fis"/>
                                 </constraints>
@@ -230,14 +230,14 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jt7-O1-Tsd">
-                                <rect key="frame" x="16" y="324" width="343" height="1"/>
+                                <rect key="frame" x="16" y="325" width="343" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="KPI-Rn-0jq"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z63-4N-G4g">
-                                <rect key="frame" x="16" y="381" width="343" height="48"/>
+                                <rect key="frame" x="16" y="382" width="343" height="48"/>
                                 <color key="backgroundColor" red="1" green="0.81568627450980391" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="KmK-g6-wIj"/>
@@ -280,7 +280,9 @@
                         <viewLayoutGuide key="safeArea" id="14W-z3-cxQ"/>
                     </view>
                     <connections>
+                        <outlet property="emailLine" destination="bpO-5X-GWk" id="LSJ-N9-ufM"/>
                         <outlet property="emailTF" destination="lxW-eB-aK6" id="wmK-ps-Nvv"/>
+                        <outlet property="passwordLine" destination="jt7-O1-Tsd" id="Mkw-Iv-d25"/>
                         <outlet property="passwordTF" destination="vId-b5-to6" id="VvF-bC-sfk"/>
                         <outlet property="signInButton" destination="z63-4N-G4g" id="JSO-be-yW7"/>
                         <segue destination="7C8-54-EPx" kind="show" identifier="Login-Home" id="tbs-HW-1Qd"/>
@@ -313,7 +315,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRd-XU-FlG">
-                                                <rect key="frame" x="16" y="23.999999999999996" width="343" height="39.666666666666657"/>
+                                                <rect key="frame" x="16" y="23.999999999999996" width="343" height="40.666666666666657"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="343" id="Wae-eX-Agq"/>
                                                 </constraints>
@@ -322,7 +324,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCC-Dv-XKF">
-                                                <rect key="frame" x="16" y="94.666666666666657" width="154" height="24"/>
+                                                <rect key="frame" x="16" y="95.666666666666657" width="154" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="154" id="Ldw-Gl-jlB"/>
                                                 </constraints>
@@ -331,7 +333,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FtB-qa-SK8">
-                                                <rect key="frame" x="16" y="128.66666666666666" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="129.66666666666666" width="343" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="343" id="Exk-MJ-Yp9"/>
                                                 </constraints>
@@ -340,14 +342,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYk-H5-bgy">
-                                                <rect key="frame" x="16" y="154.66666666666666" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="155.66666666666666" width="343" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="fDu-aN-6zW"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyG-lC-ME7">
-                                                <rect key="frame" x="16" y="169.66666666666669" width="154" height="24"/>
+                                                <rect key="frame" x="16" y="170.66666666666669" width="154" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="154" id="Wp7-n8-JUx"/>
                                                 </constraints>
@@ -356,7 +358,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fBO-uQ-UD9">
-                                                <rect key="frame" x="16" y="203.66666666666669" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="204.66666666666669" width="343" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="343" id="05G-KC-xAD"/>
                                                 </constraints>
@@ -365,14 +367,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUn-aF-sXC">
-                                                <rect key="frame" x="16" y="229.66666666666669" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="230.66666666666669" width="343" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="lIj-Dd-PPe"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNK-Mv-BNF">
-                                                <rect key="frame" x="16" y="244.66666666666669" width="195" height="24"/>
+                                                <rect key="frame" x="16" y="245.66666666666669" width="195" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="195" id="fpu-pP-fVm"/>
                                                 </constraints>
@@ -381,7 +383,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your date of birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YRu-dq-tau">
-                                                <rect key="frame" x="16" y="278.66666666666669" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="279.66666666666669" width="343" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="4mp-rX-jx9"/>
                                                     <constraint firstAttribute="width" constant="343" id="cGk-0n-l2y"/>
@@ -391,14 +393,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMi-um-nSK">
-                                                <rect key="frame" x="16" y="304.66666666666669" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="305.66666666666669" width="343" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="VHW-UW-L2x"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8H4-dt-WF8">
-                                                <rect key="frame" x="16" y="319.66666666666669" width="203" height="24"/>
+                                                <rect key="frame" x="16" y="320.66666666666669" width="203" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="203" id="dD5-Ju-VVL"/>
                                                 </constraints>
@@ -407,7 +409,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C4e-Jo-8oa">
-                                                <rect key="frame" x="16" y="353.66666666666669" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="354.66666666666669" width="343" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="343" id="W3k-RR-v6w"/>
                                                 </constraints>
@@ -416,14 +418,14 @@
                                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJD-B3-42t">
-                                                <rect key="frame" x="16" y="379.66666666666669" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="380.66666666666669" width="343" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="19t-aa-faj"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qn9-PL-6e5">
-                                                <rect key="frame" x="16" y="394.66666666666669" width="175" height="24"/>
+                                                <rect key="frame" x="16" y="395.66666666666669" width="175" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="7mZ-rg-7hp"/>
                                                     <constraint firstAttribute="width" constant="175" id="hba-yL-Bl1"/>
@@ -433,7 +435,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lun-Ov-bFe">
-                                                <rect key="frame" x="16" y="428.66666666666663" width="343" height="24"/>
+                                                <rect key="frame" x="16" y="429.66666666666663" width="343" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="343" id="EXR-Vx-0tv"/>
                                                 </constraints>
@@ -442,7 +444,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Gp-0W-9B9">
-                                                <rect key="frame" x="16" y="454.66666666666663" width="343" height="1"/>
+                                                <rect key="frame" x="16" y="455.66666666666663" width="343" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="7P4-UZ-aAF"/>
@@ -535,9 +537,14 @@
                         <outlet property="contentHeight" destination="gps-6a-1XE" id="ul2-WV-prE"/>
                         <outlet property="contentView" destination="rVd-lc-M4a" id="of9-Gu-WT4"/>
                         <outlet property="dateOfBirthTF" destination="YRu-dq-tau" id="1Us-Qg-6d9"/>
+                        <outlet property="dobLine" destination="UMi-um-nSK" id="ClL-go-ckk"/>
+                        <outlet property="emailLine" destination="SJD-B3-42t" id="nXJ-vq-uY0"/>
                         <outlet property="emailTF" destination="C4e-Jo-8oa" id="aSB-f0-nnD"/>
+                        <outlet property="firstNameLine" destination="tYk-H5-bgy" id="jiH-ck-8Dm"/>
+                        <outlet property="lastNameLine" destination="pUn-aF-sXC" id="Q5Q-cK-d99"/>
                         <outlet property="lastNameTF" destination="fBO-uQ-UD9" id="EIJ-il-tse"/>
                         <outlet property="nameTF" destination="FtB-qa-SK8" id="6bz-nE-xEq"/>
+                        <outlet property="passwordLine" destination="5Gp-0W-9B9" id="xuc-wQ-XGL"/>
                         <outlet property="passwordTF" destination="Lun-Ov-bFe" id="BP9-Ok-wJs"/>
                         <outlet property="signUpScrollView" destination="mUU-MN-j0Z" id="HXn-TT-h8F"/>
                         <segue destination="WzQ-9M-Cdv" kind="show" identifier="toSignIn" id="SMJ-hh-2fI"/>
@@ -626,7 +633,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ComingSoon" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-50-83e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coming soon" translatesAutoresizingMaskIntoConstraints="NO" id="Qqw-50-83e">
                                 <rect key="frame" x="62" y="243" width="251" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Qqw-50-83e" secondAttribute="height" multiplier="246:235" id="pgy-uT-BtE"/>
@@ -662,12 +669,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ComingSoon" width="372.3636474609375" height="372.3636474609375"/>
+        <image name="Coming soon" width="386" height="369"/>
         <image name="Icon notification (tab bar)" width="25" height="26"/>
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sGo-I1-fLa"/>
-        <segue reference="kgm-dk-T1B"/>
+        <segue reference="tbs-HW-1Qd"/>
+        <segue reference="SMJ-hh-2fI"/>
     </inferredMetricsTieBreakers>
 </document>
