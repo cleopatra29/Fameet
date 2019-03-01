@@ -20,6 +20,7 @@
 		536033692204899200E7772B /* FamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536033682204899200E7772B /* FamilyVC.swift */; };
 		5360336B22048E5600E7772B /* FamilyDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */; };
 		53C2924B22116FEB00A17C2E /* CommitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2924A22116FEB00A17C2E /* CommitVC.swift */; };
+		53F263542228103D00AE39C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53F263532228103D00AE39C8 /* GoogleService-Info.plist */; };
 		5D1D0AF12202DADD00868FCA /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AF02202DADD00868FCA /* DateModel.swift */; };
 		5D1D0AFC2202FE0100868FCA /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */; };
 		5D1D0B00220304C700868FCA /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFF220304C700868FCA /* CalendarCollectionViewCell.swift */; };
@@ -58,6 +59,7 @@
 		536033682204899200E7772B /* FamilyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
 		5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		53C2924A22116FEB00A17C2E /* CommitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitVC.swift; sourceTree = "<group>"; };
+		53F263532228103D00AE39C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fameet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1D0AF02202DADD00868FCA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -173,6 +175,10 @@
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
 				BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
+<<<<<<< HEAD
+=======
+				53F263532228103D00AE39C8 /* GoogleService-Info.plist */,
+>>>>>>> 9bd5a75ee1081f42eb99cd34ae1b957219671ed8
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
@@ -278,7 +284,11 @@
 			files = (
 				5D22C84A220182E00058A00B /* SF Pro in Resources */,
 				5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				BE704C3222290AA900BBC7B3 /* GoogleService-Info.plist in Resources */,
+=======
+				53F263542228103D00AE39C8 /* GoogleService-Info.plist in Resources */,
+>>>>>>> 9bd5a75ee1081f42eb99cd34ae1b957219671ed8
 				5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */,
 				5D22C8372201732A0058A00B /* Main.storyboard in Resources */,
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
@@ -545,7 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WP65965NTF;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -566,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WP65965NTF;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

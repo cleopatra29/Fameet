@@ -97,14 +97,11 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     
     func alerts() {
         let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
-        
-        
         let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
-            
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
-            
         }
+        
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -155,7 +152,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
             }else{
                 self.displayNameTF.text = snapshot?.data()?["first-name"] as? String
                 self.emailLbl.text = snapshot?.data()?["email"] as? String
-//                self.dobLbh.text = snapshot?.data()?["birthday"] as? String
+                self.dobPicker.text = snapshot?.data()?["birthday"] as? String
                 print("master user show : \(self.MasterUser)")
                 print("show user info name : \(snapshot?.data()?["first-name"] as? String)")
             }
@@ -172,7 +169,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     override func viewDidLoad() {
-        
+        let reference = Storage.storage().reference().child("userProfilePicture/\(MasterUser).jpg")
         self.displayNameTF.delegate = self
         self.dobPicker.delegate = self
         datePicker = UIDatePicker()
@@ -180,9 +177,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         datePicker?.addTarget(self, action: #selector(UserProfileVC.datePickerValueChanged(sender:)), for: .valueChanged)
         dobPicker.inputAccessoryView = toolBar
         dobPicker.inputView = datePicker
-        if profileImage.image == nil{
-        profileImage.image = UIImage(named: "boy")
-        }
+        profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         showUserInfo()
         super.viewDidLoad()
     }

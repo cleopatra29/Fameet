@@ -21,6 +21,11 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var signUpScrollView: UIScrollView!
     @IBOutlet weak var contentHeight: NSLayoutConstraint!
+    @IBOutlet weak var firstNameLine: UIView!
+    @IBOutlet weak var dobLine: UIView!
+    @IBOutlet weak var emailLine: UIView!
+    @IBOutlet weak var passwordLine: UIView!
+    @IBOutlet weak var lastNameLine: UIView!
     
     //MARK : INITIALIZER
     var timestamp = Double()
@@ -56,6 +61,7 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
                 print("Some text field is empty.")
                 return
         }
+        
         signUp(email: emailTF.text!, password: passwordTF.text!, firstName: nameTF.text!, lastName: lastNameTF.text!, birthday: dateOfBirthTF.text!)
 //        performSegue(withIdentifier: "toSignIn", sender: self)
         
@@ -149,6 +155,35 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         confirmButton.alpha = 1
         confirmButton.isEnabled = true
     }
+    
+    // MARK : TextField Highlight
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == nameTF {
+            firstNameLine.backgroundColor = .highLightColor
+        } else if textField == lastNameTF {
+            lastNameLine.backgroundColor = .highLightColor
+        } else if textField == dateOfBirthTF {
+            dobLine.backgroundColor = .highLightColor
+        } else if textField == emailTF {
+            emailLine.backgroundColor = .highLightColor
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .highLightColor
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == nameTF {
+            firstNameLine.backgroundColor = .lightGray
+        } else if textField == lastNameTF {
+            lastNameLine.backgroundColor = .lightGray
+        } else if textField == dateOfBirthTF {
+            dobLine.backgroundColor = .lightGray
+        } else if textField == emailTF {
+            emailLine.backgroundColor = .lightGray
+        } else if textField == passwordTF {
+            passwordLine.backgroundColor = .lightGray
+        }
+    }
 
     
     func buttonDesign(){
@@ -195,14 +230,15 @@ class SignUpVC: UIViewController,GIDSignInUIDelegate {
         
         // INI GK BISA DI SIMULATOR TAPI BISA DI KEYBOARD
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         self.contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(returnTextView(gesture:))))
         buttonDesign()
     }
     
 
 }
+
 // MARK: UITextFieldDelegate
 extension SignUpVC: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -216,6 +252,7 @@ extension SignUpVC: UITextFieldDelegate {
         activeField = nil
         return true
     }
+    
 }
 
 // MARK: Keyboard Handling

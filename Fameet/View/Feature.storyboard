@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4lP-7C-iDv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4lP-7C-iDv">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -103,20 +103,12 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggO-6w-Bge">
-                                                    <rect key="frame" x="326" y="23" width="22" height="22"/>
-                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="DSG-qu-aQA" firstAttribute="top" secondItem="czi-sW-iG2" secondAttribute="top" constant="41" id="BG5-TU-6SC"/>
                                                 <constraint firstItem="Crj-OL-pkF" firstAttribute="top" secondItem="czi-sW-iG2" secondAttribute="topMargin" constant="-11" id="Kef-OG-4K6"/>
                                                 <constraint firstItem="DSG-qu-aQA" firstAttribute="leading" secondItem="czi-sW-iG2" secondAttribute="leading" constant="23" id="Vc4-jb-s4f"/>
                                                 <constraint firstItem="Crj-OL-pkF" firstAttribute="leading" secondItem="czi-sW-iG2" secondAttribute="leadingMargin" id="Wj2-Yc-cz1"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ggO-6w-Bge" secondAttribute="bottom" constant="12" id="YI5-6l-xxc"/>
-                                                <constraint firstItem="ggO-6w-Bge" firstAttribute="leading" secondItem="Crj-OL-pkF" secondAttribute="trailing" constant="101" id="Yb3-ea-8cz"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ggO-6w-Bge" secondAttribute="trailing" constant="12" id="gQ6-3A-3m6"/>
-                                                <constraint firstItem="ggO-6w-Bge" firstAttribute="top" secondItem="czi-sW-iG2" secondAttribute="topMargin" constant="12" id="iXS-8R-8IN"/>
                                                 <constraint firstItem="Crj-OL-pkF" firstAttribute="bottom" secondItem="czi-sW-iG2" secondAttribute="bottomMargin" constant="-11" id="pfM-Nf-Z0W"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1038,7 +1030,7 @@
                                     <action selector="changeImage:" destination="jPy-oh-mWr" eventType="touchUpInside" id="OGn-wI-bHe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-O6-iJu">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-O6-iJu">
                                 <rect key="frame" x="102" y="111" width="171" height="171"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="c0x-O6-iJu" secondAttribute="height" multiplier="1:1" id="pLa-A7-cNC"/>
@@ -1220,9 +1212,9 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sQQ-4g-x06">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="barTintColor" red="1" green="0.81568627449999997" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.87090646400000005" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.87" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.96078431372549022" green="0.79424836601307203" blue="0.19215686274509799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="moo-oy-wmI" kind="relationship" relationship="viewControllers" id="ja5-a8-pwY"/>

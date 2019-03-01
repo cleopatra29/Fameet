@@ -12,6 +12,7 @@ import UIKit
 extension UIColor {
     
     static let buttonColor = UIColor().colorFromHex("#FFDB59")
+    static let highLightColor = UIColor().colorFromHex("#FFd635")
     
     func colorFromHex(_ hex: String) -> UIColor {
         var hexString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
