@@ -14,14 +14,17 @@ class SplashVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if userDefault.bool(forKey: "usersignedin"){
-            let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
-            present(homeViewController, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75){
+            if self.userDefault.bool(forKey: "usersignedin"){
+                let homeViewController: UIViewController = UIStoryboard(name: "Feature", bundle: nil).instantiateViewController(withIdentifier: "HomeViewTab") as UIViewController
+                self.present(homeViewController, animated: true)
+            }
+            else {
+                let homeViewController: UIViewController = UIStoryboard(name: "UserManagement", bundle: nil).instantiateViewController(withIdentifier: "NavbarUserManagement") as UIViewController
+                self.present(homeViewController, animated: true)
+            }
         }
-        else {
-            let homeViewController: UIViewController = UIStoryboard(name: "UserManagement", bundle: nil).instantiateViewController(withIdentifier: "NavbarUserManagement") as UIViewController
-            present(homeViewController, animated: true)
-        }
+        
     }
         
 
