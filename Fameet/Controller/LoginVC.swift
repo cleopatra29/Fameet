@@ -17,8 +17,6 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var emailLine: UIView!
-    @IBOutlet weak var passwordLine: UIView!
     
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
