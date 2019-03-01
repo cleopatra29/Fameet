@@ -280,7 +280,9 @@
                         <viewLayoutGuide key="safeArea" id="14W-z3-cxQ"/>
                     </view>
                     <connections>
+                        <outlet property="emailLine" destination="bpO-5X-GWk" id="3Qo-Dt-gDh"/>
                         <outlet property="emailTF" destination="lxW-eB-aK6" id="wmK-ps-Nvv"/>
+                        <outlet property="passwordLine" destination="jt7-O1-Tsd" id="ItS-mZ-bQt"/>
                         <outlet property="passwordTF" destination="vId-b5-to6" id="VvF-bC-sfk"/>
                         <outlet property="signInButton" destination="z63-4N-G4g" id="JSO-be-yW7"/>
                         <segue destination="7C8-54-EPx" kind="show" identifier="Login-Home" id="tbs-HW-1Qd"/>
@@ -535,9 +537,14 @@
                         <outlet property="contentHeight" destination="gps-6a-1XE" id="ul2-WV-prE"/>
                         <outlet property="contentView" destination="rVd-lc-M4a" id="of9-Gu-WT4"/>
                         <outlet property="dateOfBirthTF" destination="YRu-dq-tau" id="1Us-Qg-6d9"/>
+                        <outlet property="dobLine" destination="UMi-um-nSK" id="XTr-Jq-GzE"/>
+                        <outlet property="emailLine" destination="SJD-B3-42t" id="6cM-fy-liT"/>
                         <outlet property="emailTF" destination="C4e-Jo-8oa" id="aSB-f0-nnD"/>
+                        <outlet property="firstNameLine" destination="tYk-H5-bgy" id="lR0-Bk-v4v"/>
+                        <outlet property="lastNameLine" destination="pUn-aF-sXC" id="gSz-Oq-Dgy"/>
                         <outlet property="lastNameTF" destination="fBO-uQ-UD9" id="EIJ-il-tse"/>
                         <outlet property="nameTF" destination="FtB-qa-SK8" id="6bz-nE-xEq"/>
+                        <outlet property="passwordLine" destination="5Gp-0W-9B9" id="h6A-LZ-GOm"/>
                         <outlet property="passwordTF" destination="Lun-Ov-bFe" id="BP9-Ok-wJs"/>
                         <outlet property="signUpScrollView" destination="mUU-MN-j0Z" id="HXn-TT-h8F"/>
                         <segue destination="WzQ-9M-Cdv" kind="show" identifier="toSignIn" id="SMJ-hh-2fI"/>
@@ -667,7 +674,7 @@
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sGo-I1-fLa"/>
-        <segue reference="kgm-dk-T1B"/>
+        <segue reference="tbs-HW-1Qd"/>
+        <segue reference="SMJ-hh-2fI"/>
     </inferredMetricsTieBreakers>
 </document>
