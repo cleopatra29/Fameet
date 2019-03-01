@@ -179,6 +179,10 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         dobPicker.inputView = datePicker
         profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         showUserInfo()
+        
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.layer.masksToBounds = true
+        profileImage.clipsToBounds = true
         super.viewDidLoad()
     }
 }
