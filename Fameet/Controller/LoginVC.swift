@@ -49,13 +49,11 @@ class LoginVC: UIViewController, GIDSignInUIDelegate {
                 if error?._code == AuthErrorCode.userNotFound.rawValue {
                     
                     let alertController = UIAlertController(title: "Oops!", message: "Your email or password is not true.", preferredStyle: .alert)
-                    
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                        
                         // Code in this block will trigger when OK button tapped.
                         print("Ok button tapped");
-                        
                     }
+                    self.endIndicatorView()
                     alertController.addAction(OKAction)
                     self.present(alertController, animated: true, completion: nil)
                     

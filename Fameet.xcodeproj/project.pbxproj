@@ -33,12 +33,12 @@
 		5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84B2201934D0058A00B /* Feature.storyboard */; };
 		5D70F1B5221D04DC00ECF009 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1B4221D04DC00ECF009 /* Extension.swift */; };
 		5D70F1D8221E723400ECF009 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1D7221E723400ECF009 /* SkeletonView.swift */; };
-		5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */; };
 		5DD7D9AE2207F9B30026A235 /* MatchDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */; };
 		5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */; };
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
 		BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704C292227D2A700BBC7B3 /* SplashVC.swift */; };
 		BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE704C2B2227D39600BBC7B3 /* Splash.storyboard */; };
+		BE704C3222290AA900BBC7B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */; };
 		BEBE3C152215591B00E99502 /* SendInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C142215591B00E99502 /* SendInvitationVC.swift */; };
 		BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */; };
 		BEF4184B220C5D430098285D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4184A220C5D430098285D /* DataFetcher.swift */; };
@@ -74,12 +74,12 @@
 		5D22C84B2201934D0058A00B /* Feature.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feature.storyboard; sourceTree = "<group>"; };
 		5D70F1B4221D04DC00ECF009 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D70F1D7221E723400ECF009 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
-		5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BE704C292227D2A700BBC7B3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		BE704C2B2227D39600BBC7B3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BEBE3C142215591B00E99502 /* SendInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvitationVC.swift; sourceTree = "<group>"; };
 		BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFamilyViewCell.swift; sourceTree = "<group>"; };
 		BEF4184A220C5D430098285D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
@@ -171,8 +171,8 @@
 				536033612204665000E7772B /* Cell Controller */,
 				5D22C8352201732A0058A00B /* Main.storyboard */,
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
+				BE704C3122290AA900BBC7B3 /* GoogleService-Info.plist */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
-				5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */,
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
@@ -278,11 +278,11 @@
 			files = (
 				5D22C84A220182E00058A00B /* SF Pro in Resources */,
 				5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */,
+				BE704C3222290AA900BBC7B3 /* GoogleService-Info.plist in Resources */,
 				5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */,
 				5D22C8372201732A0058A00B /* Main.storyboard in Resources */,
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
 				5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */,
-				5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */,
 				532F541B2216F4B700B02FA4 /* Author Credits in Resources */,
 				BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */,
 			);
