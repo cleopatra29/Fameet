@@ -26,7 +26,6 @@ class HomeVC: UIViewController {
     let userDefault = UserDefaults.standard
     var userFamId = [String]()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarItem.image = UIImage(named: "home")

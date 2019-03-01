@@ -97,14 +97,11 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     
     func alerts() {
         let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
-        
-        
         let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
-            
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
-            
         }
+        
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
@@ -172,7 +169,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     override func viewDidLoad() {
-        
+        let reference = Storage.storage().reference().child("userProfilePicture/\(MasterUser).jpg")
         self.displayNameTF.delegate = self
         self.dobPicker.delegate = self
         datePicker = UIDatePicker()
@@ -180,9 +177,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         datePicker?.addTarget(self, action: #selector(UserProfileVC.datePickerValueChanged(sender:)), for: .valueChanged)
         dobPicker.inputAccessoryView = toolBar
         dobPicker.inputView = datePicker
-        if profileImage.image == nil{
-        profileImage.image = UIImage(named: "boy")
-        }
+        profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
         showUserInfo()
         super.viewDidLoad()
     }

@@ -20,7 +20,7 @@
 		536033692204899200E7772B /* FamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536033682204899200E7772B /* FamilyVC.swift */; };
 		5360336B22048E5600E7772B /* FamilyDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */; };
 		53C2924B22116FEB00A17C2E /* CommitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C2924A22116FEB00A17C2E /* CommitVC.swift */; };
-		53F263502227E15A00AE39C8 /* LocalPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */; };
+		53F263542228103D00AE39C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53F263532228103D00AE39C8 /* GoogleService-Info.plist */; };
 		5D1D0AF12202DADD00868FCA /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AF02202DADD00868FCA /* DateModel.swift */; };
 		5D1D0AFC2202FE0100868FCA /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */; };
 		5D1D0B00220304C700868FCA /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D0AFF220304C700868FCA /* CalendarCollectionViewCell.swift */; };
@@ -32,10 +32,8 @@
 		5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84622017E870058A00B /* UserManagement.storyboard */; };
 		5D22C84A220182E00058A00B /* SF Pro in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C849220182E00058A00B /* SF Pro */; };
 		5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84B2201934D0058A00B /* Feature.storyboard */; };
-		5D22C84E2201A3CF0058A00B /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D22C84D2201A3CF0058A00B /* Family.storyboard */; };
 		5D70F1B5221D04DC00ECF009 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1B4221D04DC00ECF009 /* Extension.swift */; };
 		5D70F1D8221E723400ECF009 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1D7221E723400ECF009 /* SkeletonView.swift */; };
-		5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */; };
 		5DD7D9AE2207F9B30026A235 /* MatchDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */; };
 		5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */; };
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
@@ -60,7 +58,7 @@
 		536033682204899200E7772B /* FamilyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
 		5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		53C2924A22116FEB00A17C2E /* CommitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitVC.swift; sourceTree = "<group>"; };
-		53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPushManager.swift; sourceTree = "<group>"; };
+		53F263532228103D00AE39C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A2C865C8F0FB3054E78F110 /* Pods_Fameet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fameet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D1D0AF02202DADD00868FCA /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
@@ -75,10 +73,8 @@
 		5D22C84622017E870058A00B /* UserManagement.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserManagement.storyboard; sourceTree = "<group>"; };
 		5D22C849220182E00058A00B /* SF Pro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "SF Pro"; sourceTree = "<group>"; };
 		5D22C84B2201934D0058A00B /* Feature.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feature.storyboard; sourceTree = "<group>"; };
-		5D22C84D2201A3CF0058A00B /* Family.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Family.storyboard; sourceTree = "<group>"; };
 		5D70F1B4221D04DC00ECF009 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D70F1D7221E723400ECF009 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
-		5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
@@ -125,7 +121,6 @@
 				BEF4184A220C5D430098285D /* DataFetcher.swift */,
 				5D70F1B4221D04DC00ECF009 /* Extension.swift */,
 				5D70F1D7221E723400ECF009 /* SkeletonView.swift */,
-				53F2634F2227E15A00AE39C8 /* LocalPushManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,7 +172,7 @@
 				5D22C8352201732A0058A00B /* Main.storyboard */,
 				5D22C8312201732A0058A00B /* AppDelegate.swift */,
 				5D22C83B2201732B0058A00B /* Assets.xcassets */,
-				5D8E6A592227EDF600233F63 /* GoogleService-Info.plist */,
+				53F263532228103D00AE39C8 /* GoogleService-Info.plist */,
 				5D22C83D2201732B0058A00B /* LaunchScreen.storyboard */,
 				5D22C8402201732B0058A00B /* Info.plist */,
 				532F541A2216F4B700B02FA4 /* Author Credits */,
@@ -199,7 +194,6 @@
 				BE704C2B2227D39600BBC7B3 /* Splash.storyboard */,
 				5D22C84622017E870058A00B /* UserManagement.storyboard */,
 				5D22C84B2201934D0058A00B /* Feature.storyboard */,
-				5D22C84D2201A3CF0058A00B /* Family.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,12 +278,11 @@
 			files = (
 				5D22C84A220182E00058A00B /* SF Pro in Resources */,
 				5D22C83F2201732B0058A00B /* LaunchScreen.storyboard in Resources */,
+				53F263542228103D00AE39C8 /* GoogleService-Info.plist in Resources */,
 				5D22C83C2201732B0058A00B /* Assets.xcassets in Resources */,
-				5D22C84E2201A3CF0058A00B /* Family.storyboard in Resources */,
 				5D22C8372201732A0058A00B /* Main.storyboard in Resources */,
 				5D22C84722017E870058A00B /* UserManagement.storyboard in Resources */,
 				5D22C84C2201934D0058A00B /* Feature.storyboard in Resources */,
-				5D8E6A5A2227EDF600233F63 /* GoogleService-Info.plist in Resources */,
 				532F541B2216F4B700B02FA4 /* Author Credits in Resources */,
 				BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */,
 			);
@@ -403,7 +396,6 @@
 				53603365220479F500E7772B /* Model.swift in Sources */,
 				5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */,
 				BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */,
-				53F263502227E15A00AE39C8 /* LocalPushManager.swift in Sources */,
 				5D22C8322201732A0058A00B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
