@@ -170,8 +170,9 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         formatter.dateFormat = "dd-MMM-yyyy"
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
-        
         cell.datePicked.text = myStringafd
+        
+        
         return cell
     }
     
