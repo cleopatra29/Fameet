@@ -167,10 +167,17 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         // convert your string to date
         let yourDate = formatter.date(from: myString)
         //then again set the date format whhich type of output you need
-        formatter.dateFormat = "dd-MMM-yyyy"
-        // again convert your date to string
-        let myStringafd = formatter.string(from: yourDate!)
-        cell.datePicked.text = myStringafd
+        formatter.dateFormat = "dd"
+        let dateString = formatter.string(from: yourDate!)
+        cell.datePicked.text = dateString
+        
+        formatter.dateFormat = "MMMM"
+        let monthString = formatter.string(from: yourDate!)
+        cell.monthPicked.text = monthString
+        
+        formatter.dateFormat = "YYYY"
+        let yearString = formatter.string(from: yourDate!)
+        cell.yearPicked.text = yearString
         
         
         return cell
