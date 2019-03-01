@@ -172,7 +172,22 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                     textField.placeholder = "Enter group code"
                     let OKAction = UIAlertAction(title: "Join", style: .default) { (action:UIAlertAction!) in
                     // Code in this block will trigger when OK button tapped.
-                    
+                        guard let inputJoin = textField.text,
+                            inputJoin != ""
+                        else {
+                            let alertController = UIAlertController(title: "Oops!", message: "Your code is Empty", preferredStyle: .alert)
+                            
+                            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                // Code in this block will trigger when OK button tapped.
+                                print("Ok button tapped");
+                            }
+                            alertController.addAction(OKAction)
+                            self.present(alertController, animated: true, completion: nil)
+                            
+                            print("Text field is empty.")
+                            textField.text = ""
+                            return
+                        }
                         let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
                     
                         let dictJoin : [String: Any] = ["family-member" : userRef]
@@ -239,7 +254,22 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                     
                     textField.placeholder = "Enter Group Name"
                     let OKAction = UIAlertAction(title: "Create", style: .default) { (action:UIAlertAction!) in
-                        
+                        guard let inputFamName = textField.text,
+                            inputFamName != ""
+                            else {
+                                let alertController = UIAlertController(title: "Oops!", message: "Your Family Name is Empty", preferredStyle: .alert)
+                                
+                                let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                                    // Code in this block will trigger when OK button tapped.
+                                    print("Ok button tapped");
+                                }
+                                alertController.addAction(OKAction)
+                                self.present(alertController, animated: true, completion: nil)
+                                
+                                print("Text field is empty.")
+                                textField.text = ""
+                                return
+                        }
                         // Code in this block will trigger when OK button tapped.
                         let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
                         

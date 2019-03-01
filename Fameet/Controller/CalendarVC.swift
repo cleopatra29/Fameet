@@ -171,7 +171,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         // again convert your date to string
         let myStringafd = formatter.string(from: yourDate!)
         
-        cell.datePickedLabel.text = myStringafd
+        cell.datePicked.text = myStringafd
         return cell
     }
     
