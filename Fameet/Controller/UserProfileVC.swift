@@ -87,6 +87,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     @IBAction func doneBtn(_ sender: Any) {
         let db = Firestore.firestore()
         db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
+        print("Done button pressed")
     }
     
     
