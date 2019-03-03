@@ -20,9 +20,6 @@ class SendInvitationVC: UIViewController, MFMailComposeViewControllerDelegate, M
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var phoneNumberField: UITextField!
     
-    
-    
-    
     //action
     
     //email
