@@ -17,6 +17,7 @@ class CalendarVC: UIViewController {
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var datesYouPickedLabel: UILabel!
+    @IBOutlet weak var calendarView: UIView!
     @IBOutlet weak var prevMonthBtn: UIButton!
     @IBOutlet weak var nextMonthBtr: UIButton!
     
@@ -29,6 +30,7 @@ class CalendarVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarView.shapingView()
         datePickedTableView.tableFooterView = UIView()
         delegateTableViewAndCollectionView()
         dateModel.februaryAmbiguousDate()
@@ -158,7 +160,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableDatePickedReuseIdentifier", for: indexPath) as! CalendarTableViewCell
         
-        cell.datePickedView.shappingButton()
+        cell.datePickedView.shapingView()
         
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
@@ -180,6 +182,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         let yearString = formatter.string(from: yourDate!)
         cell.yearPicked.text = yearString
         
+        cell.datePickedView.backgroundColor = UIColor.datePickedViewColor
         tableView.allowsSelection = false
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
