@@ -75,18 +75,22 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         }
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        tableViewMatchDates.reloadData()
-//    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         famMemberId.removeAll()
         famMemberList.removeAll()
         availMatchDate.removeAll()
         readUserFamilyGroup()
         tableViewMatchDates.reloadData()
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        famMemberId.removeAll()
+//        famMemberList.removeAll()
+//        availMatchDate.removeAll()
+//        readUserFamilyGroup()
+//        tableViewMatchDates.reloadData()
+//    }
     
     
     func fetchFamilyCollection(id:String){
