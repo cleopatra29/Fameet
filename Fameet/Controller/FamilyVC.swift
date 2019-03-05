@@ -55,7 +55,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     func setupView() {
         familyNameLabel.alpha = 0.0
         self.skeletonViews.setNeedsDisplay()
-        self.skeletonViews.animating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
@@ -280,7 +279,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         
         return availMatchDate.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
         let formatter = DateFormatter()

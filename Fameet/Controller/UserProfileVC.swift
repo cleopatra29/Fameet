@@ -69,7 +69,10 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func changeImage(_ sender: Any) {
+    @IBAction func doneBtn(_ sender: Any) {
+//        let db = Firestore.firestore()
+//        db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
+//        print("Done button pressed")
         let db = Firestore.firestore()
         let storageRef = Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
         let uploadData = profileImage.image
@@ -82,12 +85,6 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
             self.alerts()
             print("metaData : \(metadata)")
         }
-    }
-    
-    @IBAction func doneBtn(_ sender: Any) {
-        let db = Firestore.firestore()
-        db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
-        print("Done button pressed")
     }
     
     
@@ -180,7 +177,6 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         dobPicker.inputView = datePicker
         profileImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         showUserInfo()
-        
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
         profileImage.layer.masksToBounds = true
         profileImage.clipsToBounds = true

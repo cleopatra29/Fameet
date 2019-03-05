@@ -20,17 +20,22 @@ class PreloginVC: UIViewController {
     let userDefault = UserDefaults.standard
     
     func setupView() {
+        
+        
         //Google Button
         googleButton.shappingButton()
-        
+        googleButton.animating()
         //Create Account
         createAccountButton.shappingButton()
+        createAccountButton.animating()
         
         //NavBar design
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
     self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +55,8 @@ class PreloginVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        googleButton.alpha = 0
+        createAccountButton.alpha = 0
         setupView()
         super.viewDidLoad()
         

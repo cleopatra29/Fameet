@@ -53,4 +53,12 @@ extension UIView {
         self.layer.masksToBounds = false
     }
     
+    func animating() {
+        UIView.animate(withDuration: 1, delay: 1, options: .beginFromCurrentState, animations: {
+            self.alpha = 1
+        }, completion: {
+            (animate) in
+        })
+    }
+    
 }

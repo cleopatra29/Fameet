@@ -42,7 +42,6 @@ class CalendarVC: UIViewController {
     
     func setUpView() {
         monthLabel.font = UIFont(name: "SF-Pro-Display-Medium", size: 20.00)
-        instructionLabel.font = UIFont(name: "SF-Pro-Display-LightItalic", size : 18.00)
         monthLabel.text = "\(dateModel.monthsArray[dateModel.currentMonthIndex - 1]) \(dateModel.currentYear)"
     }
     
