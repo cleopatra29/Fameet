@@ -14,7 +14,7 @@ class NotificationVC: UIViewController {
     @IBOutlet weak var comingSoonImage: UIImageView!
     
     override func viewDidLoad() {
-        comingSoonImage.image = UIImage(named: "ComingSoon")
+        comingSoonImage.image = UIImage(named: "Coming soon")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }

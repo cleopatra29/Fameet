@@ -11,6 +11,7 @@ import GoogleSignIn
 import Firebase
 
 class SignUpVC: UIViewController,GIDSignInUIDelegate {
+    
     //MARK : OUTLET
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var lastNameTF: UITextField!

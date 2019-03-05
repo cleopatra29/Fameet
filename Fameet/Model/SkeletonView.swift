@@ -37,7 +37,7 @@ class SkeletonView: UIView {
     }
     
     
-    func animating(){
+    func animatingSView(){
         let animation = CABasicAnimation(keyPath: "locations")
         animation.fromValue = self.startLocations
         animation.toValue = self.endLocations

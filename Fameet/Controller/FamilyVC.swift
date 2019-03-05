@@ -51,50 +51,26 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         tableViewMatchDates.dataSource = self
         
     }
-    //MARK : NOTIFICATION
-
-//    func notification() {
-//        let content = UNMutableNotificationContent()
-//        content.title = "Title"
-//        content.body = "Body"
-//        content.sound = UNNotificationSound.default
-//
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-//        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
-//
-//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//        print("fungsi notification jalan")
-//    }
     
     func setupView() {
         familyNameLabel.alpha = 0.0
         self.skeletonViews.setNeedsDisplay()
-        self.skeletonViews.animating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         famMemberId.removeAll()
         famMemberList.removeAll()
         availMatchDate.removeAll()
         readUserFamilyGroup()
         tableViewMatchDates.reloadData()
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        famMemberId.removeAll()
-//        famMemberList.removeAll()
-//        availMatchDate.removeAll()
-//        readUserFamilyGroup()
-//        tableViewMatchDates.reloadData()
-//    }
     
     
     func fetchFamilyCollection(id:String){
-        
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
             print("fetch FAM collect id = \(id)")
             guard let fetchFamilyId = snapshot?.documentID as? String,
@@ -158,9 +134,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                                             }
                                             self.tableViewMatchDates.reloadData()
                                             print("userRefID read : \(userRefId)")
-
-    //                                        print(self.datePicked)
-    //                                        print(self.availMatchDate)
+                                            
                                     } else {
                                         Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
                                     }
@@ -275,9 +249,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             let mailCompose = MFMailComposeViewController()
             mailCompose.mailComposeDelegate =  self
-            //mailCompose.setToRecipients(["\(famMemberList)"])
-            mailCompose.setSubject("Invitation to Who?")
-            mailCompose.setMessageBody(" Hello Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
+            mailCompose.setSubject("Fameet Group Invitation")
+            mailCompose.setMessageBody(" Hi! \(MasterUser) Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
             if MFMailComposeViewController.canSendMail()
             {
                 self.present(mailCompose, animated: true, completion: nil)
@@ -306,7 +279,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         
         return availMatchDate.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
         let formatter = DateFormatter()

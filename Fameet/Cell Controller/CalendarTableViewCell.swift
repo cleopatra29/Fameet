@@ -12,6 +12,8 @@ class CalendarTableViewCell: UITableViewCell {
     @IBOutlet weak var datePicked: UILabel!
     @IBOutlet weak var monthPicked: UILabel!    
     @IBOutlet weak var yearPicked: UILabel!
+    @IBOutlet weak var datePickedView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

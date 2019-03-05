@@ -13,6 +13,7 @@ extension UIColor {
     
     static let buttonColor = UIColor().colorFromHex("#FFDB59")
     static let highLightColor = UIColor().colorFromHex("#FFd635")
+    static let datePickedViewColor = UIColor().colorFromHex("#F2F2F2")
 
     
     func colorFromHex(_ hex: String) -> UIColor {
@@ -42,4 +43,22 @@ extension UIView {
         self.layer.shadowOpacity = 0.5
         self.layer.masksToBounds = false
     }
+    
+    func shapingView() {
+        self.layer.cornerRadius = 10
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 1.5
+        self.layer.shadowOffset = CGSize (width: 0, height: 1.5)
+        self.layer.shadowOpacity = 0.5
+        self.layer.masksToBounds = false
+    }
+    
+    func animating() {
+        UIView.animate(withDuration: 1, delay: 1, options: .beginFromCurrentState, animations: {
+            self.alpha = 1
+        }, completion: {
+            (animate) in
+        })
+    }
+    
 }
