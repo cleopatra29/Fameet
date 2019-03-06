@@ -44,46 +44,47 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         
         super.viewDidLoad()
         fetchFamilyCollection(id: MasterFamily)
-
+//        notification()
+        DispatchQueue.main.async(){
+            self.readUserFamilyGroup()
+        }
         memberCollectionOutlet.delegate = self
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
         
     }
+    //MARK : NOTIFICATION
+
+//    func notification() {
+//        let content = UNMutableNotificationContent()
+//        content.title = "Title"
+//        content.body = "Body"
+//        content.sound = UNNotificationSound.default
+//
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+//        let request = UNNotificationRequest(identifier: "testIdentifier", content: content, trigger: trigger)
+//
+//        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//        print("fungsi notification jalan")
+//    }
     
     func setupView() {
         familyNameLabel.alpha = 0.0
         self.skeletonViews.setNeedsDisplay()
+        self.skeletonViews.animating()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
     }
     
-<<<<<<< HEAD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-=======
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
->>>>>>> 0084e1b52a5d7a42cc500fd51e3d68503ffd9905
-        famMemberId.removeAll()
-        famMemberList.removeAll()
-        availMatchDate.removeAll()
-        readUserFamilyGroup()
         tableViewMatchDates.reloadData()
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        famMemberId.removeAll()
-//        famMemberList.removeAll()
-//        availMatchDate.removeAll()
-//        readUserFamilyGroup()
-//        tableViewMatchDates.reloadData()
-//    }
-    
     
     func fetchFamilyCollection(id:String){
+        
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
             print("fetch FAM collect id = \(id)")
             guard let fetchFamilyId = snapshot?.documentID as? String,
@@ -146,8 +147,14 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                                                 self.availMatchDate.updateValue([userRefId], forKey: datestring)
                                             }
                                             self.tableViewMatchDates.reloadData()
+<<<<<<< HEAD
                                             print("userRefID read : \(userRefId)")
-                                            
+
+    //                                        print(self.datePicked)
+    //                                        print(self.availMatchDate)
+=======
+                                            print(userRefId!)
+>>>>>>> 720ee80bbbef5a03a09a0de316a32493eab08a92
                                     } else {
                                         Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
                                     }
@@ -197,7 +204,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             return famMemberList.count
             
         }else{
@@ -209,14 +216,17 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch(indexPath.section) {
         case 0:
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "famCell", for: indexPath) as! FamilyDetailCollectionViewCell
+            
+
         
             // Reference to an image file in Firebase Storage
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
         
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "boy"))
             print("image ref : \(reference)")
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
+            print("size frame : \(collectionCell.memberImage.frame.size.width / 2)")
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
             
@@ -262,8 +272,9 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             let mailCompose = MFMailComposeViewController()
             mailCompose.mailComposeDelegate =  self
-            mailCompose.setSubject("Fameet Group Invitation")
-            mailCompose.setMessageBody(" Hi! \(MasterUser) Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
+            //mailCompose.setToRecipients(["\(famMemberList)"])
+            mailCompose.setSubject("Invitation to Who?")
+            mailCompose.setMessageBody(" Hello Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
             if MFMailComposeViewController.canSendMail()
             {
                 self.present(mailCompose, animated: true, completion: nil)
@@ -292,17 +303,16 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         
         return availMatchDate.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
         let formatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "dd-MM-yyy"
-        
+    
         datePicked = Array(availMatchDate.keys)
+        print(datePickedCount)
         datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
-        
-        
         
         let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
         // Konversi date ke string

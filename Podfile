@@ -11,7 +11,7 @@ target 'Fameet' do
 	pod 'Firebase/Auth'
 	pod 'GoogleSignIn'
 	pod 'Firebase/Messaging'
-    pod 'Firebase/Storage'
-    pod 'FirebaseUI/Storage'
-
+   	pod 'Firebase/Storage'
+    	pod 'FirebaseUI/Storage'
+	pod 'Kingfisher', '~> 5.2'
 end

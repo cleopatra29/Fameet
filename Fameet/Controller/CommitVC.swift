@@ -138,5 +138,3 @@ extension CommitVC: UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSou
         }
     }
 }
-
-
