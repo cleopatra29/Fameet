@@ -27,7 +27,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet var skeletonViews: SkeletonView!
     
     
-    let MasterUser = Auth.auth().currentUser?.uid as! String
+    let MasterUser = Auth.auth().currentUser!.uid as String
     
     var famMemberId = [String]()
     var tempFamMemberList : [String] = []
@@ -73,7 +73,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     func fetchFamilyCollection(id:String){
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
             print("fetch FAM collect id = \(id)")
-            guard let fetchFamilyId = snapshot?.documentID as? String,
+            guard let fetchFamilyId = snapshot?.documentID,
                 let fetchFamilyName = snapshot?.data()!["family-name"] as? String
                 else {return}
             self.familyNameLabel.text = "\(fetchFamilyName)'s Family"
@@ -84,9 +84,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         Firestore.firestore().collection("user-collection").document(id).getDocument (completion: {(snapshot, error) in
             print("id fetch user collect = \(id)")
             if error != nil{
-                return print(error)
+                return print(error!)
             } else {
-                guard let fetchUserId = snapshot?.documentID as? String,
+                guard let fetchUserId = snapshot?.documentID,
                     let fetchUserFirst = snapshot?.data()!["first-name"] as? String,
                     let fetchUserLast = snapshot?.data()!["last-name"] as? String,
                     let fetchEmail = snapshot?.data()!["email"] as? String,
@@ -106,10 +106,10 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     func readUserFamilyGroup() {
         Firestore.firestore().collection("family-collection").document(MasterFamily).collection("family-member").getDocuments (completion: { (snapshot, error) in
             if error != nil{
-                return print(error)
+                return print(error!)
             } else {
                 for docUserRef in snapshot!.documents {
-                    let userRefId = (docUserRef.data()["family-member"] as? DocumentReference)?.documentID as! String
+                    let userRefId = (docUserRef.data()["family-member"] as? DocumentReference)!.documentID as String
                     
                     Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(userRefId).collection("free-time").getDocuments(completion: { (snapshot1, error) in
                         if let err = error{
@@ -226,8 +226,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var item = self.collectionView(self.memberCollectionOutlet!, numberOfItemsInSection: 0) - 1
-        var lastItemIndex = IndexPath(item: item, section: 0)
+        let item = self.collectionView(self.memberCollectionOutlet!, numberOfItemsInSection: 0) - 1
+        let lastItemIndex = IndexPath(item: item, section: 0)
         let currentCell = collectionView.cellForItem(at: lastItemIndex) as! FamilyDetailCollectionViewCell
         if (indexPath.section) == 0 {
             let row = indexPath.row
@@ -270,14 +270,16 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     } 
 }
 
-
-
 extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("date picked count : \(datePicked.count)")
         
         return availMatchDate.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "createEventSegue", sender: (Any).self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

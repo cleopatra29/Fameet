@@ -20,9 +20,7 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionViewMatchDates: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        DispatchQueue.main.async {
-            collectionView.reloadData()
-        }
+       
         return passData[passKey]?.count ?? 0
     }
     

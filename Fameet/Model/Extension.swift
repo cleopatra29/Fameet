@@ -53,12 +53,36 @@ extension UIView {
         self.layer.masksToBounds = false
     }
     
-    func animating() {
-        UIView.animate(withDuration: 1, delay: 1, options: .beginFromCurrentState, animations: {
+    func animating(_ delayTime: Double) {
+        UIView.animate(withDuration: 1, delay: delayTime, options: .beginFromCurrentState, animations: {
             self.alpha = 1
         }, completion: {
             (animate) in
         })
     }
     
+    func animatingWithMovement(_ delayTime: Double) {
+        UIView.animate(withDuration: 1, delay: delayTime, options: .beginFromCurrentState, animations: {
+            self.center.x += 16
+            self.alpha = 1
+        }, completion: {
+            (animate) in
+        })
+    }
+    
+    func animatingColoring(_ delayTime: Double, _ color: UIColor) {
+        UIView.animate(withDuration: 0.25, delay: delayTime, options: .beginFromCurrentState, animations: {
+            self.backgroundColor = color
+        }, completion: {
+            (animate) in
+        })
+    }
+    
+    func animatingDatePickedView(_ delayTime: Double) {
+        UIView.animate(withDuration: 0.25, delay: delayTime, options: .beginFromCurrentState, animations: {
+            self.center.x += 10
+        }, completion: {
+            (animate) in
+        })
+    }
 }

@@ -138,7 +138,7 @@
                         <viewLayoutGuide key="safeArea" id="hhn-vt-83C"/>
                     </view>
                     <navigationItem key="navigationItem" id="tYF-ws-7mc">
-                        <barButtonItem key="backBarButtonItem" title="  " id="wjH-bF-Uvi"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="wjH-bF-Uvi"/>
                     </navigationItem>
                     <connections>
                         <outlet property="dontHaveFamilyLabel" destination="tsA-f4-E51" id="KTX-LY-24v"/>
@@ -150,6 +150,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajA-dG-mRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1128.8" y="-558.62068965517244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ct5-ti-lmV">
+            <objects>
+                <viewController id="pQg-kU-WiS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tYW-Yc-PEF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRo-6h-f8s">
+                                <rect key="frame" x="43" y="164" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Event" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ie3-4e-kCR">
+                                <rect key="frame" x="43" y="231" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gHl-e0-Ggm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0y-6y-4bm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2871" y="-1313"/>
         </scene>
         <!--FamilyVC-->
         <scene sceneID="42S-7b-KKW">
@@ -396,6 +427,7 @@
                         <outlet property="tableViewMatchDates" destination="QKb-jb-vuz" id="tpZ-wF-3Ex"/>
                         <segue destination="oy3-AG-KFW" kind="show" identifier="commitment" id="bxY-7o-z7d"/>
                         <segue destination="xco-uF-Jrq" kind="show" identifier="Family-Invite" id="ZMr-MT-fbf"/>
+                        <segue destination="pQg-kU-WiS" kind="show" identifier="createEventSegue" id="KPb-Nb-iWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0O-aD-Xq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1159,6 +1191,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X3z-5Y-mX8">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -15,20 +15,22 @@ class PreloginVC: UIViewController {
     //MARK : OUTLET
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var createAccountButton: UIButton!
-    
+    @IBOutlet weak var briefFameetLabel: UILabel!
+    @IBOutlet weak var briefFameetExpLabel: UILabel!
     //MARK : INITIALIZER
     let userDefault = UserDefaults.standard
     
     func setupView() {
-        
+        //Label
+        briefFameetLabel.animatingWithMovement(1)
+        briefFameetExpLabel.animatingWithMovement(1.5)
         
         //Google Button
         googleButton.shappingButton()
-        googleButton.animating()
+        googleButton.animating(2)
         //Create Account
         createAccountButton.shappingButton()
-        createAccountButton.animating()
-        
+        createAccountButton.animating(2)
         //NavBar design
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -54,9 +56,18 @@ class PreloginVC: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    override func viewDidLoad() {
+    func setupViewAnimation() {
         googleButton.alpha = 0
         createAccountButton.alpha = 0
+        briefFameetLabel.alpha = 0
+        briefFameetExpLabel.alpha = 0
+        briefFameetLabel.center.x = 0
+        briefFameetExpLabel.center.x = 0
+        
+    }
+    
+    override func viewDidLoad() {
+        setupViewAnimation()
         setupView()
         super.viewDidLoad()
         
