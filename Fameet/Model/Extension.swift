@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 extension UIColor {
     
     static let buttonColor = UIColor().colorFromHex("#FFDB59")
@@ -42,5 +43,4 @@ extension UIView {
         self.layer.shadowOpacity = 0.5
         self.layer.masksToBounds = false
     }
-    
 }
