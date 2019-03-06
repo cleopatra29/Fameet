@@ -173,7 +173,6 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
         passwordTF.text = ""
 
     }
-    
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         endIndicatorView()
     }

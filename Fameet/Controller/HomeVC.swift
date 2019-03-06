@@ -120,6 +120,29 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
         return 2
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+            if indexPath.section == 0 {
+                let delete = UITableViewRowAction(style: .destructive, title: "Leave Family") { (action, indexPath) in
+                    let leaveFamilyConfimation = UIAlertController(title: "Confirm Leave Family", message: "Are you sure you want to leave this family group?", preferredStyle: .alert)
+                    // Kalo di delete, masukin kodingan yang ilangin member di database di firebasenya
+                    let leaveAction = UIAlertAction(title: "Yes", style: .default, handler: { (leave) in
+                    self.MasterUserFamily.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                })
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (cancel) in
+                    print("Cancel")
+                })
+                leaveFamilyConfimation.addAction(leaveAction)
+                leaveFamilyConfimation.addAction(cancelAction)
+                self.present(leaveFamilyConfimation, animated: true, completion: nil)
+            }
+            delete.backgroundColor = .red
+            return [delete]
+        }
+        return []
+
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
