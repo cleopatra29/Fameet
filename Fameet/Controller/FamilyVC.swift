@@ -24,7 +24,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var familyNameLabel: UILabel!
     @IBOutlet weak var tableViewMatchDates: UITableView!
     @IBOutlet weak var memberCollectionOutlet: UICollectionView!
-    @IBOutlet var skeletonViews: SkeletonView!
+    @IBOutlet weak var tableviewConfirmedTime: UITableView!
     
     
     let MasterUser = Auth.auth().currentUser?.uid as! String
@@ -54,7 +54,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     func setupView() {
         familyNameLabel.alpha = 0.0
-        self.skeletonViews.setNeedsDisplay()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
@@ -303,6 +302,79 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         cell.passKey = datePicked[indexPath.row]
         cell.passData = availMatchDate
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Create New Group", message: "", preferredStyle: UIAlertController.Style.alert)
+        alertController.addTextField(configurationHandler: { (textField: UITextField!) in
+            textField.placeholder = "Enter Event Name"
+            let OKAction = UIAlertAction(title: "Confirm", style: .default) { (action:UIAlertAction!) in
+                guard let inputEvent = textField.text,
+                    inputEvent != ""
+                    else {
+                        let alertController = UIAlertController(title: "Oops!", message: "Your Event Name is Empty", preferredStyle: .alert)
+                        
+                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                            // Code in this block will trigger when OK button tapped.
+                            print("Ok button tapped");
+                        }
+                        alertController.addAction(OKAction)
+                        self.present(alertController, animated: true, completion: nil)
+                        
+                        print("Text field is empty.")
+                        textField.text = ""
+                        return
+                }
+                // Code in this block will trigger when OK button tapped.
+                let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
+                
+                let dictAdd : [String: Any] = ["event-name" : textField.text]
+                
+                let formatter = DateFormatter()
+                // initially set the format based on your datepicker date / server String
+                formatter.dateFormat = "dd-MM-yyy"
+                self.datePicked = Array(self.availMatchDate.keys)
+                let myString = formatter.string(from: self.datePicked[indexPath.row] as Date)
+                // string purpose I add here
+                // Konversi date ke string
+                let yourDate = formatter.date(from: myString)
+                //then again set the date format whhich type of output you need
+                formatter.dateFormat = "yyyy-mm-dd"
+                // again convert your date to string
+                let myStringafd = formatter.string(from: yourDate!)
+                
+                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).getDocument { (document, error) in
+                    if let doc = document, document!.exists {
+                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).setData(dictAdd)
+                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
+                        print("data created")
+                    } else {
+                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
+                        print("joined")
+                    }
+                }
+                
+                
+               
+                print("create Ok button tapped")
+                
+                let alertDone = UIAlertController(title: "Success", message: "You successfully Confirm", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                    
+                }
+                alertDone.addAction(action)
+                self.present(alertDone, animated: true, completion: nil)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
+                print("Cancel button tapped")
+            })
+            alertController.addAction(OKAction)
+            alertController.preferredAction = OKAction
+            alertController.addAction(cancelAction)
+            
+        })
+    
     }
 }
 
