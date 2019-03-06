@@ -114,6 +114,11 @@
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
+		<key>Kingfisher.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>Pods-Fameet.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -122,7 +127,7 @@
 		<key>Pods-Fameet.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-FinalChallengeVessel.xcscheme</key>
 		<dict>
@@ -137,7 +142,7 @@
 		<key>Protobuf.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>18</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
@@ -147,7 +152,7 @@
 		<key>SDWebImage.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>19</integer>
 		</dict>
 		<key>gRPC-C++.xcscheme</key>
 		<dict>
@@ -177,7 +182,7 @@
 		<key>leveldb-library.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>15</integer>
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
@@ -187,7 +192,7 @@
 		<key>nanopb.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 	</dict>
 </dict>

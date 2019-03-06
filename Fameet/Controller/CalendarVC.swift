@@ -92,12 +92,14 @@ class CalendarVC: UIViewController {
     }
     
     func readFreeTime(){
-        Firestore.firestore().collection("family-collection").document(MasterFamily).collection("family-member").document(MasterUser).collection("free-time").getDocuments(completion: { (snapshot, error) in
+        let masterUserRef = Firestore.firestore().collection("family-collection").document(MasterFamily).collection("family-member").document(MasterUser)
+        masterUserRef.collection("free-time").getDocuments(completion: { (snapshot, error) in
             if error != nil{
                 return print(error!)
             } else {
                 for document in snapshot!.documents {
-                    guard let freeTimeId = document.documentID as? String,
+                    let freeTimeId = document.documentID
+                    guard
                         let day = document.data() ["date"] as? Int ,
                         let month = document.data() ["month"] as? Int,
                         let year = document.data() ["year"] as? Int
@@ -109,13 +111,13 @@ class CalendarVC: UIViewController {
                                 let datestring : NSDate = NSDate(dateString: "\(day)-\(month)-\(year)")
                                 self.datePicked.append(datestring)
                             } else {
-                                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
+                                masterUserRef.collection("free-time").document(freeTimeId).delete()
                             }
                         } else {
-                            Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
+                            masterUserRef.collection("time").document(freeTimeId).delete()
                         }
                     } else {
-                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("family-member").document(self.MasterUser).collection("free-time").document(freeTimeId).delete()
+                        masterUserRef.collection("free-time").document(freeTimeId).delete()
                     }
                 }
                 self.datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })

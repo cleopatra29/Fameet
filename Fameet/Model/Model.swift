@@ -37,22 +37,6 @@ struct UserCollection {
 }
 
 
-//extension UserCollection : DocSerialization {
-//    init?(dictionary : [String :Any]) {
-//        guard let userIdEx = dictionary["documentId"] as? String,
-//            let firstNameEx = dictionary["first-name"] as? String,
-//            let lastNameEx = dictionary["last-name"] as? String,
-//            let emailEx = dictionary["email"] as? String,
-//            let passwordEx = dictionary["password"] as? String,
-//            let birthdayEx = dictionary["birthday"] as? String
-//            //let familyGroupEx = dictionary["family-group"] as? FamilyGroup
-//            else {return nil}
-//        self.init(userId : userIdEx, firstName : firstNameEx, lastName : lastNameEx, email : emailEx, password : passwordEx, birthday : birthdayEx)
-//    }
-//}
-
-
-
 
 struct FamilyGroup {
     var familyMemberId : String
@@ -66,16 +50,6 @@ struct FamilyGroup {
         ]
     }
 }
-
-//extension FamilyGroup : DocSerialization {
-//    init?(dictionary: [String : Any]) {
-//        guard let familyMemberIdEx = dictionary["documentId"] as? String,
-//        let familyGroupNameEx = dictionary["family-group-name"] as? FamilyCollection
-//        else{ return nil }
-//        self.init(familyMemberId : familyMemberIdEx, familyGroupName : familyGroupNameEx)
-//    }
-//}
-
 
 struct FamilyCollection {
     var familyId : String
@@ -91,19 +65,6 @@ struct FamilyCollection {
     }
 }
 
-//extension FamilyCollection : DocSerialization {
-//    init?(dictionary : [String : Any]) {
-//        guard let familyIdEx = dictionary["documentId"] as? String,
-//            let familyNameEx = dictionary["family-name"] as? String
-//            //let familyMember = dictionary[""] as? FamilyMember
-//            else {return nil}
-//        self.init(familyId : familyIdEx, familyName : familyNameEx)
-//    }
-//}
-
-
-
-
 struct FamilyMember {
     var familyMemberId : String
     var familyMemberRef : UserCollection?
@@ -115,17 +76,6 @@ struct FamilyMember {
         ]
     }
 }
-
-
-//extension FamilyMember : DocSerialization {
-//    init?(dictionary: [String : Any]) {
-//        guard let familyMemberIdEx = dictionary["documentId"] as? String,
-//        let familyMemberRefEx = dictionary["member-reference"] as? UserCollection
-//        else { return nil }
-//        self.init(familyMemberId: familyMemberIdEx, familyMemberRef: familyMemberRefEx)
-//    }
-//}
-
 
 extension NSDate {
     convenience

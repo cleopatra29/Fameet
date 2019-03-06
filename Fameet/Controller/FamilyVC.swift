@@ -11,13 +11,14 @@ import Firebase
 import FirebaseAuth
 import FirebaseUI
 import MessageUI
+import Kingfisher
 import UserNotifications
 
 var selectedFamMemberId :String = ""
 var selectedFamMemberName:String = ""
 //buat back
 var selectedFamGroup: String = ""
-
+var userGlobalDict = [String:UIImage]()
 
 class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
@@ -199,16 +200,27 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         
             // Reference to an image file in Firebase Storage
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
-        
+            print("user image reference : \(reference)")
+            reference.downloadURL { (url, error) in
+                if error != nil{
+                    print("error in download url = \(error)")
+                }else{
+                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId).jpg")
+                    print("resource download link = \(resource.downloadURL)")
+                    print("")
+                    print("resource cacheKey = \(resource.cacheKey)")
+                    collectionCell.memberImage.kf.setImage(with: resource)
+                }
+            }
+            
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
-            print("image ref : \(reference)")
+//            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
-            
             print("User list in collection : \(collectionCell.memberName.text)")
-            
+            userGlobalDict[famMemberList[indexPath.row].userId] = collectionCell.memberImage.image
+            self.tableViewMatchDates.reloadData()
             return collectionCell
             
         default:
@@ -308,3 +320,23 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+//                    print("link download url = \(url!)")
+//                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId)")
+//                    print("resource link = \(resource)")
+//                    //check whether an image in the cache
+//                    let cache = ImageCache.default
+//                    let cached = cache.isCached(forKey: "\(self.famMemberList[indexPath.row].userId)")
+//                    let cacheType = cache.imageCachedType(forKey: "\(self.famMemberList[indexPath.row].userId)")
+//
+//                    //get image from cache
+//                    cache.retrieveImage(forKey: "\(self.famMemberList[indexPath.row].userId)") { Result in
+//                        switch Result {
+//                        case .success(let value) :
+//                            print("value cache type = \(value.cacheType)")
+//                            print("value cache image = \(value.image)")
+//                        case .failure(let error) :
+//                            print("error in caching = \(error)")
+//                        }
+//                    }
+//                    collectionCell.memberImage.kf.setImage(with: resource)

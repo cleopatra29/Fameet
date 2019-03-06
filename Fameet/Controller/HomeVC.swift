@@ -84,6 +84,12 @@ class HomeVC: UIViewController {
         
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        guard let target = segue.destination as? FamilyVC,
+            let isIndex = sender as? Int,
+            let idIndex = MasterUserFamily[isIndex].familyId as? String else {return false }
+        return true
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let target = segue.destination as? FamilyVC,
@@ -219,7 +225,7 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                         let familyRef : DocumentReference = Firestore.firestore().document("family-collection/\(textField.text!)")
                         let dictJoin1 : [String: Any] = ["family-group-name": familyRef]
                     
-                        Firestore.firestore().collection("family-collection").document(textField.text!).getDocument { (document, error) in
+                        Firestore.firestore().collection("family-collection").document(textField.text ?? "").getDocument { (document, error) in
                             if let doc = document, document!.exists {
                                 Firestore.firestore().collection("user-collection").document(self.MasterUser).collection("family-group").document(textField.text!).setData(dictJoin1)
                                 
