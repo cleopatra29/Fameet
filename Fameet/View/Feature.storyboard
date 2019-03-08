@@ -23,6 +23,50 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Title-->
+        <scene sceneID="YXF-Zi-GLc">
+            <objects>
+                <viewController id="6cd-Tj-trA" customClass="ConfirmedTimeVC" customModule="Fameet" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aLd-TV-UvT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Event Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6KE-8R-RqE">
+                                <rect key="frame" x="74" y="162" width="221" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DkT-VJ-JCF">
+                                <rect key="frame" x="70" y="298" width="233" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEH-mn-pYU">
+                                <rect key="frame" x="146" y="386" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="confirmBTN:" destination="6cd-Tj-trA" eventType="touchUpInside" id="C7O-zM-Me2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3SA-R4-WPl"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="FCZ-fL-zeu"/>
+                    <connections>
+                        <outlet property="eventNameTF" destination="6KE-8R-RqE" id="RgY-8Z-WEL"/>
+                        <outlet property="locationTF" destination="DkT-VJ-JCF" id="Z23-dG-1qZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cho-O3-qOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1468" y="-1231.0344827586207"/>
+        </scene>
         <!--HomeVC-->
         <scene sceneID="BlH-OV-DEH">
             <objects>
@@ -418,6 +462,7 @@
                         <outlet property="tableviewConfirmedTime" destination="Mvw-fl-Cgo" id="Jhv-5f-1Av"/>
                         <segue destination="oy3-AG-KFW" kind="show" identifier="commitment" id="bxY-7o-z7d"/>
                         <segue destination="xco-uF-Jrq" kind="show" identifier="Family-Invite" id="ZMr-MT-fbf"/>
+                        <segue destination="6cd-Tj-trA" kind="show" identifier="Family-ConfirmedTime" id="ywg-JF-N9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0O-aD-Xq0" userLabel="First Responder" sceneMemberID="firstResponder"/>

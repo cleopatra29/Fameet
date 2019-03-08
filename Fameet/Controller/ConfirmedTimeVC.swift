@@ -12,16 +12,34 @@ import FirebaseFirestore
 
 class ConfirmedTimeVC: UIViewController {
 
+    @IBOutlet weak var eventNameTF: UITextField!
+    @IBOutlet weak var locationTF: UITextField!
+    
+    
     var EventId = String()
-    var MasterUser = String()
+    var MasterUser = Auth.auth().currentUser?.uid as! String
     var MasterFamily = String()
     
-    func formAct(eventName:String,location:String) {
-        Firestore.firestore().collection("family-collection").document(MasterFamily).collection("event-collection").document(EventId).setData([
-            "event-name" : eventName,
-            "event-location" : location])
-        //Firestore.firestore().collection("family-collection").document(MasterFamily).collection("event-collection").document(EventId).
+    func formAct(eventName:String) {
+        let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
         
+        let dictAdd : [String: Any] = ["event-name" : eventName]
+        
+    
+        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(EventId).getDocument { (document, error) in
+            if document!.exists {
+                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).setData(dictAdd)
+                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
+                print("data created")
+            } else {
+                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
+                print("joined")
+            }
+        }
+        
+    }
+    @IBAction func confirmBTN(_ sender: Any) {
+        formAct(eventName: eventNameTF.text!)
     }
     
     override func viewDidLoad() {
