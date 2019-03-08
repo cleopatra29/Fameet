@@ -48,6 +48,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
 //            performSegue(withIdentifier: "Login-Home", sender: self)
 //        }
     }
+    
     func buttonDesign(){
         signInButton.shappingButton()
     }
@@ -92,8 +93,8 @@ class LoginVC: UIViewController, UITextFieldDelegate, GIDSignInUIDelegate {
                     print("pass salah")
 
                     //AlertController.showAlert(self, title: "Error", message: error!.localizedDescription)
-                    print(error)
-                    print(error?.localizedDescription)
+                    print(error!)
+                    print(error!.localizedDescription)
                 }
                 return
             }

@@ -73,7 +73,6 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
 //        let db = Firestore.firestore()
 //        db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
 //        print("Done button pressed")
-        let db = Firestore.firestore()
         let storageRef = Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
         let uploadData = profileImage.image
         let nani = uploadData?.jpegData(compressionQuality: 0.3)
@@ -115,11 +114,11 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             selectedImageFromPicker = editedImage
-            print("edited image size : \((editedImage as! UIImage).size)")
+            print("edited image size : \((editedImage ).size)")
         }
         if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             selectedImageFromPicker = originalImage
-            print("Original Image Size : \(((originalImage as! UIImage).size))")
+            print("Original Image Size : \(((originalImage ).size))")
         }
         if let selectedImage = selectedImageFromPicker {
             profileImage.image = selectedImage

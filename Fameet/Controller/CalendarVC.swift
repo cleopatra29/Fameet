@@ -21,7 +21,7 @@ class CalendarVC: UIViewController {
     @IBOutlet weak var prevMonthBtn: UIButton!
     @IBOutlet weak var nextMonthBtr: UIButton!
     
-    let MasterUser = Auth.auth().currentUser?.uid as! String
+    let MasterUser = Auth.auth().currentUser!.uid as String
     var MasterFamily = String()
     
     var datePicked : [NSDate] = []
@@ -95,7 +95,7 @@ class CalendarVC: UIViewController {
         let masterUserRef = Firestore.firestore().collection("family-collection").document(MasterFamily).collection("family-member").document(MasterUser)
         masterUserRef.collection("free-time").getDocuments(completion: { (snapshot, error) in
             if error != nil{
-                return print(error)
+                return print(error!)
             } else {
                 for document in snapshot!.documents {
                     let freeTimeId = document.documentID
@@ -160,7 +160,6 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableDatePickedReuseIdentifier", for: indexPath) as! CalendarTableViewCell
-        
         cell.datePickedView.shapingView()
         
         let formatter = DateFormatter()
@@ -225,7 +224,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         let cellDate = NSDate(dateString: "\(lbl)-\(dateModel.currentMonthIndex)-\(dateModel.currentYear)")
         for date in datePicked {
             if date == cellDate {
-                cell.backgroundColor = .yellow
+                cell.animatingColoring(0, .yellow)
             }
         }
         return cell
@@ -239,15 +238,14 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
         let year : Int = dateModel.currentYear
         
         if cell.backgroundColor != .yellow {
-            cell.backgroundColor = .yellow
-            
+            cell.animatingColoring(0, .yellow)
             datePicked.append(NSDate(dateString: "\(date)-\(month)-\(year)"))
             addFreeTime(freeTimeId: dateFull, date: date, month: month, year: year)
             self.datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
             datePickedTableView.reloadData()
         }
         else {
-            cell.backgroundColor = .clear
+            cell.animatingColoring(0, .clear)
             
             while let dateIndex = datePicked.index(of: NSDate(dateString: "\(date)-\(month)-\(year)")) {
                 datePicked.remove(at: dateIndex)

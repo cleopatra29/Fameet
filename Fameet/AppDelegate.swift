@@ -54,16 +54,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
             
         }
     }
+    
+    private func configureFirebaseMessaging(_ application: UIApplication) {
+        Messaging.messaging().delegate = self
+        
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { (granted, error) in
+                if let error = error { print(error) }
+                print("Granted: \(granted)")
+            }
+        } else {
+            let settings: UIUserNotificationSettings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-            print("Granted: \(granted)")
-        }
         
+        
+        configureFirebaseMessaging(application)
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
         return true
     }
     
@@ -221,7 +240,7 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
 }
 
 
-extension AppDelegate:MessagingDelegate{
+extension AppDelegate: MessagingDelegate{
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
@@ -230,6 +249,14 @@ extension AppDelegate:MessagingDelegate{
         NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
+        
+        Messaging.messaging().subscribe(toTopic: "fameetSub") { (error) in
+            guard error == nil else {
+                print("Failed to subscribe")
+                return
+            }
+            print("Subscribed to fameetSub")
+        }
     }
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("Message Data ", remoteMessage.appData)

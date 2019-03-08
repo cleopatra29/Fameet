@@ -27,7 +27,7 @@ class CommitVC: UIViewController {
         }
     
     //MARK : Initializer
-    let MasterUser = Auth.auth().currentUser?.uid as! String
+    let MasterUser = Auth.auth().currentUser!.uid as String
     var memberList = [UserCollection]()
     var memberId = selectedFamMemberId
     var memberName = selectedFamMemberName
