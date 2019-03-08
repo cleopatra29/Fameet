@@ -83,14 +83,14 @@ class HomeVC: UIViewController {
         })
         
     }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard let target = segue.destination as? FamilyVC,
-            let isIndex = sender as? Int,
-            let idIndex = MasterUserFamily[isIndex].familyId as? String else {return false }
-        return true
-    }
-    
+//    
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//        guard let target = segue.destination as? FamilyVC,
+//            let isIndex = sender as? Int,
+//            let idIndex = MasterUserFamily[isIndex].familyId as? String else {return false }
+//        return true
+//    }
+//    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let target = segue.destination as? FamilyVC,
             let isIndex = sender as? Int,

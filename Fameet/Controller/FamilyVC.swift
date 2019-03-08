@@ -171,6 +171,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         } else if let target = segue.destination as? SendInvitationVC {
             target.MasterFamily = MasterFamily as String
         }
+        let backItem = UIBarButtonItem()
+        backItem.title = " "
+        navigationItem.backBarButtonItem = backItem
     }
     
     @IBAction func addFreeTimeAct(_ sender: Any) {
