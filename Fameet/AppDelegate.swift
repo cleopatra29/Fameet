@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
     let userDefault = UserDefaults()
     let gcmMessageIDKey = "gcm.message_Id"
     
-    
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         print("test Link : \(url)")
         return true

@@ -33,16 +33,8 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
             guard let url = url, error == nil else { return }
             cell?.availMemberPic.kf.setImage(with: url)
         }
-//        reference.downloadURL { (url, error) in
-//            if error != nil{
-//                print("error in match date image \(error)")
-//            }else{
-//                let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.passData[self.passKey]).jpg")
-//                cell?.availMemberPic.kf.setImage(with: resource)
-//            }
-//        }
         
-//                cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+//        cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         
         cell?.availMemberPic.image = userGlobalDict[passData[passKey]![indexPath.row]]
         print("userGlobalDict = \(userGlobalDict[passData[passKey]![indexPath.row]])")

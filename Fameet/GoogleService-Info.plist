@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>972341826694-0q3vatl3qtsl4n3oo4p3c3m6ri7cu561.apps.googleusercontent.com</string>
+	<string>1095323130143-hkcs1uoa1s44olq31r9q45sj9tvad4hd.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.972341826694-0q3vatl3qtsl4n3oo4p3c3m6ri7cu561</string>
+	<string>com.googleusercontent.apps.1095323130143-hkcs1uoa1s44olq31r9q45sj9tvad4hd</string>
 	<key>API_KEY</key>
-	<string>AIzaSyByw9xBbm3CAbyb11kZ_ErRQeUL82VzhuE</string>
+	<string>AIzaSyAQ4nv6fY2ZbklJbjvT1YQ0CIyTBXWKvEg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>972341826694</string>
+	<string>1095323130143</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Ciel.fameet</string>
 	<key>PROJECT_ID</key>
-	<string>fameet-ios</string>
+	<string>fameet-1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>fameet-ios.appspot.com</string>
+	<string>fameet-1.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:972341826694:ios:eacd5097d98efd2f</string>
+	<string>1:1095323130143:ios:eacd5097d98efd2f</string>
 	<key>DATABASE_URL</key>
-	<string>https://fameet-ios.firebaseio.com</string>
+	<string>https://fameet-1.firebaseio.com</string>
 </dict>
 </plist>
