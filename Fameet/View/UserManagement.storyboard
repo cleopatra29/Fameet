@@ -159,6 +159,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="GKu-lu-mrJ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="briefFameetExpLabel" destination="VgA-ON-wSK" id="XKK-LE-1n6"/>
+                        <outlet property="briefFameetLabel" destination="aYC-aR-Myy" id="jWg-hP-14e"/>
                         <outlet property="createAccountButton" destination="f0p-aE-6hP" id="P7d-I3-3WZ"/>
                         <outlet property="googleButton" destination="79f-rc-COA" id="kUR-HF-2Fu"/>
                         <segue destination="WzQ-9M-Cdv" kind="show" identifier="Prelogin-Login" id="kgm-dk-T1B"/>
@@ -674,7 +676,7 @@
         <image name="boy.png" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tbs-HW-1Qd"/>
-        <segue reference="SMJ-hh-2fI"/>
+        <segue reference="sGo-I1-fLa"/>
+        <segue reference="kgm-dk-T1B"/>
     </inferredMetricsTieBreakers>
 </document>
