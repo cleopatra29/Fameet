@@ -39,6 +39,8 @@
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
 		BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704C292227D2A700BBC7B3 /* SplashVC.swift */; };
 		BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE704C2B2227D39600BBC7B3 /* Splash.storyboard */; };
+		BEB93211222E790C00686849 /* ConfirmedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB93210222E790C00686849 /* ConfirmedViewCell.swift */; };
+		BEB93213222E7B9900686849 /* ConfirmedTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB93212222E7B9900686849 /* ConfirmedTimeVC.swift */; };
 		BEBE3C152215591B00E99502 /* SendInvitationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C142215591B00E99502 /* SendInvitationVC.swift */; };
 		BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */; };
 		BEF4184B220C5D430098285D /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF4184A220C5D430098285D /* DataFetcher.swift */; };
@@ -81,6 +83,8 @@
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BE704C292227D2A700BBC7B3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		BE704C2B2227D39600BBC7B3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
+		BEB93210222E790C00686849 /* ConfirmedViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedViewCell.swift; sourceTree = "<group>"; };
+		BEB93212222E7B9900686849 /* ConfirmedTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmedTimeVC.swift; sourceTree = "<group>"; };
 		BEBE3C142215591B00E99502 /* SendInvitationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvitationVC.swift; sourceTree = "<group>"; };
 		BEBE3C1622156B4800E99502 /* AddNewFamilyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFamilyViewCell.swift; sourceTree = "<group>"; };
 		BEF4184A220C5D430098285D /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 			children = (
 				5D1D0AFF220304C700868FCA /* CalendarCollectionViewCell.swift */,
 				5D1D0B022203064600868FCA /* CalendarTableViewCell.swift */,
+				BEB93210222E790C00686849 /* ConfirmedViewCell.swift */,
 				5360335F2204664A00E7772B /* HomeTableViewCell.swift */,
 				5360336A22048E5600E7772B /* FamilyDetailCollectionViewCell.swift */,
 				5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */,
@@ -140,6 +145,7 @@
 				536033682204899200E7772B /* FamilyVC.swift */,
 				5D1D0AFB2202FE0100868FCA /* CalendarVC.swift */,
 				53C2924A22116FEB00A17C2E /* CommitVC.swift */,
+				BEB93212222E7B9900686849 /* ConfirmedTimeVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -401,8 +407,10 @@
 				5D70F1B5221D04DC00ECF009 /* Extension.swift in Sources */,
 				BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */,
 				536033602204664A00E7772B /* HomeTableViewCell.swift in Sources */,
+				BEB93211222E790C00686849 /* ConfirmedViewCell.swift in Sources */,
 				5360336722047CB700E7772B /* PreloginVC.swift in Sources */,
 				53603365220479F500E7772B /* Model.swift in Sources */,
+				BEB93213222E7B9900686849 /* ConfirmedTimeVC.swift in Sources */,
 				5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */,
 				BEBE3C1722156B4800E99502 /* AddNewFamilyViewCell.swift in Sources */,
 				5D22C8322201732A0058A00B /* AppDelegate.swift in Sources */,
@@ -555,13 +563,13 @@
 				CODE_SIGN_ENTITLEMENTS = Fameet/Fameet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M67TPRX895;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = JansenFam.Terre.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -577,13 +585,13 @@
 				CODE_SIGN_ENTITLEMENTS = Fameet/Fameet.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M67TPRX895;
+				DEVELOPMENT_TEAM = W8T5R97US6;
 				INFOPLIST_FILE = "$(SRCROOT)/Fameet/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Ciel.fameet;
+				PRODUCT_BUNDLE_IDENTIFIER = JansenFam.Terre.fameet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

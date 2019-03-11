@@ -25,7 +25,8 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var familyNameLabel: UILabel!
     @IBOutlet weak var tableViewMatchDates: UITableView!
     @IBOutlet weak var memberCollectionOutlet: UICollectionView!
-    @IBOutlet var skeletonViews: SkeletonView!
+    
+    @IBOutlet weak var tableviewConfirmedTime: UITableView!
     
     
     let MasterUser = Auth.auth().currentUser!.uid as String
@@ -40,6 +41,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     var datePicked = [NSDate]()
     var availMatchDate = [NSDate:[String]]()
     
+    var confirmedTime = [NSDate]()
+    var allConfirmedTime = [NSDate:[String]]()
+    
     
     override func viewDidLoad() {
         
@@ -50,12 +54,14 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
+        tableviewConfirmedTime.delegate = self
+        tableviewConfirmedTime.dataSource = self
+        tableviewConfirmedTime.tableFooterView = UIView()
         
     }
     
     func setupView() {
         familyNameLabel.alpha = 0.0
-        self.skeletonViews.setNeedsDisplay()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
@@ -67,9 +73,48 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         famMemberList.removeAll()
         availMatchDate.removeAll()
         readUserFamilyGroup()
+        fetchConfirm()
+        
         tableViewMatchDates.reloadData()
+        tableviewConfirmedTime.reloadData()
     }
     
+    func fetchConfirm(){
+        
+        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").getDocuments (completion: { (snapshot, error) in
+            if error != nil{
+                return print(error)
+            } else
+            {
+                for doc in snapshot!.documents{
+                    guard let eventId = doc.documentID as? String,
+                        let eventName = doc.data()["event-name"] as? String,
+                        let eventLocation = doc.data()["location"] as? String
+                        else {return}
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let date = dateFormatter.date(from: eventId)
+                    
+                    
+                    if self.allConfirmedTime[date as! NSDate]?.isEmpty == false {
+                        self.allConfirmedTime[date as! NSDate]?.append(eventName)
+                        self.allConfirmedTime[date as! NSDate]?.append(eventLocation)
+                    } else {
+                        self.allConfirmedTime.updateValue([eventName, eventLocation], forKey: date as! NSDate)
+                    }
+                    self.confirmedTime = Array(self.allConfirmedTime.keys)
+                    self.confirmedTime.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+                    self.tableviewConfirmedTime.reloadData()
+                    print("HAYO LOOOO : \(self.allConfirmedTime)")
+                    print("HAYO LOOOO2 \(self.confirmedTime)")
+//                    self.allConfirmedTime.append([eventName])
+//                    self.allConfirmedTime.append([eventLocation])
+                }
+            }
+        })
+        
+    }
     
     func fetchFamilyCollection(id:String){
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
@@ -170,6 +215,33 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
             target.MasterFamily = MasterFamily as String
         } else if let target = segue.destination as? SendInvitationVC {
             target.MasterFamily = MasterFamily as String
+        } else if let target = segue.destination as? ConfirmedTimeVC {
+            target.MasterFamily = MasterFamily as String
+
+            
+            
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            
+            guard let isIndex = sender as? Int,
+                let idIndex = datePicked[isIndex] as? Date
+                else {return}
+            let myString = formatter.string(from: idIndex)
+
+             // string purpose I add here
+            // convert your string to date
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "yyyy-MM-dd"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            print(myStringafd)
+            
+            
+            print ("ini index : \(isIndex) \n ini value \(idIndex)")
+            target.EventId = myStringafd
         }
         let backItem = UIBarButtonItem()
         backItem.title = " "
@@ -209,6 +281,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
+            collectionCell.memberImage.layer.borderWidth = 0.7
+            collectionCell.memberImage.layer.borderColor = UIColor.black.cgColor
             print("User list in collection : \(collectionCell.memberName.text)")
             userGlobalDict[famMemberList[indexPath.row].userId] = collectionCell.memberImage.image
             self.tableViewMatchDates.reloadData()
@@ -283,37 +357,83 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("date picked count : \(datePicked.count)")
-        
-        return availMatchDate.count
+        if tableView == self.tableViewMatchDates {
+            print("date picked count : \(datePicked.count)")
+            return availMatchDate.count
+        } else {
+            print("confirm time count : \(allConfirmedTime.count)")
+            return allConfirmedTime.count
+        }
+        return Int()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "createEventSegue", sender: (Any).self)
+       if tableView == tableViewMatchDates {
+        let index = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: index!) as! MatchDateTableViewCell
+        performSegue(withIdentifier: "Family-ConfirmedTime", sender: index?.row)
+        tableView.deselectRow(at: index!, animated: true)
+       }else{
+        print("Confirm time table penceted.")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "dd-MM-yyy"
-        
-        datePicked = Array(availMatchDate.keys)
-        datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
-        
-        
-        
-        let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
-        // Konversi date ke string
-        let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
-        formatter.dateFormat = "dd-MMM-yyyy"
-        // again convert your date to string
-        let myStringafd = formatter.string(from: yourDate!)
-        
-        cell.dateLabel.text = myStringafd
-        cell.passKey = datePicked[indexPath.row]
-        cell.passData = availMatchDate
-        return cell
+        if tableView == tableViewMatchDates {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "dd-MM-yyy"
+            
+            datePicked = Array(availMatchDate.keys)
+            datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+            
+            print("date picked : \(datePicked)")
+            let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
+            // Konversi date ke string
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "dd-MMM-yyyy"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            formatter.dateFormat = "yyyy-MM-dd"
+            // again convert your date to string
+            //confirmedTime.append(formatter.string(from: yourDate!))
+            cell.dateLabel.text = myStringafd
+            cell.passKey = datePicked[indexPath.row]
+            cell.passData = availMatchDate
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "confirmedTimeTableViewCell", for: indexPath) as! ConfirmedViewCell
+            
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            confirmedTime = Array(allConfirmedTime.keys)
+            confirmedTime.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+            let myString = formatter.string(from: confirmedTime[indexPath.row] as Date) // string purpose I add here
+            // Konversi date ke string
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "dd-MMM-yyyy"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            // again convert your date to string
+            //confirmedTime.append(formatter.string(from: yourDate!))
+            print("aaaa :\(confirmedTime) : aaaa")
+            
+            cell.confirmedTimeView.shapingView()
+            cell.dateConfirmLBL.text = myStringafd
+            cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
+            cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
+            print("date confirmLbl : \(cell.dateConfirmLBL.text)")
+            print("cell.eventLBL.text : \(cell.eventLBL.text)")
+            print("cell.locationLBL.text : \(cell.locationLBL.text)")
+            return cell
+        }
     }
 }

@@ -83,7 +83,7 @@ class HomeVC: UIViewController {
         })
         
     }
-//    
+    
 //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 //        guard let target = segue.destination as? FamilyVC,
 //            let isIndex = sender as? Int,
@@ -95,6 +95,7 @@ class HomeVC: UIViewController {
         guard let target = segue.destination as? FamilyVC,
             let isIndex = sender as? Int,
             let idIndex = MasterUserFamily[isIndex].familyId as? String else {return}
+        print("isIndex = \(isIndex)")
         target.MasterFamily = idIndex
     }
     
@@ -146,15 +147,20 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            return MasterUserFamily.count
-        default:
             return 1
+        default:
+            return MasterUserFamily.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (indexPath.section) {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addFamilyCell", for: indexPath) as! AddNewFamilyViewCell
+            cell.addNewFamily.text = "Add new Family"
+            cell.subAddNewFamily.font = UIFont.italicSystemFont(ofSize: 13.0)
+            return cell
+        default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as! HomeTableViewCell
             let row = indexPath.row
             if MasterUserFamily.count == 0 {
@@ -164,11 +170,6 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                 cell.cellLabels.text = MasterUserFamily[row].familyName
                 return cell
             }
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addFamilyCell", for: indexPath) as! AddNewFamilyViewCell
-            cell.addNewFamily.text = "Add new Family"
-            cell.subAddNewFamily.font = UIFont.italicSystemFont(ofSize: 13.0)
-            return cell
         }
     }
     
@@ -180,7 +181,7 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
         
         
         switch (indexPath.section) {
-        case 0:
+        case 1:
             let currentCell = tableView.cellForRow(at: index!) as! HomeTableViewCell
             performSegue(withIdentifier: "Home-Family", sender: index?.row)
             tableView.deselectRow(at: index!, animated: true)
