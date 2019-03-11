@@ -36,7 +36,6 @@
 		5D70F1D8221E723400ECF009 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D70F1D7221E723400ECF009 /* SkeletonView.swift */; };
 		5DD7D9AE2207F9B30026A235 /* MatchDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */; };
 		5DD7D9B02207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */; };
-		BE0CC507222FBDDA00BC58D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0CC506222FBDDA00BC58D0 /* GoogleService-Info.plist */; };
 		BE0FA3592212ED140005AE2F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0FA3582212ED140005AE2F /* ImageService.swift */; };
 		BE704C2A2227D2A700BBC7B3 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE704C292227D2A700BBC7B3 /* SplashVC.swift */; };
 		BE704C2C2227D39600BBC7B3 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE704C2B2227D39600BBC7B3 /* Splash.storyboard */; };
@@ -81,7 +80,6 @@
 		5D70F1D7221E723400ECF009 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		5DD7D9AD2207F9B30026A235 /* MatchDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateTableViewCell.swift; sourceTree = "<group>"; };
 		5DD7D9AF2207F9CB0026A235 /* MatchDateInTableViewCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDateInTableViewCellCollectionViewCell.swift; sourceTree = "<group>"; };
-		BE0CC506222FBDDA00BC58D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BE0FA3582212ED140005AE2F /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		BE704C292227D2A700BBC7B3 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		BE704C2B2227D39600BBC7B3 /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
