@@ -13,6 +13,8 @@ import FirebaseUI
 import MessageUI
 import Kingfisher
 import UserNotifications
+import EventKit
+
 
 var selectedFamMemberId :String = ""
 var selectedFamMemberName:String = ""
@@ -28,19 +30,14 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet weak var tableviewConfirmedTime: UITableView!
     
-    
     let MasterUser = Auth.auth().currentUser!.uid as String
-    
     var famMemberId = [String]()
     var tempFamMemberList : [String] = []
     var famMemberList = [UserCollection]()
-    
     var MasterFamily = String()
     var dateModel = DateModel()
-    
     var datePicked = [NSDate]()
     var availMatchDate = [NSDate:[String]]()
-    
     var confirmedTime = [NSDate]()
     var allConfirmedTime = [NSDate:[String]]()
     
@@ -54,6 +51,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
+        tableviewConfirmedTime.delegate = self
+        tableviewConfirmedTime.dataSource = self
+        tableviewConfirmedTime.tableFooterView = UIView()
         
     }
     
@@ -278,7 +278,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
-            print("User list in collection : \(collectionCell.memberName.text)")
+            collectionCell.memberImage.layer.borderWidth = 0.7
+            collectionCell.memberImage.layer.borderColor = UIColor.black.cgColor
             userGlobalDict[famMemberList[indexPath.row].userId] = collectionCell.memberImage.image
             self.tableViewMatchDates.reloadData()
             return collectionCell
@@ -322,7 +323,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             let mailCompose = MFMailComposeViewController()
             mailCompose.mailComposeDelegate =  self
             mailCompose.setSubject("Fameet Group Invitation")
-            mailCompose.setMessageBody(" Hi! \(MasterUser) Mr/Ms who invite you to Join \(MasterFamily) click here to join \(self.MasterFamily) ", isHTML: false)
+            mailCompose.setMessageBody(" Hi! \(MasterUser) Mr/Ms who invite you to Join \(MasterFamily) copy in this code to join the family \(self.MasterFamily) ", isHTML: false)
             if MFMailComposeViewController.canSendMail()
             {
                 self.present(mailCompose, animated: true, completion: nil)
@@ -334,22 +335,20 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         }
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: nil) 
     } 
 }
 
 extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tableViewMatchDates{
+        if tableView == self.tableViewMatchDates {
             print("date picked count : \(datePicked.count)")
-            
             return availMatchDate.count
         } else {
             print("confirm time count : \(allConfirmedTime.count)")
             return allConfirmedTime.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -360,8 +359,56 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: index!, animated: true)
        }else{
         print("Confirm time table penceted.")
+        
+        let index = tableView.indexPathForSelectedRow
+        tableView.cellForRow(at: index!) as! ConfirmedViewCell
+        tableView.deselectRow(at: index!, animated: true)
+        
+        let eventStore:EKEventStore = EKEventStore()
+        eventStore.requestAccess(to: .event, completion:{(granted, error) in
+            
+            if (granted) && (error == nil)
+            {
+                print("granted \(granted)")
+                print("error \(error)")
+                
+                let event:EKEvent = EKEvent(eventStore: eventStore)
+                let startDateString = self.confirmedTime[indexPath.row]
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                
+                event.title = self.allConfirmedTime[self.confirmedTime[indexPath.row]]![0]
+                event.location = self.allConfirmedTime[self.confirmedTime[indexPath.row]]![1]
+                event.isAllDay = true
+                event.startDate = startDateString as Date
+                event.endDate = startDateString as Date
+                
+//                event.notes = self.inputNoteField.text
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                } catch let error as NSError {
+                    print("error \(error)")
+                }
+                print("event title : \(self.allConfirmedTime[self.confirmedTime[indexPath.row]]![0])")
+                print("event location : \(self.allConfirmedTime[self.confirmedTime[indexPath.row]]![1])")
+                print("start date : \(startDateString as Date)")
+                print("end date : \(startDateString as Date)")
+                print("memem")
+            }else{
+                print("error \(error)")
+            }
+        })
         }
     }
+//    let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
+//    let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
+//        // Code in this block will trigger when OK button tapped.
+//        print("Ok button tapped");
+//    }
+    
+//    alertController.addAction(OKAction)
+//    self.present(alertController, animated: true, completion: nil)
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableViewMatchDates {
@@ -389,6 +436,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             cell.passKey = datePicked[indexPath.row]
             cell.passData = availMatchDate
             return cell
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "confirmedTimeTableViewCell", for: indexPath) as! ConfirmedViewCell
             
@@ -410,118 +458,13 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             //confirmedTime.append(formatter.string(from: yourDate!))
             print("aaaa :\(confirmedTime) : aaaa")
             
-            
+            cell.confirmedTimeView.shapingView()
             cell.dateConfirmLBL.text = myStringafd
             cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
             cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
             print("date confirmLbl : \(cell.dateConfirmLBL.text)")
             print("cell.eventLBL.text : \(cell.eventLBL.text)")
-            print("cell.locationLBL.text : \(cell.locationLBL.text)")
             return cell
         }
     }
 }
-    
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let index = tableView.indexPathForSelectedRow
-//        let currentCell = tableView.cellForRow(at: index!) as! MatchDateTableViewCell
-//        performSegue(withIdentifier: "Family-ConfirmedTime", sender: index?.row)
-//        tableView.deselectRow(at: index!, animated: true)
-    
-        
-        
-        
-        
-        
-//        let alertController = UIAlertController(title: "Create New Group", message: "", preferredStyle: UIAlertController.Style.alert)
-//        alertController.addTextField(configurationHandler: { (textField: UITextField!) in
-//            textField.placeholder = "Enter Event Name"
-//            let OKAction = UIAlertAction(title: "Confirm", style: .default) { (action:UIAlertAction!) in
-//                guard let inputEvent = textField.text,
-//                    inputEvent != ""
-//                    else {
-//                        let alertController = UIAlertController(title: "Oops!", message: "Your Event Name is Empty", preferredStyle: .alert)
-//
-//                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-//                            // Code in this block will trigger when OK button tapped.
-//                            print("Ok button tapped");
-//                        }
-//                        alertController.addAction(OKAction)
-//                        self.present(alertController, animated: true, completion: nil)
-//
-//                        print("Text field is empty.")
-//                        textField.text = ""
-//                        return
-//                }
-//                // Code in this block will trigger when OK button tapped.
-//                let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
-//
-//                let dictAdd : [String: Any] = ["event-name" : textField.text]
-//
-//                let formatter = DateFormatter()
-//                // initially set the format based on your datepicker date / server String
-//                formatter.dateFormat = "dd-MM-yyy"
-//                self.datePicked = Array(self.availMatchDate.keys)
-//                let myString = formatter.string(from: self.datePicked[indexPath.row] as Date)
-//                // string purpose I add here
-//                // Konversi date ke string
-//                let yourDate = formatter.date(from: myString)
-//                //then again set the date format whhich type of output you need
-//                formatter.dateFormat = "yyyy-mm-dd"
-//                // again convert your date to string
-//                let myStringafd = formatter.string(from: yourDate!)
-//
-//                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).getDocument { (document, error) in
-//                    if let doc = document, document!.exists {
-//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).setData(dictAdd)
-//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
-//                        print("data created")
-//                    } else {
-//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
-//                        print("joined")
-//                    }
-//                }
-//
-//
-//
-//                print("create Ok button tapped")
-//
-//                let alertDone = UIAlertController(title: "Success", message: "You successfully Confirm", preferredStyle: .alert)
-//                let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-//
-//                }
-//                alertDone.addAction(action)
-//                self.present(alertDone, animated: true, completion: nil)
-//            }
-//
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
-//                print("Cancel button tapped")
-//            })
-//            alertController.addAction(OKAction)
-//            alertController.preferredAction = OKAction
-//            alertController.addAction(cancelAction)
-//
-//        })
-    
-//    }
-
-
-//                    print("link download url = \(url!)")
-//                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId)")
-//                    print("resource link = \(resource)")
-//                    //check whether an image in the cache
-//                    let cache = ImageCache.default
-//                    let cached = cache.isCached(forKey: "\(self.famMemberList[indexPath.row].userId)")
-//                    let cacheType = cache.imageCachedType(forKey: "\(self.famMemberList[indexPath.row].userId)")
-//
-//                    //get image from cache
-//                    cache.retrieveImage(forKey: "\(self.famMemberList[indexPath.row].userId)") { Result in
-//                        switch Result {
-//                        case .success(let value) :
-//                            print("value cache type = \(value.cacheType)")
-//                            print("value cache image = \(value.image)")
-//                        case .failure(let error) :
-//                            print("error in caching = \(error)")
-//                        }
-//                    }
-//                    collectionCell.memberImage.kf.setImage(with: resource)
