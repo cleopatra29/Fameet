@@ -56,6 +56,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         tableViewMatchDates.dataSource = self
         tableviewConfirmedTime.delegate = self
         tableviewConfirmedTime.dataSource = self
+        tableviewConfirmedTime.tableFooterView = UIView()
         
     }
     
@@ -414,7 +415,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             //confirmedTime.append(formatter.string(from: yourDate!))
             print("aaaa :\(confirmedTime) : aaaa")
             
-            
+            cell.confirmedTimeView.shapingView()
             cell.dateConfirmLBL.text = myStringafd
             cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
             cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
