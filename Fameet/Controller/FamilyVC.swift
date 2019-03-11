@@ -301,7 +301,18 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = self.collectionView(self.memberCollectionOutlet!, numberOfItemsInSection: 0) - 1
         let lastItemIndex = IndexPath(item: item, section: 0)
-        let currentCell = collectionView.cellForItem(at: lastItemIndex) as! FamilyDetailCollectionViewCell
+        let currentCell = collectionView.cellForItem(at: lastItemIndex) as? FamilyDetailCollectionViewCell
+        if currentCell == nil{
+            let alertController = UIAlertController(title: "Oops!", message: "Please await for the data fully koaded.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                print("Ok button tapped");
+            }
+            //                endIndicatorView()
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("Some text field is empty.")
+            return
+        }
         if (indexPath.section) == 0 {
             let row = indexPath.row
             tempFamMemberList = [famMemberList[row].firstName]

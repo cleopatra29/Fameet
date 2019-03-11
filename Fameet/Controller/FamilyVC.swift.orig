@@ -56,6 +56,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         tableViewMatchDates.dataSource = self
         tableviewConfirmedTime.delegate = self
         tableviewConfirmedTime.dataSource = self
+        tableviewConfirmedTime.tableFooterView = UIView()
         
     }
     
@@ -304,7 +305,18 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = self.collectionView(self.memberCollectionOutlet!, numberOfItemsInSection: 0) - 1
         let lastItemIndex = IndexPath(item: item, section: 0)
-        let currentCell = collectionView.cellForItem(at: lastItemIndex) as! FamilyDetailCollectionViewCell
+        let currentCell = collectionView.cellForItem(at: lastItemIndex) as? FamilyDetailCollectionViewCell
+        if currentCell == nil{
+            let alertController = UIAlertController(title: "Oops!", message: "Please await for the data fully koaded.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                print("Ok button tapped");
+            }
+            //                endIndicatorView()
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("Some text field is empty.")
+            return
+        }
         if (indexPath.section) == 0 {
             let row = indexPath.row
             tempFamMemberList = [famMemberList[row].firstName]
@@ -348,14 +360,9 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == self.tableViewMatchDates {
             print("date picked count : \(datePicked.count)")
             return availMatchDate.count
-<<<<<<< HEAD
-        } else if tableView == self.tableviewConfirmedTime{
-            return 1
-=======
         } else {
             print("confirm time count : \(allConfirmedTime.count)")
             return allConfirmedTime.count
->>>>>>> 117df72fec0b25b831e7f60c869407143d0f6b85
         }
         return Int()
     }
@@ -419,7 +426,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             //confirmedTime.append(formatter.string(from: yourDate!))
             print("aaaa :\(confirmedTime) : aaaa")
             
-            
+            cell.confirmedTimeView.shapingView()
             cell.dateConfirmLBL.text = myStringafd
             cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
             cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
@@ -442,6 +449,14 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         
         
         
+<<<<<<< HEAD
+        cell.dateLabel.text = myStringafd
+        cell.passKey = datePicked[indexPath.row]
+        cell.passData = availMatchDate
+        return cell
+    }
+}
+=======
 //        let alertController = UIAlertController(title: "Create New Group", message: "", preferredStyle: UIAlertController.Style.alert)
 //        alertController.addTextField(configurationHandler: { (textField: UITextField!) in
 //            textField.placeholder = "Enter Event Name"
@@ -534,3 +549,4 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
 //                        }
 //                    }
 //                    collectionCell.memberImage.kf.setImage(with: resource)
+>>>>>>> 6ea16ceb0c25118e15e81fa39ae38ab89d1d4de8
