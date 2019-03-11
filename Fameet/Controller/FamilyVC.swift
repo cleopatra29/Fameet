@@ -231,7 +231,18 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = self.collectionView(self.memberCollectionOutlet!, numberOfItemsInSection: 0) - 1
         let lastItemIndex = IndexPath(item: item, section: 0)
-        let currentCell = collectionView.cellForItem(at: lastItemIndex) as! FamilyDetailCollectionViewCell
+        let currentCell = collectionView.cellForItem(at: lastItemIndex) as? FamilyDetailCollectionViewCell
+        if currentCell == nil{
+            let alertController = UIAlertController(title: "Oops!", message: "Please await for the data fully koaded.", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                print("Ok button tapped");
+            }
+            //                endIndicatorView()
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+            print("Some text field is empty.")
+            return
+        }
         if (indexPath.section) == 0 {
             let row = indexPath.row
             tempFamMemberList = [famMemberList[row].firstName]
@@ -306,24 +317,3 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 }
-
-
-//                    print("link download url = \(url!)")
-//                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId)")
-//                    print("resource link = \(resource)")
-//                    //check whether an image in the cache
-//                    let cache = ImageCache.default
-//                    let cached = cache.isCached(forKey: "\(self.famMemberList[indexPath.row].userId)")
-//                    let cacheType = cache.imageCachedType(forKey: "\(self.famMemberList[indexPath.row].userId)")
-//
-//                    //get image from cache
-//                    cache.retrieveImage(forKey: "\(self.famMemberList[indexPath.row].userId)") { Result in
-//                        switch Result {
-//                        case .success(let value) :
-//                            print("value cache type = \(value.cacheType)")
-//                            print("value cache image = \(value.image)")
-//                        case .failure(let error) :
-//                            print("error in caching = \(error)")
-//                        }
-//                    }
-//                    collectionCell.memberImage.kf.setImage(with: resource)

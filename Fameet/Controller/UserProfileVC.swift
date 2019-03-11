@@ -94,9 +94,6 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
                 }
             }
         }
-        
-        
-        
     }
     
     

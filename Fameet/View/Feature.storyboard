@@ -429,16 +429,16 @@
                                 <rect key="frame" x="0.0" y="388" width="375" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-FV-tm7">
-                                        <rect key="frame" x="8" y="8" width="189" height="24"/>
+                                        <rect key="frame" x="8" y="7.9999999999999982" width="189" height="26.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="189" id="Jzt-78-4fo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Bersama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uY5-EK-hfg">
-                                        <rect key="frame" x="12" y="33" width="355" height="21"/>
+                                        <rect key="frame" x="12" y="35.333333333333314" width="355" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="355" id="bsU-Hj-tjU"/>
                                         </constraints>
@@ -447,7 +447,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06-06-2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ut-el-DPR">
-                                        <rect key="frame" x="12" y="58" width="191" height="21"/>
+                                        <rect key="frame" x="12" y="60.333333333333314" width="191" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="191" id="dXl-Lh-C2a"/>
                                         </constraints>
