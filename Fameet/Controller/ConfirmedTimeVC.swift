@@ -20,32 +20,51 @@ class ConfirmedTimeVC: UIViewController {
     var MasterUser = Auth.auth().currentUser?.uid as! String
     var MasterFamily = String()
     
-    func formAct(eventName:String) {
-        let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
-        
-        let dictAdd : [String: Any] = ["event-name" : eventName]
-        
-    
-        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(EventId).getDocument { (document, error) in
-            if document!.exists {
-                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).setData(dictAdd)
-                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
-                print("data created")
-            } else {
-                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
-                print("joined")
-            }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //        guard let target = segue.destination as? CalendarVC else {return}
+        if let target = segue.destination as? FamilyVC {
+            target.MasterFamily = MasterFamily as String
         }
+    }
+    
+    @IBAction func doneBTN(_ sender: Any) {
+        let dictAdd : [String: Any] = [ "event-name" : eventNameTF.text!, "location" : locationTF.text! ]
+        
+        
+        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).setData(dictAdd)
+        
+        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
+        print("data created")
+        
+        
+        
+        navigationController?.popViewController(animated: true)
+        performSegue(withIdentifier: "ConfirmedTime-Family", sender: (Any).self)
+    }
+    
+    @IBAction func cancelBTN(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+
+    func formAct(eventName:String, location:String) {
+//        let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
+        
+       
+//        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(self.EventId).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
+//        print("joined")
+        
         
     }
-    @IBAction func confirmBTN(_ sender: Any) {
-        formAct(eventName: eventNameTF.text!)
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        print("master Family Confirm : \(MasterFamily)")
+        print("event id : \(EventId)")
     }
     
 

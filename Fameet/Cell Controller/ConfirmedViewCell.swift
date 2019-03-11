@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ConfirmedViewCell: UIViewController {
+class ConfirmedViewCell: UITableViewCell {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet weak var eventLBL: UILabel!
+    @IBOutlet weak var dateConfirmLBL: UILabel!
+    @IBOutlet weak var locationLBL: UILabel!
+    
     
 
     /*

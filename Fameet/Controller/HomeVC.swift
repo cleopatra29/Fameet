@@ -95,6 +95,7 @@ class HomeVC: UIViewController {
         guard let target = segue.destination as? FamilyVC,
             let isIndex = sender as? Int,
             let idIndex = MasterUserFamily[isIndex].familyId as? String else {return}
+        print("isIndex = \(isIndex)")
         target.MasterFamily = idIndex
     }
     
