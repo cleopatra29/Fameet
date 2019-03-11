@@ -102,7 +102,11 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                     } else {
                         self.allConfirmedTime.updateValue([eventName, eventLocation], forKey: date as! NSDate)
                     }
-                    print("HAYO LOOOO\(self.allConfirmedTime)")
+                    self.confirmedTime = Array(self.allConfirmedTime.keys)
+                    self.confirmedTime.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+                    self.tableviewConfirmedTime.reloadData()
+                    print("HAYO LOOOO : \(self.allConfirmedTime)")
+                    print("HAYO LOOOO2 \(self.confirmedTime)")
 //                    self.allConfirmedTime.append([eventName])
 //                    self.allConfirmedTime.append([eventLocation])
                 }
@@ -344,17 +348,22 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         if tableView == self.tableViewMatchDates {
             print("date picked count : \(datePicked.count)")
             return availMatchDate.count
-        } else if tableView == self.tableviewConfirmedTime{
-            return 1
+        } else {
+            print("confirm time count : \(allConfirmedTime.count)")
+            return allConfirmedTime.count
         }
         return Int()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       if tableView == tableViewMatchDates {
         let index = tableView.indexPathForSelectedRow
         let currentCell = tableView.cellForRow(at: index!) as! MatchDateTableViewCell
         performSegue(withIdentifier: "Family-ConfirmedTime", sender: index?.row)
         tableView.deselectRow(at: index!, animated: true)
+       }else{
+        print("Confirm time table penceted.")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -366,6 +375,8 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             
             datePicked = Array(availMatchDate.keys)
             datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+            
+            print("date picked : \(datePicked)")
             let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
             // Konversi date ke string
             let yourDate = formatter.date(from: myString)
@@ -407,6 +418,9 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             cell.dateConfirmLBL.text = myStringafd
             cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
             cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
+            print("date confirmLbl : \(cell.dateConfirmLBL.text)")
+            print("cell.eventLBL.text : \(cell.eventLBL.text)")
+            print("cell.locationLBL.text : \(cell.locationLBL.text)")
             return cell
         }
     }

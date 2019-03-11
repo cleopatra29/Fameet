@@ -509,6 +509,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eyy-dE-xnc" id="pq8-wm-Jum"/>
+                                    <outlet property="delegate" destination="Eyy-dE-xnc" id="kK0-nW-D6V"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmed Time :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="38W-Ed-Ya9">
                                 <rect key="frame" x="12" y="392" width="181" height="26.333333333333314"/>
