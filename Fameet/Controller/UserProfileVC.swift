@@ -54,7 +54,6 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     }
     
     // MARK : Date Picker Changed
-    
     @objc func datePickerValueChanged(sender: UIDatePicker){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd//MM/yyyy"
@@ -69,21 +68,35 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         present(imagePicker, animated: true, completion: nil)
     }
     
+    //MARK : SAVE BUTTON
     @IBAction func doneBtn(_ sender: Any) {
-//        let db = Firestore.firestore()
-//        db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
-//        print("Done button pressed")
+        let db = Firestore.firestore()
+        db.collection("user-collection").document(MasterUser).updateData(["first-name" : displayNameTF.text]) //setData(["first-name": displayNameTF.text])
+        print("Save button pressed")
         let storageRef = Storage.storage().reference().child("userProfilePicture").child("\(MasterUser).jpg")
         let uploadData = profileImage.image
+        //resolusi gambar harus kecil
+        
         let nani = uploadData?.jpegData(compressionQuality: 0.3)
         
-        storageRef.putData(nani!, metadata: nil) { (metadata, error) in
-            if error != nil {
-                print("error")
+        storageRef.delete { (error) in
+            if error != nil{
+                print("error in delete user image = \(error).")
+            }else{
+                print("user '\(self.MasterUser)' file image deleted successfully.")
+                SDImageCache.shared().clearMemory()
+                storageRef.putData(nani!, metadata: nil) { (metadata, error) in
+                    if error != nil {
+                        print("error")
+                    }
+                    self.alerts()
+                    print("metaData : \(metadata)")
+                }
             }
-            self.alerts()
-            print("metaData : \(metadata)")
         }
+        
+        
+        
     }
     
     
@@ -110,15 +123,11 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print("Info : \(info)")
-        var selectedImageFromPicker: UIImage?
         
+        var selectedImageFromPicker: UIImage?
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
             selectedImageFromPicker = editedImage
-            print("edited image size : \((editedImage ).size)")
-        }
-        if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            selectedImageFromPicker = originalImage
-            print("Original Image Size : \(((originalImage ).size))")
+            print("edited image size : \((editedImage as! UIImage).size)")
         }
         if let selectedImage = selectedImageFromPicker {
             profileImage.image = selectedImage
@@ -146,6 +155,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         db.collection("user-collection").document(MasterUser).getDocument { (snapshot, error) in
             if error != nil{
                 print("error in loading user info")
+                return
             }else{
                 self.displayNameTF.text = snapshot?.data()?["first-name"] as? String
                 self.emailLbl.text = snapshot?.data()?["email"] as? String

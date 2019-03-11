@@ -265,24 +265,12 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch(indexPath.section) {
         case 0:
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "famCell", for: indexPath) as! FamilyDetailCollectionViewCell
-        
-            // Reference to an image file in Firebase Storage
+            
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
-            print("user image reference : \(reference)")
-            reference.downloadURL { (url, error) in
-                if error != nil{
-                    print("error in download url = \(error)")
-                }else{
-                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId).jpg")
-                    print("resource download link = \(resource.downloadURL)")
-                    print("")
-                    print("resource cacheKey = \(resource.cacheKey)")
-                    collectionCell.memberImage.kf.setImage(with: resource)
-                }
-            }
             
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-//            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
@@ -339,10 +327,6 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             {
                 print("!!!!!")
             }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-//                self.performSegue(withIdentifier: "Family-Invite", sender: currentCell)
-//
-//            }
         }
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
