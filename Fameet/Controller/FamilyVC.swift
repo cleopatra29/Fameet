@@ -54,6 +54,8 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         memberCollectionOutlet.dataSource = self
         tableViewMatchDates.delegate = self
         tableViewMatchDates.dataSource = self
+        tableviewConfirmedTime.delegate = self
+        tableviewConfirmedTime.dataSource = self
         
     }
     
@@ -339,14 +341,13 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tableViewMatchDates{
+        if tableView == self.tableViewMatchDates {
             print("date picked count : \(datePicked.count)")
-            
             return availMatchDate.count
-        } else {
+        } else if tableView == self.tableviewConfirmedTime{
             return 1
         }
-        
+        return Int()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -380,6 +381,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             cell.passKey = datePicked[indexPath.row]
             cell.passData = availMatchDate
             return cell
+            
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "confirmedTimeTableViewCell", for: indexPath) as! ConfirmedViewCell
             
