@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any family group yet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsA-f4-E51">
-                                <rect key="frame" x="8" y="345.66666666666669" width="359" height="118"/>
+                                <rect key="frame" x="8" y="346.66666666666669" width="359" height="118"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="359" id="I1d-KX-zdw"/>
                                     <constraint firstAttribute="height" constant="118" id="OKc-3k-J4z"/>
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Family" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V07-IF-I8m">
-                                <rect key="frame" x="16" y="104" width="343" height="39.666666666666657"/>
+                                <rect key="frame" x="16" y="104" width="343" height="40.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="DyO-4d-WKg"/>
                                 </constraints>
@@ -51,37 +51,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-2F-C4g">
-                                <rect key="frame" x="0.0" y="188.66666666666663" width="375" height="444"/>
+                                <rect key="frame" x="0.0" y="189.66666666666663" width="375" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="444" id="GHl-gg-QRd"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="68" id="jXa-ja-q3Y" customClass="HomeTableViewCell" customModule="Fameet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jXa-ja-q3Y" id="adY-c3-YdI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.666666666666671"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIx-dD-lDn">
-                                                    <rect key="frame" x="15" y="19" width="42" height="20.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="AIx-dD-lDn" firstAttribute="top" secondItem="adY-c3-YdI" secondAttribute="topMargin" constant="8" id="OMy-sr-gnq"/>
-                                                <constraint firstItem="AIx-dD-lDn" firstAttribute="leading" secondItem="adY-c3-YdI" secondAttribute="leadingMargin" id="gHx-Ad-omY"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="cellLabels" destination="AIx-dD-lDn" id="TYn-bJ-6BZ"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addFamilyCell" rowHeight="68" id="e80-db-1gq" customClass="AddNewFamilyViewCell" customModule="Fameet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="68"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e80-db-1gq" id="czi-sW-iG2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="67.666666666666671"/>
@@ -115,6 +92,29 @@
                                         <connections>
                                             <outlet property="addNewFamily" destination="Crj-OL-pkF" id="hmj-aM-xgK"/>
                                             <outlet property="subAddNewFamily" destination="DSG-qu-aQA" id="2To-8Z-3Rd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="68" id="jXa-ja-q3Y" customClass="HomeTableViewCell" customModule="Fameet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="375" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jXa-ja-q3Y" id="adY-c3-YdI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="67.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIx-dD-lDn">
+                                                    <rect key="frame" x="15" y="19" width="42" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AIx-dD-lDn" firstAttribute="top" secondItem="adY-c3-YdI" secondAttribute="topMargin" constant="8" id="OMy-sr-gnq"/>
+                                                <constraint firstItem="AIx-dD-lDn" firstAttribute="leading" secondItem="adY-c3-YdI" secondAttribute="leadingMargin" id="gHx-Ad-omY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellLabels" destination="AIx-dD-lDn" id="TYn-bJ-6BZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

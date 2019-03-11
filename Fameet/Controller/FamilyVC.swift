@@ -221,6 +221,8 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
+            collectionCell.memberImage.layer.borderWidth = 0.7
+            collectionCell.memberImage.layer.borderColor = UIColor.black.cgColor
             print("User list in collection : \(collectionCell.memberName.text)")
             userGlobalDict[famMemberList[indexPath.row].userId] = collectionCell.memberImage.image
             self.tableViewMatchDates.reloadData()
