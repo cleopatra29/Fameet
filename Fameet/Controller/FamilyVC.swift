@@ -25,7 +25,8 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var familyNameLabel: UILabel!
     @IBOutlet weak var tableViewMatchDates: UITableView!
     @IBOutlet weak var memberCollectionOutlet: UICollectionView!
-    @IBOutlet var skeletonViews: SkeletonView!
+    
+    @IBOutlet weak var tableviewConfirmedTime: UITableView!
     
     
     let MasterUser = Auth.auth().currentUser!.uid as String
@@ -39,6 +40,9 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     var datePicked = [NSDate]()
     var availMatchDate = [NSDate:[String]]()
+    
+    var confirmedTime = [NSDate]()
+    var allConfirmedTime = [NSDate:[String]]()
     
     
     override func viewDidLoad() {
@@ -55,7 +59,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     func setupView() {
         familyNameLabel.alpha = 0.0
-        self.skeletonViews.setNeedsDisplay()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.readUserFamilyGroup()
         }
@@ -67,9 +70,44 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         famMemberList.removeAll()
         availMatchDate.removeAll()
         readUserFamilyGroup()
+        fetchConfirm()
+        
         tableViewMatchDates.reloadData()
+        tableviewConfirmedTime.reloadData()
     }
     
+    func fetchConfirm(){
+        
+        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").getDocuments (completion: { (snapshot, error) in
+            if error != nil{
+                return print(error)
+            } else
+            {
+                for doc in snapshot!.documents{
+                    guard let eventId = doc.documentID as? String,
+                        let eventName = doc.data()["event-name"] as? String,
+                        let eventLocation = doc.data()["location"] as? String
+                        else {return}
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    let date = dateFormatter.date(from: eventId)
+                    
+                    
+                    if self.allConfirmedTime[date as! NSDate]?.isEmpty == false {
+                        self.allConfirmedTime[date as! NSDate]?.append(eventName)
+                        self.allConfirmedTime[date as! NSDate]?.append(eventLocation)
+                    } else {
+                        self.allConfirmedTime.updateValue([eventName, eventLocation], forKey: date as! NSDate)
+                    }
+                    print("HAYO LOOOO\(self.allConfirmedTime)")
+//                    self.allConfirmedTime.append([eventName])
+//                    self.allConfirmedTime.append([eventLocation])
+                }
+            }
+        })
+        
+    }
     
     func fetchFamilyCollection(id:String){
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
@@ -170,6 +208,33 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
             target.MasterFamily = MasterFamily as String
         } else if let target = segue.destination as? SendInvitationVC {
             target.MasterFamily = MasterFamily as String
+        } else if let target = segue.destination as? ConfirmedTimeVC {
+            target.MasterFamily = MasterFamily as String
+
+            
+            
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            
+            guard let isIndex = sender as? Int,
+                let idIndex = datePicked[isIndex] as? Date
+                else {return}
+            let myString = formatter.string(from: idIndex)
+
+             // string purpose I add here
+            // convert your string to date
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "yyyy-MM-dd"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            print(myStringafd)
+            
+            
+            print ("ini index : \(isIndex) \n ini value \(idIndex)")
+            target.EventId = myStringafd
         }
         let backItem = UIBarButtonItem()
         backItem.title = " "
@@ -200,24 +265,12 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
         switch(indexPath.section) {
         case 0:
             let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "famCell", for: indexPath) as! FamilyDetailCollectionViewCell
-        
-            // Reference to an image file in Firebase Storage
+            
             let reference = Storage.storage().reference().child("userProfilePicture/\(famMemberList[indexPath.row].userId).jpg")
-            print("user image reference : \(reference)")
-            reference.downloadURL { (url, error) in
-                if error != nil{
-                    print("error in download url = \(error)")
-                }else{
-                    let resource = ImageResource(downloadURL: url!, cacheKey: "\(self.famMemberList[indexPath.row].userId).jpg")
-                    print("resource download link = \(resource.downloadURL)")
-                    print("")
-                    print("resource cacheKey = \(resource.cacheKey)")
-                    collectionCell.memberImage.kf.setImage(with: resource)
-                }
-            }
             
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
-//            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
@@ -276,10 +329,6 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             {
                 print("!!!!!")
             }
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
-//                self.performSegue(withIdentifier: "Family-Invite", sender: currentCell)
-//
-//            }
         }
     }
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -290,40 +339,159 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
 extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("date picked count : \(datePicked.count)")
+        if tableView == tableViewMatchDates{
+            print("date picked count : \(datePicked.count)")
+            
+            return availMatchDate.count
+        } else {
+            return 1
+        }
         
-        return availMatchDate.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "createEventSegue", sender: (Any).self)
+        let index = tableView.indexPathForSelectedRow
+        let currentCell = tableView.cellForRow(at: index!) as! MatchDateTableViewCell
+        performSegue(withIdentifier: "Family-ConfirmedTime", sender: index?.row)
+        tableView.deselectRow(at: index!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
-        let formatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
-        formatter.dateFormat = "dd-MM-yyy"
-        
-        datePicked = Array(availMatchDate.keys)
-        datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
-        
-        
-        
-        let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
-        // Konversi date ke string
-        let yourDate = formatter.date(from: myString)
-        //then again set the date format whhich type of output you need
-        formatter.dateFormat = "dd-MMM-yyyy"
-        // again convert your date to string
-        let myStringafd = formatter.string(from: yourDate!)
-        
-        cell.dateLabel.text = myStringafd
-        cell.passKey = datePicked[indexPath.row]
-        cell.passData = availMatchDate
-        return cell
+        if tableView == tableViewMatchDates {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "matchDateTableViewCell", for: indexPath) as! MatchDateTableViewCell
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "dd-MM-yyy"
+            
+            datePicked = Array(availMatchDate.keys)
+            datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+            let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
+            // Konversi date ke string
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "dd-MMM-yyyy"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            formatter.dateFormat = "yyyy-MM-dd"
+            // again convert your date to string
+            //confirmedTime.append(formatter.string(from: yourDate!))
+            cell.dateLabel.text = myStringafd
+            cell.passKey = datePicked[indexPath.row]
+            cell.passData = availMatchDate
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "confirmedTimeTableViewCell", for: indexPath) as! ConfirmedViewCell
+            
+            let formatter = DateFormatter()
+            // initially set the format based on your datepicker date / server String
+            formatter.dateFormat = "yyyy-MM-dd"
+            
+            confirmedTime = Array(allConfirmedTime.keys)
+            confirmedTime.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
+            let myString = formatter.string(from: confirmedTime[indexPath.row] as Date) // string purpose I add here
+            // Konversi date ke string
+            let yourDate = formatter.date(from: myString)
+            //then again set the date format whhich type of output you need
+            formatter.dateFormat = "dd-MMM-yyyy"
+            // again convert your date to string
+            let myStringafd = formatter.string(from: yourDate!)
+            
+            // again convert your date to string
+            //confirmedTime.append(formatter.string(from: yourDate!))
+            print("aaaa :\(confirmedTime) : aaaa")
+            
+            
+            cell.dateConfirmLBL.text = myStringafd
+            cell.eventLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![0]
+            cell.locationLBL.text = allConfirmedTime[confirmedTime[indexPath.row]]![1]
+            return cell
+        }
     }
 }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let index = tableView.indexPathForSelectedRow
+//        let currentCell = tableView.cellForRow(at: index!) as! MatchDateTableViewCell
+//        performSegue(withIdentifier: "Family-ConfirmedTime", sender: index?.row)
+//        tableView.deselectRow(at: index!, animated: true)
+    
+        
+        
+        
+        
+        
+//        let alertController = UIAlertController(title: "Create New Group", message: "", preferredStyle: UIAlertController.Style.alert)
+//        alertController.addTextField(configurationHandler: { (textField: UITextField!) in
+//            textField.placeholder = "Enter Event Name"
+//            let OKAction = UIAlertAction(title: "Confirm", style: .default) { (action:UIAlertAction!) in
+//                guard let inputEvent = textField.text,
+//                    inputEvent != ""
+//                    else {
+//                        let alertController = UIAlertController(title: "Oops!", message: "Your Event Name is Empty", preferredStyle: .alert)
+//
+//                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+//                            // Code in this block will trigger when OK button tapped.
+//                            print("Ok button tapped");
+//                        }
+//                        alertController.addAction(OKAction)
+//                        self.present(alertController, animated: true, completion: nil)
+//
+//                        print("Text field is empty.")
+//                        textField.text = ""
+//                        return
+//                }
+//                // Code in this block will trigger when OK button tapped.
+//                let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
+//
+//                let dictAdd : [String: Any] = ["event-name" : textField.text]
+//
+//                let formatter = DateFormatter()
+//                // initially set the format based on your datepicker date / server String
+//                formatter.dateFormat = "dd-MM-yyy"
+//                self.datePicked = Array(self.availMatchDate.keys)
+//                let myString = formatter.string(from: self.datePicked[indexPath.row] as Date)
+//                // string purpose I add here
+//                // Konversi date ke string
+//                let yourDate = formatter.date(from: myString)
+//                //then again set the date format whhich type of output you need
+//                formatter.dateFormat = "yyyy-mm-dd"
+//                // again convert your date to string
+//                let myStringafd = formatter.string(from: yourDate!)
+//
+//                Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).getDocument { (document, error) in
+//                    if let doc = document, document!.exists {
+//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).setData(dictAdd)
+//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "admin"])
+//                        print("data created")
+//                    } else {
+//                        Firestore.firestore().collection("family-collection").document(self.MasterFamily).collection("event-collection").document(myStringafd).collection("joined-member").document(self.MasterUser).setData(["status" : "member"])
+//                        print("joined")
+//                    }
+//                }
+//
+//
+//
+//                print("create Ok button tapped")
+//
+//                let alertDone = UIAlertController(title: "Success", message: "You successfully Confirm", preferredStyle: .alert)
+//                let action = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+//
+//                }
+//                alertDone.addAction(action)
+//                self.present(alertDone, animated: true, completion: nil)
+//            }
+//
+//            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { (action:UIAlertAction!) in
+//                print("Cancel button tapped")
+//            })
+//            alertController.addAction(OKAction)
+//            alertController.preferredAction = OKAction
+//            alertController.addAction(cancelAction)
+//
+//        })
+    
+//    }
 
 
 //                    print("link download url = \(url!)")

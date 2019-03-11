@@ -53,7 +53,7 @@ class HomeVC: UIViewController {
         Firestore.firestore().collection("family-collection").document(id).getDocument (completion: {(snapshot, error) in
             
             if error != nil{
-                return print(error!)
+                return print(error)
             } else {
                 guard let fetchFamId = snapshot?.documentID, // as? String,
                     let fetchFamName = snapshot?.data()?["family-name"] as? String
@@ -69,7 +69,7 @@ class HomeVC: UIViewController {
     func readUserFamilyGroup() {
         Firestore.firestore().collection("user-collection").document(MasterUser).collection("family-group").getDocuments (completion: { (snapshot, error) in
             if error != nil{
-                return print(error!)
+                return print(error)
             } else {
                 for docFamRef in snapshot!.documents {
                     let famRefId = (docFamRef.data()["family-group-name"] as! DocumentReference).documentID 
@@ -83,18 +83,19 @@ class HomeVC: UIViewController {
         })
         
     }
-//    
+    
 //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 //        guard let target = segue.destination as? FamilyVC,
 //            let isIndex = sender as? Int,
 //            let idIndex = MasterUserFamily[isIndex].familyId as? String else {return false }
 //        return true
 //    }
-//    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let target = segue.destination as? FamilyVC,
             let isIndex = sender as? Int,
             let idIndex = MasterUserFamily[isIndex].familyId as? String else {return}
+        print("isIndex = \(isIndex)")
         target.MasterFamily = idIndex
     }
     
@@ -302,7 +303,7 @@ extension HomeVC: UITableViewDataSource,UITableViewDelegate{
                         // Code in this block will trigger when OK button tapped.
                         let userRef : DocumentReference = Firestore.firestore().document("user-collection/\(self.MasterUser)")
                         
-                        let dictAdd : [String: Any] = ["family-name" : textField.text!]
+                        let dictAdd : [String: Any] = ["family-name" : textField.text]
                         let dictAdd1 : [String: Any] = ["family-member" : userRef]
                         
                         let famID = Firestore.firestore().collection("family-collection").addDocument(data: dictAdd)
