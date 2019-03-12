@@ -30,12 +30,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet weak var tableviewConfirmedTime: UITableView!
     
-    @IBAction func refreshBtn(_ sender: Any) {
-        self.tableViewMatchDates.reloadData()
-        
-    }
-    
-    
     let MasterUser = Auth.auth().currentUser!.uid as String
     var famMemberId = [String]()
     var tempFamMemberList : [String] = []
@@ -78,7 +72,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         readUserFamilyGroup()
         fetchConfirm()
         
-        tableViewMatchDates.reloadData()
+//        tableViewMatchDates.reloadData()
         tableviewConfirmedTime.reloadData()
     }
     
@@ -111,6 +105,8 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                     self.tableviewConfirmedTime.reloadData()
                     print("HAYO LOOOO : \(self.allConfirmedTime)")
                     print("HAYO LOOOO2 \(self.confirmedTime)")
+//                    self.allConfirmedTime.append([eventName])
+//                    self.allConfirmedTime.append([eventLocation])
                 }
             }
         })
@@ -180,7 +176,6 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                                                 self.availMatchDate.updateValue([userRefId], forKey: datestring)
                                             }
                                             self.tableViewMatchDates.reloadData()
-                                            print("avail match datee : \(self.availMatchDate)")
                                             print("userRefID read : \(userRefId)")
                                             
                                     } else {
@@ -203,6 +198,11 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                     self.fetchUserCollection(id: x)
                     
                 }
+                self.tableViewMatchDates.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                    print(self.availMatchDate)
+                    
+                })
             }
         })
     }
@@ -275,6 +275,7 @@ extension FamilyVC: UICollectionViewDataSource, UICollectionViewDelegate {
             
             collectionCell.memberName.text = famMemberList[indexPath.row].firstName
             collectionCell.memberImage.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
+            
             collectionCell.memberImage.layer.cornerRadius = collectionCell.memberImage.frame.size.width/2
             collectionCell.memberImage.layer.masksToBounds = true
             collectionCell.memberImage.clipsToBounds = true
@@ -412,6 +413,14 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
         })
         }
     }
+//    let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
+//    let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
+//        // Code in this block will trigger when OK button tapped.
+//        print("Ok button tapped");
+//    }
+    
+//    alertController.addAction(OKAction)
+//    self.present(alertController, animated: true, completion: nil)
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableViewMatchDates {
@@ -423,7 +432,7 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             datePicked = Array(availMatchDate.keys)
             datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
             
-//            print("date picked : \(datePicked)")
+            print("date picked : \(datePicked)")
             let myString = formatter.string(from: datePicked[indexPath.row] as Date) // string purpose I add here
             // Konversi date ke string
             let yourDate = formatter.date(from: myString)
@@ -437,11 +446,9 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             //confirmedTime.append(formatter.string(from: yourDate!))
             cell.dateLabel.text = myStringafd
             cell.passKey = datePicked[indexPath.row]
+            print("pass key : \(datePicked[indexPath.row])")
             cell.passData = availMatchDate
-            print("date label : \(myStringafd)")
-            print("pass key : \(cell.passKey)")
-            print("date picked row : \(datePicked[indexPath.row])")
-            print("passData matchDate : \(availMatchDate)")
+            cell.collectionViewMatchDates.reloadData()
             return cell
             
         } else {
