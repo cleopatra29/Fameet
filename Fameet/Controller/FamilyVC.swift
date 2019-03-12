@@ -72,7 +72,7 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
         readUserFamilyGroup()
         fetchConfirm()
         
-        tableViewMatchDates.reloadData()
+//        tableViewMatchDates.reloadData()
         tableviewConfirmedTime.reloadData()
     }
     
@@ -198,9 +198,10 @@ class FamilyVC: UIViewController, MFMailComposeViewControllerDelegate{
                     self.fetchUserCollection(id: x)
                     
                 }
-                
+                self.tableViewMatchDates.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
                     print(self.availMatchDate)
+                    
                 })
             }
         })
@@ -445,7 +446,9 @@ extension FamilyVC: UITableViewDelegate, UITableViewDataSource {
             //confirmedTime.append(formatter.string(from: yourDate!))
             cell.dateLabel.text = myStringafd
             cell.passKey = datePicked[indexPath.row]
+            print("pass key : \(datePicked[indexPath.row])")
             cell.passData = availMatchDate
+            cell.collectionViewMatchDates.reloadData()
             return cell
             
         } else {
