@@ -82,6 +82,15 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
         storageRef.delete { (error) in
             if error != nil{
                 print("error in delete user image = \(error).")
+            }else if storageRef == nil {
+                storageRef.putData(nani!, metadata: nil) { (metadata, error) in
+                    if error != nil {
+                        print("error")
+                    }
+                    self.alerts()
+                    print("metaData : \(metadata)")
+                }
+                print("empty image user added a new photo.")
             }else{
                 print("user '\(self.MasterUser)' file image deleted successfully.")
                 SDImageCache.shared().clearMemory()
@@ -104,7 +113,7 @@ class UserProfileVC: UIViewController,UINavigationControllerDelegate,UIImagePick
     
     func alerts() {
         let alertController = UIAlertController(title: "", message: "You successfully upload your photo.", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "Noice", style: .default) { (action:UIAlertAction!) in
+        let OKAction = UIAlertAction(title: "Love it!", style: .default) { (action:UIAlertAction!) in
             // Code in this block will trigger when OK button tapped.
             print("Ok button tapped");
         }

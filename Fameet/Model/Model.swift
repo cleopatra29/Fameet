@@ -84,7 +84,7 @@ extension NSDate {
         dateStringFormatter.dateFormat = "dd-MM-yyyy"
         dateStringFormatter.locale = NSLocale.current
         let freeDate = dateStringFormatter.date(from: dateString)
-        self.init(timeInterval: 0, since: freeDate!)
+        self.init(timeInterval: 25200, since: freeDate!)
         print("freeDate : \(freeDate)")
         print("from dateString : \(dateString)")
     }

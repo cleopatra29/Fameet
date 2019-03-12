@@ -243,6 +243,7 @@ extension CalendarVC: UICollectionViewDelegate, UICollectionViewDataSource, UITa
             addFreeTime(freeTimeId: dateFull, date: date, month: month, year: year)
             self.datePicked.sort(by: { $0.compare($1 as Date) == ComparisonResult.orderedAscending })
             datePickedTableView.reloadData()
+            print("date penceted : \(date)")
         }
         else {
             cell.animatingColoring(0, .clear)

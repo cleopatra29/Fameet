@@ -21,7 +21,6 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionViewMatchDates: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return passData[passKey]?.count ?? 0
     }
     
@@ -29,18 +28,13 @@ class MatchDateTableViewCell: UITableViewCell, UICollectionViewDelegate, UIColle
         let reference = Storage.storage().reference().child("userProfilePicture/\(passData[passKey]![indexPath.row]).jpg")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCellName", for: indexPath) as? MatchDateInTableViewCellCollectionViewCell
         
-        reference.downloadURL { (url, error) in
-            guard let url = url, error == nil else { return }
-            cell?.availMemberPic.kf.setImage(with: url)
-        }
-        
-//        cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
-        
-        cell?.availMemberPic.image = userGlobalDict[passData[passKey]![indexPath.row]]
-        print("userGlobalDict = \(userGlobalDict[passData[passKey]![indexPath.row]])")
+        cell?.availMemberPic.sd_setImage(with: reference, placeholderImage: UIImage(named: "Propic"))
         cell?.availMemberPic.clipsToBounds = true
         cell?.availMemberPic.layer.cornerRadius = (cell?.availMemberPic.frame.size.width)!/2
         cell?.availMemberPic.layer.masksToBounds = true
+        print("passKey : \(passKey)")
+        print("passData index row : \(passData[passKey])")
+        
         return cell!
     }
     
